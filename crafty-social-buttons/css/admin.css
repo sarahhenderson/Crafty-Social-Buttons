@@ -1,0 +1,68 @@
+﻿/*@media screen and (min-width: 1200px) {
+	.crafty-social-buttons form {
+		width: 60%;
+		display: inline-block;	
+	}
+	
+	.crafty-social-buttons .instructions {
+		display: inline-block;
+		width: 30%;
+		margin-left: 5%;
+		vertical-align: top;
+	}
+	
+	.crafty-social-buttons .csb-credits {
+		background: #efefef;
+		padding: 1em;
+		border-radius: 10px;
+	}
+
+}
+
+.crafty-social-buttons .instructions {
+	margin: 1em; padding: 1em; border-radius: 5px; font-size: 1.3em; background: #ddd; line-height: 1.3em;
+}
+
+*/
+.crafty-social-buttons .csb-include-list {
+	border: 1px solid #ddd;
+	background: #f1f1f1;
+	margin-right: 0.5em;
+	vertical-align: top;
+	padding: 0.4em;
+}
+
+.crafty-social-buttons .include-heading {
+	text-align: left;
+	font-weight: bold;	
+}
+
+
+.crafty-social-buttons .csb-include-list ul {
+	border: 1px solid #ddd;
+	background: #ffffff;
+	padding: 0.5em;
+	margin: 0;
+	min-height: 60px;
+	}
+
+.crafty-social-buttons .csb-include-list ul li {
+	display: inline-block;
+	padding: 0;
+	margin: 0.3em;
+	text-align: center;
+	font-size: 1.2em;
+	cursor: move;
+	}
+
+.crafty-social-buttons .csb-image-preview {
+	margin-top: 0.5em;
+}
+
+.crafty-social-buttons select {
+	width: 200px;
+}
+
+.crafty-social-buttons input[type=text] {
+	width: 350px;
+}

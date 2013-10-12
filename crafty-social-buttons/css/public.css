@@ -1,0 +1,84 @@
+﻿/* == General styles for displaying buttons == */
+
+.crafty-social-buttons {
+	margin: 0.3em 0;
+}
+
+.crafty-social-buttons .crafty-social-caption {
+	display: inline-block;
+	padding-right: 1em;
+}
+
+.crafty-social-buttons .size48 img,
+.crafty-social-buttons img
+ {
+	max-width: 48px;
+	max-height: 48px;	
+}
+
+.crafty-social-buttons .size16 img {
+	max-width: 16px;
+	max-height: 16px;	
+}
+
+.crafty-social-buttons .size32 img {
+	max-width: 32px;
+	max-height: 32px;	
+}
+
+.crafty-social-buttons .size64 img {
+	max-width: 64px;
+	max-height: 64px;	
+}
+
+.crafty-social-buttons  ul {
+ 	display: inline-block;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;	
+}
+
+.crafty-social-buttons ul li {
+	display: inline-block;
+	margin: 0 0.2em;
+	padding: 0;
+}
+
+/* == Styles specific to showing share counts == */
+.crafty-social-buttons .crafty-social-share-count:after, 
+.crafty-social-buttons .crafty-social-share-count:before {
+	right: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+.crafty-social-buttons .crafty-social-share-count:after {
+	border-color: rgba(224, 221, 221, 0);
+	border-right-color: #f5f5f5;
+	border-width: 5px;
+	top: 50%;
+	margin-top: -5px;
+} 
+.crafty-social-buttons .crafty-social-share-count:before {
+	border-color: rgba(85, 94, 88, 0);
+	border-right-color: #e0dddd;
+	border-width: 6px;
+	top: 50%;
+	margin-top: -6px;
+}
+.crafty-social-buttons .crafty-social-share-count {
+	font: 11px Arial, Helvetica, sans-serif;
+	color: #555e58;
+	padding: 5px;
+	-khtml-border-radius: 6px;
+	-o-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	position: relative;
+	background: #f5f5f5;
+	border: 1px solid #e0dddd;
+}
