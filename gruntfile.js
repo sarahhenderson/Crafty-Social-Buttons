@@ -30,9 +30,9 @@ module.exports = function (grunt) {
             files: [
                  {
                     expand: true,     // Enable dynamic expansion.
-                    cwd: 'crafty-social-buttons/js',      // Src matches are relative to this path.
+                    cwd: 'src/js',      // Src matches are relative to this path.
                     src: ['*.js', '!*.min.js'], // Actual pattern(s) to match.
-                    dest: 'crafty-social-buttons/js',   // Destination path prefix.
+                    dest: 'src/js',   // Destination path prefix.
                     ext: '.min.js',   // Dest filepaths will have this extension.
                  },
             ],
@@ -42,9 +42,9 @@ module.exports = function (grunt) {
     cssmin: {
         minify: {
             expand: true,
-            cwd: 'crafty-social-buttons/css',
+            cwd: 'src/css',
             src: ['*.css', '!*.min.css'],
-            dest: 'crafty-social-buttons/css',
+            dest: 'src/css',
             ext: '.min.css'
         }
     },
@@ -54,8 +54,8 @@ module.exports = function (grunt) {
             files: [
               {
                  expand: true,
-                 cwd: 'crafty-social-buttons/',
-                 src: ['**/*.min.css', '**/*.min.js', '**/*.php', '**/*.png', '**/*.jpg', '**/.txt', '**/.pot'],
+                 cwd: 'src/',
+                 src: ['**/*.min.css', '**/*.min.js', '**/*.php', '**/*.png', '**/*.jpg', '**/*.txt', '**/*.pot'],
                  dest: 'svn/'
               }]
          }
@@ -68,5 +68,8 @@ module.exports = function (grunt) {
    grunt.loadNpmTasks('grunt-contrib-uglify');
    grunt.loadNpmTasks('grunt-contrib-cssmin');
    grunt.loadNpmTasks('grunt-contrib-copy');
-   grunt.registerTask('default', ['jshint', 'uglify', 'copy']);
+   
+   grunt.registerTask('default', ['jshint', 'uglify', 'cssmin', 'copy']);
+   grunt.registerTask('dev', ['jshint', 'uglify', 'cssmin']);
+
 };
