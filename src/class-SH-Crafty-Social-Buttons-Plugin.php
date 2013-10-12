@@ -119,7 +119,7 @@ class SH_Crafty_Social_Buttons_Plugin {
 
 		if ( $current_screen ==  $this->plugin_screen_hook_suffix ) {
 			wp_enqueue_style( $this->plugin_slug .'-admin-styles', 
-				plugins_url( 'css/admin.css', __FILE__ ), array(), $this->version );
+				plugins_url( 'css/admin.min.css', __FILE__ ), array(), $this->version );
 			
 		}
 
@@ -142,7 +142,7 @@ class SH_Crafty_Social_Buttons_Plugin {
 			wp_enqueue_script('jquery-ui-core');
 			wp_enqueue_script('jquery-ui-sortable');
 			wp_enqueue_script( $this->plugin_slug . '-admin-scripts', 
-				plugins_url( 'js/admin.js', __FILE__ ), array( 'jquery', 'jquery-ui-core' ), $this->version );
+				plugins_url( 'js/admin.min.js', __FILE__ ), array( 'jquery', 'jquery-ui-core' ), $this->version );
 			
 		}
 	}
@@ -153,7 +153,7 @@ class SH_Crafty_Social_Buttons_Plugin {
 	public function enqueue_styles() {
 
 		wp_enqueue_style( $this->plugin_slug . '-styles', 
-			plugins_url( 'css/public.css', __FILE__ ), array(), $this->version );
+			plugins_url( 'css/public.min.css', __FILE__ ), array(), $this->version );
 	}
 
 	/**
@@ -161,7 +161,7 @@ class SH_Crafty_Social_Buttons_Plugin {
 	 */
 	public function enqueue_scripts() {
 		wp_enqueue_script( $this->plugin_slug . '-scripts', 
-			plugins_url( 'js/public.js', __FILE__ ), array( 'jquery' ), $this->version );
+			plugins_url( 'js/public.min.js', __FILE__ ), array( 'jquery' ), $this->version );
 	}
 
 	/**
