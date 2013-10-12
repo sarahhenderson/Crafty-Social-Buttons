@@ -11,6 +11,17 @@ pids
 logs
 results
 
+#node project files
 npm-debug.log
 node_modules
+
+#dreamweaver sync
 _notes
+
+#project specific - wordpress upload location
+svn
+
+#build files
+*.min.css
+*.min.js
+
