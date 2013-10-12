@@ -1,0 +1,40 @@
+{
+  "name": "Crafty-Social-Buttons",
+  "version": "1.0.0",
+  "description": "Wordpress plugin that adds social sharing buttons with a craft focus",
+  "main": "",
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-gh-pages": "~0.8.0",
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-uglify": "~0.2.4",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-cssmin": "~0.6.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sarahhenderson/Crafty-Social-Buttons.git"
+  },
+  "keywords": [
+    "wordpress",
+    "plugin",
+    "social",
+    "buttons",
+    "icons",
+    "sharing",
+    "links",
+    "craft",
+    "ravelry",
+    "etsy"
+  ],
+  "author": "Sarah Henderson",
+  "license": "GPLv2",
+  "readmeFilename": "README.md",
+  "gitHead": "fbbbe74c3b855c15605330a761e7818227cb2f8c"
+}
