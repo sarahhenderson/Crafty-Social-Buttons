@@ -59,17 +59,23 @@ module.exports = function (grunt) {
                  dest: 'svn/'
               }]
          }
-      }
+    },
+    
+    gh-pages: {
+        options: {
+            base: 'docs'
+        },
+        src: ['**']
+    }
+    
+    });
 
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
-   });
-
-   grunt.loadNpmTasks('grunt-contrib-jshint');
-   grunt.loadNpmTasks('grunt-contrib-uglify');
-   grunt.loadNpmTasks('grunt-contrib-cssmin');
-   grunt.loadNpmTasks('grunt-contrib-copy');
-   
-   grunt.registerTask('default', ['jshint', 'uglify', 'cssmin', 'copy']);
-   grunt.registerTask('dev', ['jshint', 'uglify', 'cssmin']);
-
+    grunt.registerTask('default', ['jshint', 'uglify', 'cssmin', 'copy']);
+    grunt.registerTask('dev', ['jshint', 'uglify', 'cssmin']);
+    grunt.registerTask('pages', ['gh-pages']);
 };
