@@ -61,7 +61,7 @@ module.exports = function (grunt) {
          }
     },
     
-    gh-pages: {
+    'gh-pages': {
         options: {
             base: 'docs'
         },
@@ -74,6 +74,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-gh-pages');
 
     grunt.registerTask('default', ['jshint', 'uglify', 'cssmin', 'copy']);
     grunt.registerTask('dev', ['jshint', 'uglify', 'cssmin']);
