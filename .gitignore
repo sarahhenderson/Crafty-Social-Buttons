@@ -18,8 +18,9 @@ node_modules
 #dreamweaver sync
 _notes
 
-#project specific - wordpress upload location
+#project specific - wordpress and gh-pages upload locations
 svn
+gh-pages
 
 #build files
 *.min.css
