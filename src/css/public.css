@@ -7,6 +7,8 @@
 .crafty-social-buttons .crafty-social-caption {
 	display: inline-block;
 	padding-right: 1em;
+	vertical-align: top;
+	font-size: 1.2em;
 }
 
 .crafty-social-buttons .size48 img,

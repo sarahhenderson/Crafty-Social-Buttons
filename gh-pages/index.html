@@ -19,8 +19,8 @@
 
   </head>
 
-  <body data-spy="scroll" data-target="#navbar">
-
+  <body data-spy="scroll" data-offset="40" data-target="#navbar">
+	
     <div id="navbar" class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -29,21 +29,30 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><i class="glyphicon glyphicon-home"></i></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#overview">Overview</a></li>
-            <li><a href="#tour">Tour</a></li>
+            <li class="active home"><a href="#top"><i class="glyphicon glyphicon-home"></i></a></li>
+            <li><a href="#overview">Overview</a></li>
             <li><a href="#icons">Icons</a></li>
-            <li><a href="#install">Install</a></li>
-            <li><a href="#faq">faq</a></li>
-            <li><a href="#instructions">Instructions</a></li>
+            <li><a href="#admin">Admin</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Instructions <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#install">Install</a></li>
+                    <li><a href="#widget">Widget</a></li>
+                    <li><a href="#shortcodes">Shortcodes</a></li>
+                    <li><a href="#actionhooks">Action Hooks</a></li>
+                    <li><a href="#styling">Styling</a></li>
+                    <li><a href="#changing-sizes">Changing Sizes</a></li>
+                    <li><a href="#adding-icons">Adding Icons</a></li>
+                </ul>
+              </li>
             <li><a href="#credits">Credits</a></li>
-            <li><a href="#author">Author</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#github">Github</a></li>
+            <li><a href="http://github.com/sarahhenderson/Crafty-Social-Buttons">Github</a></li>
             <form class="navbar-form navbar-left">
                <a href="#download" class="btn btn-success">Download</a>
             </form>
@@ -53,18 +62,18 @@
     </div>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
+    <div class="jumbotron" id="top">
       <div class="container">
-      	<div class="col-lg-6">
+      	<div class="col-md-6">
         	<h1>Crafty Social Buttons <small>(for WordPress)</small></h1>
         	<p>WordPress plugin to add social sharing buttons with a craft focus, including Ravelry, Etsy, Craftsy and Pinterest</p>		
         </div>
-        <div class="col-lg-6">
+        <div class="col-md-6">
         	<div class="icons">
             	<img src="img/pinterest.png" alt="Pinterest" width="128" height="128" />
-               	<img src="img/pinterest.png" alt="Pinterest" width="128" height="128" />
-            	<img src="img/pinterest.png" alt="Pinterest" width="128" height="128" />
-            	<img src="img/pinterest.png" alt="Pinterest" width="128" height="128" />
+               	<img src="img/etsy.png" alt="Etsy" width="128" height="128" />
+            	<img src="img/craftsy.png" alt="Craftsy" width="128" height="128" />
+            	<img src="img/ravelry.png" alt="Ravelry" width="128" height="128" />
 			</div>
             <ul class="features">
             	<li>8 icon sets</li>
@@ -76,70 +85,94 @@
     </div>
 
     <div class="container">
-    	<div class="row">
-			<div class="col-md-6">
-            	<h2>Share Buttons</h2>
+ 			<section id="overview" class="overview" >
                 
-                <p>Easily add sharing buttons to your posts and pages:</p>
-                <img src="img/share-buttons.png" alt="Share buttons" />
+                <p><strong>Automatically</strong> add <strong>Share buttons</strong> to your posts and pages:<br/>
+                <img src="img/share-buttons.png" alt="Share buttons" /></p>
                 
-                <p>Choose one of <a href="#icons">9 icon sets</a>:</p>
-                <img src="img/share-buttons.png" alt="Share buttons" />
+                <p>Choose one of <strong><a href="#icons">8 icon sets</a></strong>:<br/>
+                <img src="img/sets/all-sets-pinterest.png" alt="All sets"></p>
 
-                <p>Select up to 12 social services, in any order you like:</p>
-                <img src="img/share-buttons.png" alt="Share buttons" />
+                <p>Select from <strong>12 social services</strong> (plus email), in any order you like:<br/>
+                <img src="img/sets/simple.png" alt="12 Services plus email"></p>
 
-                <p>Work with a variety of different themes:</p>
-                <img src="img/share-buttons.png" alt="Share buttons" />
+                <p>Works with a variety of <strong>different themes</strong>:<br/>
+                <img src="img/sets/multiple-themes.png" alt="Supports Multiple Themes" /></p>
 
-            </div>
-            <div class="col-md-6">
-            	<h2>Link Buttons</h2>
+                <p><strong>Link to your profiles</strong> in your header, footer or sidebar:<br/>
+                <img src="img/sets/link-buttons.png" alt="Link buttons" /></p>
 
-                <p>Put links to your profiles in your header, footer or sidebar:</p>
-                <img src="img/link-buttons.png" alt="Link buttons" />
-
-                <p>Add to any theme with widgets, shortcodes or action hooks</p>
-                <img src="img/link-buttons.png" alt="Link buttons" />
-
-                <p>Includes options for <a href="http://ravelry.com">Ravelry</a>, 
-            <a href="http://www.etsy.com">Etsy</a>, <a href="http://www.craftsy.com">Craftsy</a>
-            and <a href="http://www.pinterest.com">Pinterest</a></p>
-                <img src="img/link-buttons.png" alt="Link buttons" />
-
-            </div>
-		</div>        
+        </section>
         
-        <section id="overview">
-        	<h1>Overview</h1>
-            <p>You can have links like this in each post:</p>
-            <p>And links like this in your header, footer or sidebar:</p>
-            
+        
+        <section id="download">    
+        	<h1>Download</h1>
+			<div class="well well-lg">
+<a href="download/crafty-social-buttons-1.0.0.zip" class="btn btn-success btn-lg"><i class="glyphicon glyphicon-download"></i> Download crafty-social-buttons-1.0.0.zip (86kb)</a>
+            </div>
 
-            
-            <p>You can choose from <a href="#icons">nine different icon styles</a> to match your theme.  
-            The icons can be automatically added to the top or bottom of each post, and or you can 
-            position the link buttons using either a widget, a shortcode or a template action hook.</p>
+		</section>
 
-			<p>You can use the share button and link button functions either separately, or together:</p>
+        
+        
+        
+        <section id="icons">
+        	<h1>Icon Sets</h1>
+            <p>These nine icon sets are included with the plugin.  It is also possible to add more
+            using the <a href="#adding-icons">instructions below</a>.</p>
+            <img src="img/sets/arbenting.png" width="688" height="60" alt="Icon Set">
+            <img src="img/sets/crafty-stitchy-round.png" width="688" height="59" alt="Crafty Stitchy Round Icons">
+            <img src="img/sets/crafty-stitchy-square.png" width="688" height="60" alt="Crafty Stitchy Square Icons"><img src="img/sets/metal.png" width="688" height="60" alt="Metal Icons">
+            <img src="img/sets/pagepeel.png" width="688" height="62" alt="PagePeel icons">
+            <img src="img/sets/ribbons.png" width="688" height="60" alt="Ribbon Icons">
+            <img src="img/sets/simple.png" width="688" height="60" alt="Simple Icons">
+            <img src="img/sets/somacro.png" width="688" height="60" alt="Somacro Icons">
+        </section>
+ 
+ 
+ 
             
-            <p><strong>Share Button mode</strong> allows you to put a set of buttons at the top or 
+        <section id="admin">
+        	<h1>Admin Interface</h1>
+ 			<p>The settings are available in your Wordpress Admin under Settings > Crafty Social Buttons</p>
+  	        <p>More information about the plugin is available in the Help, which you can view by
+            clicking the Help button in to top right of the admin screen.</p>
+            
+            <h3>Share button options</h3>
+            <img src="img/screenshot-3.png" width="1022" height="1005" alt="Admin Interface">
+            
+            <h3>Link button options</h3>
+            <img src="img/screenshot-4.png" width="1022" height="1195" alt="Admin Interface">
+            
+        </section>
+        
+        
+        
+        
+        
+        
+        <section id="faq">
+        	<h1>FAQ</h1>
+            
+            <p class="question"><strong>What are Share Buttons?</strong></p>
+            <p><strong>Share buttons</strong> allows you to put a set of buttons at the top or 
             bottom of each post.  Each button will share that post with that particular service.  
             That is, clicking the facebook icon will open a window for the user to share your post on 
             their Facebook page.  <small>(Note that not all services support sharing, for instance, 
             you can't share via Etsy or Craftsy.</small></p>
 
-			<p><strong>Link Button mode</strong> lets you configure the buttons to link directly 
+			<p class="question"><strong>What are Link Buttons?</strong></p>
+			<p><strong>Link buttons</strong> let you link the icons directly 
             to your profiles on the social networks.  So clicking the facebook icon will take the 
             user to your facebook page, clicking the Etsy icon will take them to your Etsy shop.  
             These are designed to be included in either your header, sidebars or footer, as they 
             are not specific to a post.  These can be easily included by adding the Social Link
             Button widget to the area where you want the buttons to appear.</p>
 			
-            <p>Supported social services include:</p>
-
-			<ul>            
+            <p class="question"><strong>Which social services are included?</strong></p>
+ 			<ul>            
             	<li>Digg</li>
+                <li>Craftsy (link only)</li>
                 <li>Email (share only)</li>
                 <li>Etsy (link only)</li>
                 <li>Facebook</li>
@@ -153,76 +186,199 @@
                 <li>Twitter</li>
             </ul>
 
-			<p>You can also choose exactly which services you want separately for each mode, 
-            so you can can have *Share Buttons* for Ravelry, Pinterest, Facebook, Twitter and 
-            Email, but have *Link Buttons* for Google+, Pinterest and your Etsy shop.</p>
+			<p class="question"><strong>Do the link buttons and share buttons 
+            have to use the same services?</strong></p>
+			<p>No. You can choose exactly which services you want separately for each mode, 
+            so you can can have Share buttons for Ravelry, Pinterest, Facebook, Twitter and 
+            Email, but have Link buttons for Google+, Pinterest and your Etsy shop.</p>
+
+			<p class="question"><strong>Do the link buttons and share buttons 
+            have to use the same icons?</strong></p>
+			<p>No. You can also choose different icon sets for each.</p> 
+            
+			<p class="question"><strong>Can I add a different set of icons?</strong></p>
+            <p>Yes!  Please see below for <a href="#adding-icons">instructions</a>.</p>
+            
+            <p class="question"><strong>Can I change the size of the icons?</strong></p>
+            <p>There isn't currently an option for this, although it should be added in a future version.
+            If you don't mind editing your theme's CSS (or the plugin's CSS), you can see the <a href="#changing-sizes">instructions below</a>.</p>
+            
+            
+            <p class="question">Can I have more control over where to put the icons?</p>
+ 			<p>Yes!  See the instructions section below on how to use the <a href="#widget">widget</a>,
+            <a href="#shortcodes">shortcodes</a>, or <a href="#actionhooks">action hooks</a>.</p>
+
+
+            <p class="question"><strong>Can I add a different social/craft network?</strong></p>
+            <p>I'm happy to take requests for new services to add.</p>
+            
+            
+        </section>
+
+
+
+        
+        <section id="install">
+        	<h1>Instructions | Install</h1>
+				<p>The easiest way to install is through the WordPress control panel. This will be available soon.</p>
+                <!--<p>On the plugins page, search for <em>Crafty Social Buttons</em> and click <strong>Install</strong>.  Once installed, <strong>Activate</strong> the plugin.</p> -->
+                
+                <p>You can also <a href="#download">download</a> the plugin and then follow these steps:</p>
+                
+                <ul>
+                	<li>Upload the whole <code>crafty-social-buttons</code> folder to the <code>/wp-content/plugins/</code> directory</li>
+                	<li>Activate the plugin through the 'Plugins' menu in WordPress</li>
+                </ul>
+                
+                <p>Once you have activated, you will see a message bar confirming that it has 
+                been installed, with a convenient link to the settings page where you can 
+                configure the options for how and where the buttons will appear.</p>
+                
+                <p>You will also find a new <a href="#widget">Widget</a> called <em>Crafty Social Link Buttons</em>, which can be added to any widget area in your theme.</p>
+
+        </section>
+           
 
 
 
 
+        <section id="widget">
+            <h1>Instructions | Widget</h1>           
+            <p>The buttons can also be included in any post or page by using the included widget. This is how the widget appears in the widget list:</p>
+            
+            <p><img src="img/widget-screen.png" alt="Widget Screen"></p>
+            <p>Once you add it to one of your widget fields, it will look like this: </p>
+            
+            <p><img src="img/widget.png" alt="Widget"></p>
+		</section>
+        
+        
+        
+        <section id="shortcodes">    
+            <h1>Instructions | Shortcodes</h1>           
+            <p>The buttons can also be included in any post or page by using one of these shortcodes
+            in your page or post content:</p>
+            <ul>
+            	<li><code>[csbshare]</code> for the Share buttons</li>
+            	<li><code>[csblink]</code> for the Link buttons</li>
+            </ul>
+            
         </section>
         
-        <section id="tour">
-        	<h1>Tour</h1>
+        
+        
+        <section id="actionhooks">    
+            <h1>Instructions | Action Hooks</h1>           
+            <p>If your theme doesn't have a widget area where you want the buttons to be placed, 
+            you can include them by editing your theme template.  Just include one of these links 
+            in your template to generate the buttons:</p>
+            
+            <ul>
+            	<li><code>&lt;?php do_action('crafty-social-link-buttons'); ?&gt;</code></li>
+             	<li><code>&lt;?php do_action('crafty-social-share-buttons'); ?&gt;</code></li>
+            </ul>
+            
+            <p>Since the Share buttons are page/post specific, the shortcode is usualy best, 
+            and since the Link buttons are site/site owner specific, the widget or action 
+            hook will normally be a better choice.</p>
+            
+            
         </section>
-        <section id="install">
-        	<h1>Install</h1>
+        
+        
+        
+        <section id="styling">    
+        	<h1>Instructions | Styling</h1>
+            <p>You can override the styles used by the plugin to better match your theme.</p>
+            <p>The entire block is wrapped in a <code>.crafty-social-buttons</code> class, as well as either
+            <code>.crafty-social-share-buttons</code> or <code>.crafty-social-link-buttons</code>, so you can
+            style the share and link buttons separately.</p>
+            <p>The caption is an inline-block with the class <code>.crafty-social-caption</code>.  The images
+            are <code>img</code> tags inside unordered list items.</p>
 
-                == Installation ==
-                
-                The easiest way to install is through the WordPress control panel.  On the plugins page, search for *Crafty Social Buttons* and click Install.  Once installed, Activate the plugin.  
-                
-                You can also download the plugin and then follow these steps:
-                
-                1. Upload the whole `crafty-social-buttons` folder to the `/wp-content/plugins/` directory
-                1. Activate the plugin through the 'Plugins' menu in WordPress
-                
-                Once you have activated, you will see a message bar confirming that it has been installed, with a convenient link to the settings page where you can configure the options for how and where the buttons will appear.
-                You will also find a new Widget called Crafty Social Link Buttons, which can be added to any widget area in your theme.
+		</section>
+        
+        
+        
+        <section id="changing-sizes">    
+        	<h1>Instructions | Changing Sizes</h1>
+            <p>This is the CSS that determines the default icon size:
+<pre>
+.crafty-social-buttons img
+ {
+	max-width: 48px;
+	max-height: 48px;	
+}
+</pre>
+			<p>You can override that in your theme to change the icon size.  The icon images are mostly
+            64x64px so they won't look good if they are bigger than that.</p>
 
+		</section>
+        
+        
+        
+        <section id="adding-icons">    
+			<h1>Instructions | Adding Icons</h1>
+            <p>Here is what you need to do:</p>
+            <ol>
+            	<li>Prepare your icons.  They should ideally be 48px square and png format.  
+                If they aren't that size, see
+                <a href="#changing-sizes">above</a> for how to modify your CSS to set a different size.</li>
+            	<li>Name your icons the same
+                as the existing icon sets.  The names are quite straighforward, e.g. 
+                <code>facebook.png</code> and <code>ravelry.png</code>.</li>
+                <li>Find the <code>buttons</code> folder inside the <code>crafty-social-buttons</code>
+                plugin folder.</li>
+                <li>Create a new folder inside here (next to the existing folders).  It is best if your 
+                folder name doesn't have spaces or punctuation</li>
+                <li>Upload your icons into this folder</li>
+            </ol>
+            <p>You should now be able to choose your custom icon set in the settings screen.</p>
         </section>
-        <section id="faq">
-        	<h1>faq</h1>
-            == Frequently Asked Questions ==
-
-            = Can I add a different set of icons? =
-            
-            Yes!  There are instructions in the help section of the Plugin (pull down the help menu in the top right of the WordPress admin, or at the plugin homepage.
-            
-            = Can I add a different social/craft network ? =
-            
-            I'm happy to take requests for new services to add.
-            
-            = Can I have more control over where to put the icons? =
-            
-            Yes! The buttons can also be included in any post or page by using one of these shortcodes:
-            
-            *	[csbshare] for the *Share buttons*
-            *	[csblink] for the *Link buttons*
-            
-            If your theme doesn't have a widget area where you want the *Link Buttons* to be placed, you can include them by editing your theme template.  Just include one of these links in your template to generate the buttons:
-            
-            *  `<?php do_action('crafty-social-link-buttons'); ?>` 
-            *  `<?php do_action('crafty-social-share-buttons'); ?>` 
-            
-            Since the *Share buttons* are page/post specific, the shortcode is usualy best, and since the *Link buttons* are site/site owner specific, the widget or action hook will normally be a better choice.
-
-
-        </section>
-        <section id="instructions">
-        	<h1>Instructions</h1>
-        </section>
+        
+        
         <section id="credits">
         	<h1>Credits</h1>
-        </section>
-        <section id="author">
-        	<h1>Author</h1>
+            <p>This plugin was made with love by me, <a href="http://sarahhenderson.info">Sarah Henderson</a>,
+            a freelance web developer from New Zealand.</p>
+            <p>I recently learned to crochet and thought of starting up a crochet related blog 
+            to show off my new creations.  I got a bit sidetracked making pretty icons and 
+            WordPress plugins and thought that others in the crafty community might want to 
+            use them too.</p>
+            
+            <!--<p>I have also created a WordPress plugin that creates a 'Pattern' post type with 
+            all the sections you normally find in a pattern.  I hope to make that available also soon.</p>-->
+                        
+            <p>I really hope you find this plugin useful. Please don't hesitate to 
+            <a href="mailto:sarah@sarahhenderson.info">contact me</a> with any issues you have, 
+            or any requests for new features.  If you want to contribute towards its further 
+            development, (or you just want to say thank you), you can 
+            <a href="http://sarahhenderson.info/buy-me-a-coffee">buy me a coffee</a>. 	
+            
+            <h3>Acknowledgements</h3>
+            
+            <p>Thanks are due to the lovely people who make beautiful icons and other resources freely available:</p>
+            <ul>
+                <li><a href="http://arbent.net/blog/social-media-circles-icon-set">Arbenting icons from Angie Bowen</a></li>
+                <li>(The Crafty Stitchy icon sets were made my me)</li>                
+                <li><a href="http://creativenerds.co.uk/freebies/metal-social-media-free-icon-set/">Metal icons from Creative Nerds</a></li>
+                <li><a href="http://www.productivedreams.com/page-peel-free-social-iconset/">PagePeel icons by Gopal Raju</a></li>
+                <li><a href="http://www.designbolts.com/2012/09/19/beautiful-ribbon-social-media-icons-pack/">Ribbon icons from Design Bolts</a></li>
+                <li><a href="http://simpleicons.org/">Simple icons from Dan Leech</a></li>
+                <li><a href="http://vervex.deviantart.com/art/Somacro-40-300DPI-Social-Media-Icons-267955425">Somacro icons from vervex</a></li>
+                <li>Tom McFarlin for his useful <a href="https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate">Wordpress Plugin Boilerplate</a></li>
+                <li>David Neal for his <a href="http://wordpress.org/plugins/simple-share-buttons-adder/">
+                Social Share Buttons Adder</a>, which provided both inspiration and technical insight. </li>
+                <li>Curt Smith for the <a href="http://www.flickr.com/photos/curtsm/4759462052/">WordPress.org Plugin Repository Banner image</a></li>
+            </ul>
+            
+            <p>This plugin is licenced under <a href="https://github.com/sarahhenderson/Crafty-Social-Buttons/blob/master/LICENSE">GPLv2</a>. It is open source, feel free to contribute by <a href="http://github.com/sarahhenderson/Crafty-Social-Buttons">forking it on Github</a></p>
         </section>
 
       <hr>
 
       <footer>
-        <p>&copy; Company 2013</p>
+        <p>&copy; <a href="http://sarahhenderson.info">Sarah Henderson</a> 2013</p>
       </footer>
     </div> <!-- /container -->
 
