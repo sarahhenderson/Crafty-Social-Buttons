@@ -1,0 +1,19 @@
+/* CSS Document */
+
+body {padding-top: 40px; font: 20px "Open Sans", Corbel, Calibri, Verdana, Tahoma, Geneva, sans-serif; }
+section{ padding-top: 3em; margin-bottom: 6em; }
+section h1 {padding-top: 40px;}
+.nav .glyphicon { top: 5px; line-height: 0.5; }
+h1, h2, h3, h4, h5, h6 { font-family: "Architects Daughter" }
+
+.jumbotron { background: #fff url(../img/header-bg.png) top left repeat }
+.jumbotron h1 { font-size: 4em; color: #FF6699; text-shadow: #666 2px 2px 5px }
+.jumbotron small {color: #666; text-shadow: none; }
+.jumbotron p { font-size: 1.2em; color: #666;  }
+.jumbotron ul { margin: 1em; border-radius: 10px; color: #666; font-style: italic;
+	list-style-image: url('../img/icon-tick.png');
+}
+.jumbotron .icons {margin-top: 1em; }
+.overview p {margin-bottom: 1.5em;}
+.overview img {margin-top:0.5em;
+.faq p.question {margin-top:2em; }
