@@ -14,6 +14,10 @@ h1, h2, h3, h4, h5, h6 { font-family: "Architects Daughter" }
 	list-style-image: url('../img/icon-tick.png');
 }
 .jumbotron .icons {margin-top: 1em; }
-.overview p {margin-bottom: 1.5em;}
-.overview img {margin-top:0.5em;
+
+.overview .row {margin-bottom: 2em;}
+.overview .row div img { border: 1px solid #eee; border-radius: 5px; box-shadow: #ccc 2px 2px 5px;}
+.overview h4 { font-family: "Open Sans", Corbel, Calibri, sans-serif; font-size:1.4em; text-align: center; font-weight:bold}
+.overview p {margin-bottom: 1.5em; text-align:center}
+.overview img {margin-top:0.5em; }
 .faq p.question {margin-top:2em; }
