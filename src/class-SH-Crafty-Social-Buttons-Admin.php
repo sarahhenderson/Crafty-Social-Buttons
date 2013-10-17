@@ -392,9 +392,10 @@ class SH_Crafty_Social_Buttons_Admin {
 	 */
 	public function render_service_select($args) {
 		$id = $args[0];
+		var_dump($id);
 		$name = $this->plugin_slug . '[' . $args[0] . ']';
 		$settings = $this->getSettings();
-		$image_set = $settings['share_image_set'];
+		$image_set = ($id == 'link_services') ? $settings['link_image_set'] : $settings['share_image_set'];
 		$value = $settings[$id];
 		?>
         
