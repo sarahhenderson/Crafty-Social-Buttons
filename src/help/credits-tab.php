@@ -1,7 +1,5 @@
 <p><strong>Credits</strong></p>
 
-<p>Made with love by <a href="http://sarahhenderson.info">Sarah Henderson</a>, a freelance web developer from New Zealand.</p>
-
 <p>I owe thanks to the following people for the existence of this plugin:</p>
 <p>Thanks are due to the lovely people who make beautiful icons and other resources freely available:</p>
 <ul>
