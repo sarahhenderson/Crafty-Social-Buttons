@@ -205,18 +205,28 @@ class SH_Crafty_Social_Buttons_Admin {
 		
 		
 		$section = 'cbs_link_service_settings';
-		add_settings_section( $section, 'User IDs', null,  $page);  
+		add_settings_section( $section, 'User IDs', array($this, 'displayLinkServiceText'),  $page);  
 	 
 	 	foreach($this->all_services as $service) {
 			// we want to add a custom description for some of the fields
 			$caption = $service;
 			switch ($service) {
-				case "Email": $description = "Your email address"; break;
-				case "Facebook": $description = 'Hint: http://www.facebook.com/<em>user-id</em>/'; break;
+				case "Craftsy": $description = 'Hint: www.craftsy.com/instructors/<strong>user-id</strong>/'; break;
+				case "Digg": $description = "Hint: www.digg.com/<strong>user-id</strong>"; break;
+				case "Email": $description = "Hint: Your email address"; break;
+				case "Etsy": $description = 'Hint: www.etsy.com/shop/<strong>user-id</strong>/'; break;
+				case "Facebook": $description = 'Hint: www.facebook.com/<strong>user-id</strong>/'; break;
 				case "Google": 
-					$description = "Hint: http://plus.google.com/u/0/<em>user-id</em> (it's a long number)"; 
+					$description = "Hint: plus.google.com/u/0/<strong>user-id</strong> (it's a long number)"; 
 					$caption = "Google Plus"; 
 					break;
+				case "LinkedIn": $description = "Hint: www.linkedin.com/in/<strong>user-id</strong>"; break;
+				case "Pinterest": $description = "Hint: www.pinterest.com/<strong>user-id</strong>"; break;
+				case "Ravelry": $description = "Hint: www.ravelry.com/people/<strong>user-id</strong>"; break;
+				case "Reddit": $description = "Hint: www.reddit.com/user/<strong>user-id</strong>"; break;
+				case "StumbleUpon": $description = "Hint: www.stumbleupon/stumbler/<strong>user-id</strong>"; break;
+				case "Tumblr": $description = "Hint: http://<strong>user-id</strong>.tumblr.com"; break;
+				case "Twitter": $description = "Hint: @<strong>user-id</strong>"; break;
 				default: $description = "";
 			}
 			add_settings_field( 
@@ -301,6 +311,14 @@ class SH_Crafty_Social_Buttons_Admin {
 	public function displayLinkSettingsText() {?>
 		<p>Link Buttons will link to your user profile on each site.  
         Enter your <strong>user id</strong> for each service you choose below to make the button link directly to your profile.</p>
+		<?php
+ 	}
+	
+	/**
+	 * Display link settings section text
+	 */
+	public function displayLinkServiceText() {?>
+		<p>Enter just your <strong>user id</strong> for each service, not the full URL. The bit in bold that says <strong>user-id</strong> in the hint is the part you should enter.</p>
 		<?php
  	}
 	

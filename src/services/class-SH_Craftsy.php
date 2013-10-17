@@ -17,21 +17,12 @@ class SH_Craftsy extends SH_Social_Service {
 
 	public function shareButton($url, $title = '', $showCount = false) {
 		
-		$html = '<a class="' . $this->cssClass() . '" 
-			href="http://www.craftsy.com/submit?' 
-			. 'url='. $url. '" ' 
-			. ($this->newWindow ? 'target="_blank"' : '') . '>';
-	
-		$html .= $this->buttonImage();	
-		
-		$html .= '</a>';
-	
-		return $html;
+		return '';
 	}
 	
 	public function linkButton($username) {
 		
-		$url = "http://www.craftsy.com/$username";
+		$url = "http://www.craftsy.com/instructors/$username";
 		$html = '<a class="' . $this->cssClass() . '" 
 			href="'. $url. '" ' . 
 			($this->newWindow ? 'target="_blank"' : '') . '>';
