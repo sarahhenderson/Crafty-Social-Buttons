@@ -6,13 +6,16 @@ module.exports = function (grunt) {
    grunt.loadNpmTasks('grunt-contrib-cssmin');
    grunt.loadNpmTasks('grunt-contrib-copy');
    grunt.loadNpmTasks('grunt-contrib-clean');
+   grunt.loadNpmTasks('grunt-strip');
+   grunt.loadNpmTasks('grunt-contrib-watch');
    grunt.loadNpmTasks('grunt-contrib-compress');
 
    grunt.initConfig({
+
       pkg: grunt.file.readJSON("package.json"),
 
       jshint: {
-         files: ['gruntfile.js', 'js/*.js'],
+         files: ['gruntfile.js', 'js/*.js', '!js/*.min.js'],
          options: {
             globals: {
                console: true,
@@ -24,13 +27,15 @@ module.exports = function (grunt) {
 
       uglify: {
          options: {
-        // the banner is inserted at the top of the output
-            banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n',
+            // the banner is inserted at the top of the output
+            banner: '/*! <%= pkg.name %>  (c) <%= pkg.author %> <%= grunt.template.today("yyyy") %>\n' +
+                    ' * Version <%= pkg.version %> (<%= grunt.template.today("dd-mm-yyyy") %>) */\n',
             mangle: {
                except: ['jQuery']
-            }
+            },
+            report: 'min'
          },
-         build: {
+         dev: {
             files: [
                  {
                     expand: true,     // Enable dynamic expansion.
@@ -40,14 +45,15 @@ module.exports = function (grunt) {
                     ext: '.min.js',   // Dest filepaths will have this extension.
                  },
             ],
+            options: { beautify: true, mangle: false }
          },
-         www: {
+         release: {
             files: [
                  {
                     expand: true,     // Enable dynamic expansion.
-                    cwd: 'gh-pages/js',      // Src matches are relative to this path.
+                    cwd: 'src/js',      // Src matches are relative to this path.
                     src: ['*.js', '!*.min.js'], // Actual pattern(s) to match.
-                    dest: 'gh-pages/js',   // Destination path prefix.
+                    dest: 'src/js',   // Destination path prefix.
                     ext: '.min.js',   // Dest filepaths will have this extension.
                  },
             ],
@@ -56,19 +62,40 @@ module.exports = function (grunt) {
       },
     
       cssmin: {
-         build: {
+         options: {
+            // the banner is inserted at the top of the output
+            banner: '/*! <%= pkg.name %>  (c) <%= pkg.author %> <%= grunt.template.today("yyyy") %>\n' +
+                    ' * Version <%= pkg.version %> (<%= grunt.template.today("dd-mm-yyyy") %>) */\n',
+            report: 'min'
+         },
+         all: {
             expand: true,
             cwd: 'src/css',
             src: ['*.css', '!*.min.css'],
             dest: 'src/css',
             ext: '.min.css'
+         }
+         
+      },
+      
+      watch: {
+         options: {
+            livereload: true
          },
-         www: {
-            expand: true,
-            cwd: 'gh-pages/css',
-            src: ['*.css', '!*.min.css'],
-            dest: 'gh-pages/css',
-            ext: '.min.css'
+         scripts: {
+            files: ['src/js/*.js', '!src/js/*.min.js'],
+            tasks: ['jshint', 'uglify:dev'],
+         },
+         css: {
+            files: ['src/css/*.css', '!src/css/*.min.css'],
+            tasks: ['cssmin'],
+         },
+      },
+      
+      strip : {
+         main : {
+            src : 'release/js/*.min.js',
+            options : { inline : true }
          }
       },
 
@@ -77,25 +104,83 @@ module.exports = function (grunt) {
             files: [{
                expand: true,
                cwd: 'src/',
-               src: ['**/*.min.css', '**/*.min.js', '**/*.php', '**/*.png', '**/*.jpg', '**/*.txt', '**/*.pot'],
-               dest: 'svn/'
+               src: ['**/*.php',
+                     '**/*.txt',
+                     'css/*.min.css', 
+                     'js/*.min.js', 
+                     'assets/**',
+                     'buttons/**', 
+                     'lang/**', 
+                     '**/*.pot'],
+               dest: 'release/'
+            }]
+         },
+         zip: {
+            files: [{
+               expand: true,
+               cwd: 'release/',
+               src: ['**/*.php',
+                     '**/*.txt',
+                     'css/*.min.css', 
+                     'js/*.min.js', 
+                     'buttons/**', 
+                     'lang/**', 
+                     '**/*.pot'],
+               dest: '<%= pkg.name %>/'
+            }]
+         },
+         release: {
+            files: [{
+               expand: true,
+               cwd: 'release/',
+               src: ['**/*'],
+               dest: '../svn'
+            }]
+         },
+         docs: {
+            files: [{
+               expand: true,
+               cwd: '../',
+               src: ['master/zips/<%= pkg.name %>-<%= pkg.version %>.zip'],
+               dest: '../gh-pages/downloads/',
+               flatten: true,
+               filter: 'isFile'
             }]
          }
+
+
+
       },
     
       clean: {
-         build: ["svn/*"]
+         release: ["release", "<%= pkg.name %>", "zips"]
+      },
+      
+      compress: {
+         release: {
+            options: { archive: 'zips/<%= pkg.name %>-<%= pkg.version %>.zip' },
+            files: [
+               {src: ['<%= pkg.name %>/**/*'], dest: ''} 
+            ]
+         }
       }
 
    });
 
    grunt.registerTask('default', 
-      ['jshint', 'uglify', 'cssmin', 'copy', 'compress']);
+      ['jshint', 'uglify:dev', 'cssmin', 'watch']);
       
-   grunt.registerTask('build', 
-      ['jshint', 'uglify:build', 'cssmin:build', 'clean:build', 'copy:build', 'compress:build' ]);   
-      
-   grunt.registerTask('www', 
-      ['jshint', 'uglify:www', 'cssmin:www']);
-      
+   grunt.registerTask('release', 
+      [  'jshint', 
+         'uglify:release', 
+         'cssmin', 
+         'clean', 
+         'copy:build', 
+         'strip', 
+         'copy:zip', 
+         'compress', 
+         'copy:release',
+         'copy:docs',
+         'clean']);   
+            
 };

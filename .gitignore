@@ -20,6 +20,9 @@ _notes
 
 #project specific - wordpress upload locations
 svn
+release
+zips
+crafty-social-buttons
 
 #build files
 *.min.css
