@@ -100,7 +100,7 @@ module.exports = function (grunt) {
       },
 
       copy: {
-         build: {
+         srcToRelease: {
             files: [{
                expand: true,
                cwd: 'src/',
@@ -111,11 +111,12 @@ module.exports = function (grunt) {
                      'assets/**',
                      'buttons/**', 
                      'lang/**', 
-                     '**/*.pot'],
+                     '**/*.pot',
+                     '!**/_notes'],
                dest: 'release/'
             }]
          },
-         zip: {
+         zipStaging: {
             files: [{
                expand: true,
                cwd: 'release/',
@@ -129,12 +130,12 @@ module.exports = function (grunt) {
                dest: '<%= pkg.name %>/'
             }]
          },
-         release: {
+         svn: {
             files: [{
                expand: true,
                cwd: 'release/',
                src: ['**/*'],
-               dest: '../svn'
+               dest: '../svn/crafty-social-buttons/trunk/'
             }]
          },
          docs: {
@@ -153,7 +154,9 @@ module.exports = function (grunt) {
       },
     
       clean: {
-         release: ["release", "<%= pkg.name %>", "zips"]
+         release: ["release"],
+         zipStaging: ["<%= pkg.name %>", "zips"],
+         dreamweaverNotes: ["release/**/_notes"]
       },
       
       compress: {
@@ -174,13 +177,16 @@ module.exports = function (grunt) {
       [  'jshint', 
          'uglify:release', 
          'cssmin', 
-         'clean', 
-         'copy:build', 
+         'clean:release',
+         'copy:srcToRelease',
+         'clean:dreamweaverNotes',
          'strip', 
-         'copy:zip', 
+         'clean:zipStaging',
+         'copy:zipStaging', 
          'compress', 
-         'copy:release',
+         'copy:svn',
          'copy:docs',
-         'clean']);   
+         'clean:release',
+         'clean:zipStaging']);   
             
 };
