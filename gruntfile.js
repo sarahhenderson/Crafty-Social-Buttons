@@ -134,10 +134,19 @@ module.exports = function (grunt) {
             files: [{
                expand: true,
                cwd: 'release/',
-               src: ['**/*'],
+               src: ['**/*', '!assets/**'],
                dest: '../svn/crafty-social-buttons/trunk/'
             }]
          },
+         svnAssets: {
+            files: [{
+               expand: true,
+               cwd: 'release/assets',
+               src: ['**/*'],
+               dest: '../svn/crafty-social-buttons/assets/'
+            }]
+         },
+
          docs: {
             files: [{
                expand: true,
@@ -185,6 +194,7 @@ module.exports = function (grunt) {
          'copy:zipStaging', 
          'compress', 
          'copy:svn',
+         'copy:svnAssets',
          'copy:docs',
          'clean:release',
          'clean:zipStaging']);   
