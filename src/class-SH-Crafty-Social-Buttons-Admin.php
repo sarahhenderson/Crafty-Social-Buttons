@@ -12,7 +12,7 @@ class SH_Crafty_Social_Buttons_Admin {
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
 	 */
-	protected $version = '1.0.0';
+	protected $version = '1.0.1';
 
 	/**
 	 * Unique identifier for this plugin.
@@ -499,6 +499,7 @@ class SH_Crafty_Social_Buttons_Admin {
 			$selectedServices = explode(',', $selectedServicesString); // explode string to array
 			foreach ($selectedServices as $service) {
 				$url = plugin_dir_url(__FILE__) . "buttons/" . $image_set . "/" . $service . ".png";
+				$url = strtolower($url);
 				$htmlListItems .= $this->get_service_icon_html($url, $service, $image_set);
 			}
 		}
@@ -519,6 +520,7 @@ class SH_Crafty_Social_Buttons_Admin {
 		foreach ($this->all_services as $service) {
 			if (!in_array($service, $selectedServices)) {		
 				$url = plugin_dir_url(__FILE__) . "buttons/" . $image_set . "/" . $service . ".png";
+				$url = strtolower($url);
 				$htmlListItems .= $this->get_service_icon_html($url, $service, $image_set);
 			}
 		}
