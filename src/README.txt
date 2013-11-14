@@ -5,8 +5,8 @@ Author URI: http://sarahhenderson.info
 Plugin URL: http://github.io/sarahhenderson/crafty-social-buttons
 Tags: social, social buttions, social icons, ravelry, etsy, craftsy, widget, shortcode
 Requires at least: 3.5
-Tested up to: 3.6.2
-Stable tag: 1.0.0
+Tested up to: 3.7
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,7 @@ Supported social services include:
 
 You can also choose exactly which services you want separately for each mode, so you can can have *Share Buttons* for Ravelry, Pinterest, Facebook, Twitter and Email, but have *Link Buttons* for Google+, Pinterest and your Etsy shop.
 
+For more information, see the plugin website at http://sarahhenderson.github.io/Crafty-Social-Buttons/
 
 == Installation ==
 
@@ -86,10 +87,17 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.1 =
+* Fixed issue with preview icons not appearing in admin on some hosts
+* Updated readme
+
+= 1.0.0 =
 * First version!
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+* Fixed preview icon broken links on some hosts
 
 = 1.0 =
 * First version!
