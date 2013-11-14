@@ -499,7 +499,6 @@ class SH_Crafty_Social_Buttons_Admin {
 			$selectedServices = explode(',', $selectedServicesString); // explode string to array
 			foreach ($selectedServices as $service) {
 				$url = plugin_dir_url(__FILE__) . "buttons/" . $image_set . "/" . $service . ".png";
-				$url = strtolower($url);
 				$htmlListItems .= $this->get_service_icon_html($url, $service, $image_set);
 			}
 		}
@@ -520,7 +519,6 @@ class SH_Crafty_Social_Buttons_Admin {
 		foreach ($this->all_services as $service) {
 			if (!in_array($service, $selectedServices)) {		
 				$url = plugin_dir_url(__FILE__) . "buttons/" . $image_set . "/" . $service . ".png";
-				$url = strtolower($url);
 				$htmlListItems .= $this->get_service_icon_html($url, $service, $image_set);
 			}
 		}
@@ -533,10 +531,10 @@ class SH_Crafty_Social_Buttons_Admin {
 	 * Get html for a single service icon for selection on the admin page
 	 */
 	function get_service_icon_html($url, $service, $image_set) {
-		return '<li id="' . $service
-				.'"><img src="' .$url 
-				. '" data-image-set="' . $image_set
-				. '" alt="'.$service.'" width="48" height="48" /></li>';
+		return '<li id="' . strtolower($service)
+				.'"><img src="' . strtolower($url) 
+				. '" data-image-set="' . strtolower($image_set)
+				. '" alt="' . strtolower($service) . '" width="48" height="48" /></li>';
 
 	}
 	
