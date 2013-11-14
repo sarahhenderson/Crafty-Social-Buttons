@@ -12,7 +12,7 @@ class SH_Crafty_Social_Buttons_Admin {
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
 	 */
-	protected $version = '1.0.1';
+	protected $version = '1.0.2';
 
 	/**
 	 * Unique identifier for this plugin.
@@ -531,10 +531,10 @@ class SH_Crafty_Social_Buttons_Admin {
 	 * Get html for a single service icon for selection on the admin page
 	 */
 	function get_service_icon_html($url, $service, $image_set) {
-		return '<li id="' . strtolower($service)
+		return '<li id="' . $service
 				.'"><img src="' . strtolower($url) 
 				. '" data-image-set="' . strtolower($image_set)
-				. '" alt="' . strtolower($service) . '" width="48" height="48" /></li>';
+				. '" alt="' . $service . '" width="48" height="48" /></li>';
 
 	}
 	

@@ -6,7 +6,7 @@ Plugin URL: http://github.io/sarahhenderson/crafty-social-buttons
 Tags: social, social buttions, social icons, ravelry, etsy, craftsy, widget, shortcode
 Requires at least: 3.5
 Tested up to: 3.7
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -87,6 +87,10 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 == Changelog ==
 
+= 1.0.2 =
+* Fixed issue with preview icons not appearing in admin on some hosts
+* Updated readme
+
 = 1.0.1 =
 * Fixed issue with preview icons not appearing in admin on some hosts
 * Updated readme
@@ -96,8 +100,8 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 == Upgrade Notice ==
 
-= 1.0.1 =
-* Fixed preview icon broken links on some hosts
+= 1.0.2 =
+* Fixes preview icon not appearing on some hosts
 
 = 1.0 =
 * First version!

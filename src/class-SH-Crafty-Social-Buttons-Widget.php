@@ -13,7 +13,7 @@ class SH_Crafty_Social_Buttons_Widget extends WP_Widget {
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
 	 */
-	protected $version = '1.0.1';
+	protected $version = '1.0.2';
 
 	/**
 	 * Unique identifier for this plugin.
