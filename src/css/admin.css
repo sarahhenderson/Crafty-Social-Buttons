@@ -1,30 +1,4 @@
-﻿/*@media screen and (min-width: 1200px) {
-	.crafty-social-buttons form {
-		width: 60%;
-		display: inline-block;	
-	}
-	
-	.crafty-social-buttons .instructions {
-		display: inline-block;
-		width: 30%;
-		margin-left: 5%;
-		vertical-align: top;
-	}
-	
-	.crafty-social-buttons .csb-credits {
-		background: #efefef;
-		padding: 1em;
-		border-radius: 10px;
-	}
-
-}
-
-.crafty-social-buttons .instructions {
-	margin: 1em; padding: 1em; border-radius: 5px; font-size: 1.3em; background: #ddd; line-height: 1.3em;
-}
-
-*/
-.crafty-social-buttons .csb-include-list {
+﻿.crafty-social-buttons .csb-include-list {
 	border: 1px solid #ddd;
 	background: #f1f1f1;
 	margin-right: 0.5em;
@@ -65,4 +39,12 @@
 
 .crafty-social-buttons input[type=text] {
 	width: 350px;
+}
+
+.crafty-social-buttons span.description {
+	font-style: normal;
+}
+
+.crafty-social-buttons span.description strong {
+	font-style: italic;
 }

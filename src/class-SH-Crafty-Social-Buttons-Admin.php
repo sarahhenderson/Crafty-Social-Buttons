@@ -220,7 +220,7 @@ class SH_Crafty_Social_Buttons_Admin {
 					$description = "Hint: plus.google.com/u/0/<strong>user-id</strong> (it's a long number)"; 
 					$caption = "Google Plus"; 
 					break;
-				case "LinkedIn": $description = "Hint: www.linkedin.com/in/<strong>user-id</strong>"; break;
+				case "LinkedIn": $description = "Hint: www.linkedin.com/in/<strong>user-id</strong> or www.linkedin.com/<strong>company/company-id</strong>"; break;
 				case "Pinterest": $description = "Hint: www.pinterest.com/<strong>user-id</strong>"; break;
 				case "Ravelry": $description = "Hint: www.ravelry.com/people/<strong>user-id</strong>"; break;
 				case "Reddit": $description = "Hint: www.reddit.com/user/<strong>user-id</strong>"; break;

@@ -37,7 +37,11 @@ class SH_LinkedIn extends SH_Social_Service {
 	
 	public function linkButton($username) {
 		
-		$url = "http://linkedin.com/in/$username";
+		if (strpos($username, "company/") === 0) {
+			$url = "http://linkedin.com/$username";
+		} else {
+			$url = "http://linkedin.com/in/$username";
+		}
 		$html = '<a class="' . $this->cssClass() . '" 
 			 href="'. $url. '" ' . 
 			 ($this->newWindow ? 'target="_blank"' : '') . '>';

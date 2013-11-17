@@ -6,7 +6,7 @@
  * Craftsy and Pinterest along with the major social networks.
  *
  * @package   SH-Crafty-Social-Buttons
- * @author    Sarah Henderson <sarah@sarahhenderson.com>
+ * @author    Sarah Henderson <sarah@sarahhenderson.info>
  * @license   GPL-2.0+
  * @link      http://sarahhenderson.info
  * @copyright 2013 Sarah Henderson
@@ -15,7 +15,7 @@
  * Plugin Name: Crafty Social Buttons
  * Plugin URI:  http://github.com/sarahhenderson/crafty-social-buttons
  * Description: Adds social sharing buttons and links to your site, including Ravelry, Etsy, Craftsy and Pinterest
- * Version:     1.0.2
+ * Version:     1.0.3
  * Author:      Sarah Henderson
  * Author URI:  http://sarahhenderson.info
  * Text Domain: crafty-social-button
