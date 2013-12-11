@@ -21,3 +21,5 @@ h1, h2, h3, h4, h5, h6 { font-family: "Architects Daughter" }
 .overview p {margin-bottom: 1.5em; text-align:center}
 .overview img {margin-top:0.5em; }
 .faq p.question {margin-top:2em; }
+
+.navbar .nav { -webkit-transform:translate3d(0px, 0px , 0px)  }
