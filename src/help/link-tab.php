@@ -15,4 +15,12 @@
 <dt>User IDs</dt>
 <dd>For any service you choose, you should enter your username in the box.  This is so the link will go directly to your profile (e.g. your facebook page, your Etsy shop) and not just to the homepage of the site.</dd>
 
+<dt>Craftsy Links</dt>
+<dd>There are three ways to link to your Craftsy profile.
+<ol>
+	<li><strong>User profile</strong>. The link will be in this form: www.craftsy.com/user/<strong>user-id/</strong>. You should enter just your user ID (all numbers).</li>
+    <li><strong>Pattern store</strong>.  The link will be in this form: www.craftsy.com/user/<strong>user-id/pattern-store</strong>.  You should enter <code>user-id/pattern-store</code> (e.g. 12345/pattern-store).  The user-id part will be all numbers. </li>
+    <li><strong>Instructor profile</strong>.  The link will be in this form: www.craftsy.com/<strong>instructors/user-id</strong>/.  You should enter <code>/instructors/user-id</code>. The user-id will be a combination of letters and numbers</li>
+</ol>
+</dd>
 <p>Done forget to hit <em>Save changes</em> when you're done!</p>

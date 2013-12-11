@@ -211,7 +211,7 @@ class SH_Crafty_Social_Buttons_Admin {
 			// we want to add a custom description for some of the fields
 			$caption = $service;
 			switch ($service) {
-				case "Craftsy": $description = 'Hint: www.craftsy.com/instructors/<strong>user-id</strong>/'; break;
+				case "Craftsy": $description = 'Hint: www.craftsy.com/user/<strong>user-id</strong>/ (numbers). For more options see Help > Link Buttons (link top right of screen)'; break;
 				case "Digg": $description = "Hint: www.digg.com/<strong>user-id</strong>"; break;
 				case "Email": $description = "Hint: Your email address"; break;
 				case "Etsy": $description = 'Hint: www.etsy.com/shop/<strong>user-id</strong>/'; break;

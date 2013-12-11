@@ -5,7 +5,7 @@ Author URI: http://sarahhenderson.info
 Plugin URL: http://github.io/sarahhenderson/crafty-social-buttons
 Tags: social, social buttions, social icons, ravelry, etsy, craftsy, widget, shortcode
 Requires at least: 3.5
-Tested up to: 3.7
+Tested up to: 3.8
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -25,6 +25,7 @@ You can use the share button and link button functions either separately, or tog
 Supported social services include:
 
 *	Digg
+*   Craftsy (link only)
 *	Email (share only)
 *	Etsy (link only)
 *   Facebook
@@ -37,7 +38,7 @@ Supported social services include:
 *	Tumblr
 *	Twitter
 
-You can also choose exactly which services you want separately for each mode, so you can can have *Share Buttons* for Ravelry, Pinterest, Facebook, Twitter and Email, but have *Link Buttons* for Google+, Pinterest and your Etsy shop.
+You can also choose exactly which services you want separately for each mode, so you can can have *Share Buttons* for Ravelry, Pinterest, Facebook, Twitter and Email, but have *Link Buttons* for Google+, Craftsy, Pinterest and your Etsy shop.
 
 For more information, see the plugin website at http://sarahhenderson.github.io/Crafty-Social-Buttons/
 
@@ -87,6 +88,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 == Changelog ==
 
+= 1.0.4 =
+* Added more link options for Craftsy - link to individual user profile, pattern store, or instructor page
+
 = 1.0.3 =
 * LinkedIn now able to link to either individual or company profile
 * Improved styling of link button hints
@@ -103,6 +107,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 * First version!
 
 == Upgrade Notice ==
+
+= 1.0.4 =
+* More link options for Craftsy
 
 = 1.0.3 =
 * LinkedIn now able to link to either individual or company profile

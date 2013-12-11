@@ -21,8 +21,16 @@ class SH_Craftsy extends SH_Social_Service {
 	}
 	
 	public function linkButton($username) {
-		
-		$url = "http://www.craftsy.com/instructors/$username";
+		if (strpos($username, "instructors/") !== false) {
+			$url = "http://craftsy.com/$username";
+		} else if (strpos($username, "pattern-store") !== false) {
+			$url = "http://craftsy.com/user/$username";
+		} else if (is_numeric($username)) {
+			$url = "http://craftsy.com/user/$username";
+		} else {
+			$url = "http://craftsy.com/instructors/$username";
+		}
+
 		$html = '<a class="' . $this->cssClass() . '" 
 			href="'. $url. '" ' . 
 			($this->newWindow ? 'target="_blank"' : '') . '>';
