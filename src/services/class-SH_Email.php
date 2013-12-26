@@ -44,8 +44,8 @@ class SH_Email extends SH_Social_Service {
 		return $html;
 	}
 	
-	public function shareCount($url) {
-		 return '0'; // Email has no share count feature
+	public static function description() {
+		return "Hint: Your email address";	
 	}
 }
 ?>

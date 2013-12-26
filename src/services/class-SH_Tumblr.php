@@ -52,8 +52,8 @@ class SH_Tumblr extends SH_Social_Service {
 		return $html;
 	}
 	
-	public function shareCount($url) {
-		 return '0'; // Tumblr has no share count function
+	public static function description() {
+		return "Hint: http://<strong>user-id</strong>.tumblr.com";	
 	}
 }
 

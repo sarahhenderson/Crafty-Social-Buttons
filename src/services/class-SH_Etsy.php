@@ -35,8 +35,12 @@ class SH_Etsy extends SH_Social_Service {
 		return $html;
 	}
 	
-	public function shareCount($url) {
-		return '0';
+	public static function canShare() {
+		return false;	
+	}
+
+	public static function description() {
+		return "Hint: www.etsy.com/shop/<strong>user-id</strong>/";	
 	}
 }
 

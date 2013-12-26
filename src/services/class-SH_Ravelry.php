@@ -46,8 +46,9 @@ class SH_Ravelry extends SH_Social_Service {
 		return $html;
 	}
 	
-	public function shareCount($url) {
-		return '0';
+
+	public static function description() {
+		return "Hint: www.ravelry.com/people/<strong>user-id</strong>";	
 	}
 }
 

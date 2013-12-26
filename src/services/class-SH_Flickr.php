@@ -1,6 +1,6 @@
 <?php
 /**
- * SH_Digg Class
+ * SH_Flickr Class
  * @author 		Sarah Henderson
  * @date			2013-07-07
  */
@@ -8,22 +8,27 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 	
 // widget class
-class SH_Digg extends SH_Social_Service {
-
+class SH_Flickr extends SH_Social_Service {
+	
 	public function __construct($newWindow, $imageSet, $settings) {
 		parent::__construct($newWindow, $imageSet, $settings);
-		$this->service = "Digg";
+		$this->service = "Flickr";
 	}
 
+	
 	public function shareButton($url, $title = '', $showCount = false) {
-		
+
 		$html = '<a class="' . $this->cssClass() . '" 
-			href="http://www.digg.com/submit?' 
-			. 'url='. $url. '" ' 
+			href="http://flickr.com/share?'
+			. 'url=' . $url 
 			. ($this->newWindow ? 'target="_blank"' : '') . '>';
 	
-		$html .= $this->buttonImage();	
-		
+		$html .= $this->buttonImage();
+	
+		if ($showCount) {
+			$html .= '<span class="crafty-social-share-count">' . $this->shareCount($url) . '</span>';	
+		}
+	
 		$html .= '</a>';
 	
 		return $html;
@@ -31,10 +36,10 @@ class SH_Digg extends SH_Social_Service {
 	
 	public function linkButton($username) {
 		
-		$url = "http://www.digg.com/$username";
+		$url = "http://flickr.com/photos/$username";
 		$html = '<a class="' . $this->cssClass() . '" 
-			href="'. $url. '" ' . 
-			($this->newWindow ? 'target="_blank"' : '') . '>';
+					   href="'. $url. '" ' . 
+						($this->newWindow ? 'target="_blank"' : '') . '>';
 	
 		$html .= $this->buttonImage();	
 		
@@ -43,8 +48,14 @@ class SH_Digg extends SH_Social_Service {
 		return $html;
 	}
 	
+	public static function canShare() {
+		return false;	
+	}
+
 	public static function description() {
-		return "Hint: www.digg.com/<strong>user-id</strong>";	
+		return "Hint: flickr.com/photos/<strong>user-id</strong> (numbers and letters)";	
 	}
 }
+
 ?>
+

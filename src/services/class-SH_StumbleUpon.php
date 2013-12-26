@@ -63,5 +63,8 @@ class SH_StumbleUpon extends SH_Social_Service {
 			 }
 		 }
 	}
+	public static function description() {
+		return "Hint: www.stumbleupon/stumbler/<strong>user-id</strong>";	
+	}
 }
 ?>

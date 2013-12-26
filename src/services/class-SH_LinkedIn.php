@@ -73,6 +73,10 @@ class SH_LinkedIn extends SH_Social_Service {
 			 }
 		 }
 	}
+
+	public static function description() {
+		return "Hint: www.linkedin.com/in/<strong>user-id</strong> or www.linkedin.com/<strong>company/company-id</strong>";	
+	}
 }
 
 ?>

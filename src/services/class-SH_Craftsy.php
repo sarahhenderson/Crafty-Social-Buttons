@@ -15,8 +15,7 @@ class SH_Craftsy extends SH_Social_Service {
 		$this->service = "Craftsy";
 	}
 
-	public function shareButton($url, $title = '', $showCount = false) {
-		
+	public function shareButton($url, $title = '', $showCount = false) {		
 		return '';
 	}
 	
@@ -42,8 +41,12 @@ class SH_Craftsy extends SH_Social_Service {
 		return $html;
 	}
 	
-	public function shareCount($url) {
-		 return '0'; // Craftsy has no share count feature
+	public static function canShare() {
+	 	return false;	
+	}
+	
+	public static function description() {
+		return "Hint: www.craftsy.com/user/<strong>user-id</strong>/ (numbers). For more options see Help > Link Buttons (link top right of screen)";	
 	}
 }
 ?>

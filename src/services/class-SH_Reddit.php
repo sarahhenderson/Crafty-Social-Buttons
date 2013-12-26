@@ -63,6 +63,9 @@ class SH_Reddit extends SH_Social_Service {
 			 }
 		 }
 	}
+	public static function description() {
+		return "Hint: www.reddit.com/user/<strong>user-id</strong>";	
+	}
 }
 
 ?>

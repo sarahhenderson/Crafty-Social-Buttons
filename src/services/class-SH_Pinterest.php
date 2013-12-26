@@ -62,6 +62,9 @@ class SH_Pinterest extends SH_Social_Service {
 			 }
 		 }
 	}
+	public static function description() {
+		return "Hint: www.pinterest.com/<strong>user-id</strong>";	
+	}
 }
 
 ?>

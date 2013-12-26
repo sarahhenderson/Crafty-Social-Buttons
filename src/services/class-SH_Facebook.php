@@ -62,5 +62,9 @@ class SH_Facebook extends SH_Social_Service {
 			 }
 		 }
 	}
+
+	public static function description() {
+		return "Hint: www.facebook.com/<strong>user-id</strong>/";	
+	}
 }
 ?>

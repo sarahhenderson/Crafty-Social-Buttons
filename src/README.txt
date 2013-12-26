@@ -29,7 +29,9 @@ Supported social services include:
 *	Email (share only)
 *	Etsy (link only)
 *   Facebook
+*   Flickr (link only)
 *	Google+
+*   Instagram (link only)
 *	LinkedIn
 *	Pinterest
 *	Ravelry
@@ -89,6 +91,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 == Changelog ==
 
 = 1.0.4 =
+* Added Instagram and Flickr link buttons
+
+= 1.0.4 =
 * Added more link options for Craftsy - link to individual user profile, pattern store, or instructor page
 
 = 1.0.3 =
@@ -108,6 +113,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 == Upgrade Notice ==
 
+= 1.0.5 =
+* Instagram and Flickr added
+
 = 1.0.4 =
 * More link options for Craftsy
 
@@ -124,9 +132,8 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 These are the things currently in the pipeline:
 
-* Changing the post count feature to request data only after the page is loaded so it doesn't slow things down so much.
-* Adding an option to choose image sizes for the icons
 * Add support for YouTube (for crafters who post video tutorials)
-* Add support for Flickr (for crafters who like to show off their creations)
+* Adding an option to choose image sizes for the icons
+* Changing the post count feature to request data only after the page is loaded so it doesn't slow things down so much.
 * Option to diplays in archives and category listings (?)
 * (Anything else?  You tell me!)

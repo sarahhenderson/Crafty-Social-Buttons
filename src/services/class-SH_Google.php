@@ -89,5 +89,9 @@ class SH_Google extends SH_Social_Service {
         return intval( $json['result']['metadata']['globalCounts']['count'] ); 
     }
 	}
+
+	public static function description() {
+		return "Hint: plus.google.com/u/0/<strong>user-id</strong> (it's a long number)";	
+	}
 }
 ?>

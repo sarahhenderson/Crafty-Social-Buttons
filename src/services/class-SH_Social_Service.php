@@ -36,6 +36,18 @@ class SH_Social_Service {
 		return "0";	
 	}
 	
+	public static function canShare() {
+		return true;	
+	}
+
+	public static function canLink() {
+		return true;	
+	}
+
+	public static function description() {
+		return "";	
+	}
+
 	protected function buttonImage() {
 		$imageUrl = $this->imagePath . trim(strtolower($this->service)) . $this->imageExtension;
 		return '<img 

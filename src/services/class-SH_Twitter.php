@@ -65,6 +65,10 @@ class SH_Twitter extends SH_Social_Service {
 			 }
 		 }
 	}
+	
+	public static function description() {
+		return "Hint: @<strong>user-id</strong>";	
+	}
 }
 
 ?>

@@ -12,7 +12,7 @@ class SH_Crafty_Social_Buttons_Admin {
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
 	 */
-	protected $version = '1.0.2';
+	protected $version = '1.0.5';
 
 	/**
 	 * Unique identifier for this plugin.
@@ -81,6 +81,7 @@ class SH_Crafty_Social_Buttons_Admin {
 	  */
 	 function load_all_services() {
 			
+			include_once('services/class-SH_Social_Service.php');
 			$this->all_services = array();
 			
 			$directory = plugin_dir_path(__FILE__) . 'services';
@@ -92,6 +93,7 @@ class SH_Crafty_Social_Buttons_Admin {
 				$matches = array();
 				if (preg_match("/^class-SH_(.+)\.php$/", $file, $matches)) {
 					$this->all_services[] = $matches[1];
+					include_once('services/' . $file);
 				}
 			}	
 	 }
@@ -210,25 +212,9 @@ class SH_Crafty_Social_Buttons_Admin {
 	 	foreach($this->all_services as $service) {
 			// we want to add a custom description for some of the fields
 			$caption = $service;
-			switch ($service) {
-				case "Craftsy": $description = 'Hint: www.craftsy.com/user/<strong>user-id</strong>/ (numbers). For more options see Help > Link Buttons (link top right of screen)'; break;
-				case "Digg": $description = "Hint: www.digg.com/<strong>user-id</strong>"; break;
-				case "Email": $description = "Hint: Your email address"; break;
-				case "Etsy": $description = 'Hint: www.etsy.com/shop/<strong>user-id</strong>/'; break;
-				case "Facebook": $description = 'Hint: www.facebook.com/<strong>user-id</strong>/'; break;
-				case "Google": 
-					$description = "Hint: plus.google.com/u/0/<strong>user-id</strong> (it's a long number)"; 
-					$caption = "Google Plus"; 
-					break;
-				case "LinkedIn": $description = "Hint: www.linkedin.com/in/<strong>user-id</strong> or www.linkedin.com/<strong>company/company-id</strong>"; break;
-				case "Pinterest": $description = "Hint: www.pinterest.com/<strong>user-id</strong>"; break;
-				case "Ravelry": $description = "Hint: www.ravelry.com/people/<strong>user-id</strong>"; break;
-				case "Reddit": $description = "Hint: www.reddit.com/user/<strong>user-id</strong>"; break;
-				case "StumbleUpon": $description = "Hint: www.stumbleupon/stumbler/<strong>user-id</strong>"; break;
-				case "Tumblr": $description = "Hint: http://<strong>user-id</strong>.tumblr.com"; break;
-				case "Twitter": $description = "Hint: @<strong>user-id</strong>"; break;
-				default: $description = "";
-			}
+			$description = "";
+			$description = $this->call_service_method($service, 'description');
+			
 			add_settings_field( 
 				$service, 
 				$caption,  
@@ -395,6 +381,7 @@ class SH_Crafty_Social_Buttons_Admin {
 		$name = $this->plugin_slug . '[' . $args[0] . ']';
 		$settings = $this->getSettings();
 		$image_set = ($id == 'link_services') ? $settings['link_image_set'] : $settings['share_image_set'];
+		$shareOrLink = ($id == 'link_services') ? 'Link' : 'Share';
 		$value = $settings[$id];
 		?>
         
@@ -411,7 +398,7 @@ class SH_Crafty_Social_Buttons_Admin {
                 <div class="csb-include-list available">
                     <div><span class="include-heading">Available</span> (these will <strong>not</strong> be displayed)</div>
                     <ul id="csbsort1" class="connectedSortable">
-                        <?php echo $this->get_available_services_html($value, $image_set); ?>
+                        <?php echo $this->get_available_services_html($value, $image_set, $shareOrLink); ?>
                     </ul>
                     </center>
                 </div>
@@ -508,7 +495,7 @@ class SH_Crafty_Social_Buttons_Admin {
 	/**
 	 * Get list item HTML for all services EXCEPT those already selected
 	 */
-	function get_available_services_html($selectedServicesString, $image_set) {
+	function get_available_services_html($selectedServicesString, $image_set, $shareOrLink = 'Share') {
 	
 		$htmlListItems = '';	
 		$selectedServices = array();
@@ -517,13 +504,22 @@ class SH_Crafty_Social_Buttons_Admin {
 		}
 		
 		foreach ($this->all_services as $service) {
-			if (!in_array($service, $selectedServices)) {		
-				$url = plugin_dir_url(__FILE__) . "buttons/" . $image_set . "/" . $service . ".png";
-				$htmlListItems .= $this->get_service_icon_html($url, $service, $image_set);
-			}
+			if (!$this->call_service_method($service, 'can'.$shareOrLink)) continue;
+			if (in_array($service, $selectedServices)) continue;
+				
+			$url = plugin_dir_url(__FILE__) . "buttons/" . $image_set . "/" . $service . ".png";
+			$htmlListItems .= $this->get_service_icon_html($url, $service, $image_set);
+		
 		}
 		
 		return $htmlListItems;
+	}
+	
+	/**
+	 * Calls a static method on the given service and returns the result
+	 */
+	function call_service_method($service, $method) {
+		return call_user_func(array('SH_' . $service, $method));
 	}
 	
 	
