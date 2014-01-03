@@ -58,4 +58,3 @@ class SH_Flickr extends SH_Social_Service {
 }
 
 ?>
-

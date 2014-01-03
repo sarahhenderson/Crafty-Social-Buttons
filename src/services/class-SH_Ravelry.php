@@ -53,4 +53,3 @@ class SH_Ravelry extends SH_Social_Service {
 }
 
 ?>
-

@@ -1,6 +1,6 @@
 <?php
 /**
- * SH_Twitter Class
+ * SH_Etsy Class
  * @author 		Sarah Henderson
  * @date			2013-07-07
  */
@@ -43,6 +43,4 @@ class SH_Etsy extends SH_Social_Service {
 		return "Hint: www.etsy.com/shop/<strong>user-id</strong>/";	
 	}
 }
-
 ?>
-

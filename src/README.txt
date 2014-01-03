@@ -90,7 +90,10 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 == Changelog ==
 
-= 1.0.4 =
+= 1.0.6 =
+* Fixed bug with headers not sent
+
+= 1.0.5 =
 * Added Instagram and Flickr link buttons
 
 = 1.0.4 =
@@ -112,6 +115,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 * First version!
 
 == Upgrade Notice ==
+
+= 1.0.6 =
+* Fixed bug with headers not sent
 
 = 1.0.5 =
 * Instagram and Flickr added

@@ -72,4 +72,3 @@ class SH_Twitter extends SH_Social_Service {
 }
 
 ?>
-
