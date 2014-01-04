@@ -19,8 +19,7 @@ class SH_Twitter extends SH_Social_Service {
 	
 	public function shareButton($url, $title = '', $showCount = false) {
 
-		$html = '<a class="' . $this->cssClass() . '" 
-			href="http://twitter.com/share?'
+		$html = '<a class="' . $this->cssClass() . '" href="http://twitter.com/share?'
 			. 'url=' . $url 
 			. '&text=' . urlencode(trim($this->text . ' ' . $title)) . '" ' 
 			. ($this->newWindow ? 'target="_blank"' : '') . '>';
@@ -39,8 +38,7 @@ class SH_Twitter extends SH_Social_Service {
 	public function linkButton($username) {
 		
 		$url = "http://twitter.com/$username";
-		$html = '<a class="' . $this->cssClass() . '" 
-					   href="'. $url. '" ' . 
+		$html = '<a class="' . $this->cssClass() . '" href="'. $url. '" ' . 
 						($this->newWindow ? 'target="_blank"' : '') . '>';
 	
 		$html .= $this->buttonImage();	

@@ -18,8 +18,7 @@ class SH_Instagram extends SH_Social_Service {
 	
 	public function shareButton($url, $title = '', $showCount = false) {
 
-		$html = '<a class="' . $this->cssClass() . '" 
-			href="http://instagram.com/share?'
+		$html = '<a class="' . $this->cssClass() . '" href="http://instagram.com/share?'
 			. 'url=' . $url . '" ' 
 			. ($this->newWindow ? 'target="_blank"' : '') 
 			. '>';
@@ -39,7 +38,7 @@ class SH_Instagram extends SH_Social_Service {
 		
 		$url = "http://instagram.com/$username";
 		$html = '<a class="' . $this->cssClass() 
-				. '"href="'. $url. '" ' 
+				. '" href="'. $url. '" ' 
 				. ($this->newWindow ? 'target="_blank"' : '') 
 				. '>';
 	

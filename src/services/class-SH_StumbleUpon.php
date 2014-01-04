@@ -18,8 +18,7 @@ class SH_StumbleUpon extends SH_Social_Service {
 
 	public function shareButton($url, $title = '', $showCount = false) {
 		
-		$html = '<a class="' . $this->cssClass() . '" 
-			 href="http://www.stumbleupon.com/submit?'  
+		$html = '<a class="' . $this->cssClass() . '" href="http://www.stumbleupon.com/submit?'  
 			 . 'url=' . $url 
 			 . '&title=' . urlencode($title) . '" ' 
 			 . ($this->newWindow ? 'target="_blank"' : '') . '>';
@@ -38,8 +37,7 @@ class SH_StumbleUpon extends SH_Social_Service {
 	public function linkButton($username) {
 		
 		$url = "http://www.stumbleupon.com/stumbler/$username";
-		$html = '<a class="' . $this->cssClass() . '" 
-			 href="'. $url . '" ' . 
+		$html = '<a class="' . $this->cssClass() . '" href="'. $url . '" ' . 
 			 ($this->newWindow ? 'target="_blank"' : '') . '>';
 	
 		$html .= $this->buttonImage();	

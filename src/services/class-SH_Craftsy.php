@@ -30,8 +30,7 @@ class SH_Craftsy extends SH_Social_Service {
 			$url = "http://craftsy.com/instructors/$username";
 		}
 
-		$html = '<a class="' . $this->cssClass() . '" 
-			href="'. $url. '" ' . 
+		$html = '<a class="' . $this->cssClass() . '" href="'. $url. '" ' . 
 			($this->newWindow ? 'target="_blank"' : '') . '>';
 	
 		$html .= $this->buttonImage();	

@@ -25,8 +25,7 @@ class SH_Tumblr extends SH_Social_Service {
 			$url = str_replace('https://', '', $url);			
 		}
 
-		$html = '<a class="' . $this->cssClass() . '" 
-			 href="http://www.tumblr.com/share/link?' 
+		$html = '<a class="' . $this->cssClass() . '" href="http://www.tumblr.com/share/link?' 
 			 . 'url=' . $url 
 			 . '&name=' . urlencode($title) . '" ' 
 			 . ($this->newWindow ? 'target="_blank"' : '') . '>';
@@ -41,8 +40,7 @@ class SH_Tumblr extends SH_Social_Service {
 	public function linkButton($username) {
 		if (!empty($username)) $username = $username.'.';
 		$url = "http://".$username."tumblr.com/";
-		$html = '<a class="' . $this->cssClass() . '" 
-			href="'. $url . '" ' . 
+		$html = '<a class="' . $this->cssClass() . '" href="'. $url . '" ' . 
 			($this->newWindow ? 'target="_blank"' : '') . '>';
 	
 		$html .= $this->buttonImage();	

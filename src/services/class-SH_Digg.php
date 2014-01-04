@@ -17,8 +17,7 @@ class SH_Digg extends SH_Social_Service {
 
 	public function shareButton($url, $title = '', $showCount = false) {
 		
-		$html = '<a class="' . $this->cssClass() . '" 
-			href="http://www.digg.com/submit?' 
+		$html = '<a class="' . $this->cssClass() . '" href="http://www.digg.com/submit?' 
 			. 'url='. $url. '" ' 
 			. ($this->newWindow ? 'target="_blank"' : '') . '>';
 	
@@ -32,8 +31,7 @@ class SH_Digg extends SH_Social_Service {
 	public function linkButton($username) {
 		
 		$url = "http://www.digg.com/$username";
-		$html = '<a class="' . $this->cssClass() . '" 
-			href="'. $url. '" ' . 
+		$html = '<a class="' . $this->cssClass() . '" href="'. $url. '" ' . 
 			($this->newWindow ? 'target="_blank"' : '') . '>';
 	
 		$html .= $this->buttonImage();	

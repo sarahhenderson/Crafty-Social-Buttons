@@ -50,11 +50,7 @@ class SH_Social_Service {
 
 	protected function buttonImage() {
 		$imageUrl = $this->imagePath . trim(strtolower($this->service)) . $this->imageExtension;
-		return '<img 
-				   title="'.$this->service.'" 
-					alt="'.$this->service. '" 
-					src="' . $imageUrl .'" />';
-
+		return '<img title="'.$this->service.'" alt="'.$this->service. '" src="' . $imageUrl .'" />';
 	}
 	
 }

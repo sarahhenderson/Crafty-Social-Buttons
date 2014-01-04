@@ -19,8 +19,7 @@ class SH_Email extends SH_Social_Service {
 
 	public function shareButton($url, $title = '', $showCount = false) {
 		
-		$html = '<a class="' . $this->cssClass() . '" 
-			href="mailto:?' 
+		$html = '<a class="' . $this->cssClass() . '" href="mailto:?' 
 			. 'Subject=' . $title  
 			. '&Body=' . trim($this->message . ' ' . $url)  . '">';
 	
@@ -34,8 +33,7 @@ class SH_Email extends SH_Social_Service {
 	public function linkButton($username) {
 		
 		$url = "mailto:$username";
-		$html = '<a class="' . $this->cssClass() . '" 
-				 href="'. $url. '" >';
+		$html = '<a class="' . $this->cssClass() . '" href="'. $url. '" >';
 	
 		$html .= $this->buttonImage();	
 		

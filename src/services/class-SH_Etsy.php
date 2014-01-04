@@ -24,8 +24,7 @@ class SH_Etsy extends SH_Social_Service {
 	public function linkButton($username) {
 		
 		$url = "http://etsy.com/shop/$username";
-		$html = '<a class="' . $this->cssClass() . '" 
-		            href="'. $url. '" ' . 
+		$html = '<a class="' . $this->cssClass() . '" href="'. $url. '" ' . 
 						($this->newWindow ? 'target="_blank"' : '') . '>';
 	
 		$html .= $this->buttonImage();	

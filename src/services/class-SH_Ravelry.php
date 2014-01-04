@@ -19,8 +19,7 @@ class SH_Ravelry extends SH_Social_Service {
 	
 	public function shareButton($url, $title = '', $showCount = false) {
 
-		$html = '<a class="' . $this->cssClass() . '"  
-			href="http://www.ravelry.com/bookmarklets/queue?'
+		$html = '<a class="' . $this->cssClass() . '" href="http://www.ravelry.com/bookmarklets/queue?'
 			. 'url=' . $url 
 			. '&title=' . urlencode($title) . '" ' 
 			. ($this->newWindow ? 'target="_blank"' : '') . '>';
@@ -35,8 +34,7 @@ class SH_Ravelry extends SH_Social_Service {
 	public function linkButton($username) {
 		
 		$url = "http://www.ravelry.com/people/$username";
-		$html = '<a class="' . $this->cssClass() . '" 
-			href="'. $url. '" ' . 
+		$html = '<a class="' . $this->cssClass() . '" href="'. $url. '" ' . 
 			($this->newWindow ? 'target="_blank"' : '') . '>';
 	
 		$html .= $this->buttonImage();	
