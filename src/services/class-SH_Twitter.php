@@ -20,8 +20,9 @@ class SH_Twitter extends SH_Social_Service {
 	public function shareButton($url, $title = '', $showCount = false) {
 
 		$html = '<a class="' . $this->cssClass() . '" href="http://twitter.com/share?'
-			. 'url=' . $url 
-			. '&text=' . urlencode(trim($this->text . ' ' . $title)) . '" ' 
+			. 'url=' . $url
+			. '&text=' . htmlspecialchars(urlencode(html_entity_decode(trim($this->text . ' ' . $title), ENT_COMPAT, 'UTF-8')), ENT_COMPAT, 'UTF-8')
+			. '" ' 
 			. ($this->newWindow ? 'target="_blank"' : '') . '>';
 	
 		$html .= $this->buttonImage();
