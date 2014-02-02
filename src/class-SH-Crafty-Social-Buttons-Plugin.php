@@ -12,7 +12,7 @@ class SH_Crafty_Social_Buttons_Plugin {
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
 	 */
-	protected $version = '1.0.5';
+	protected $version = '1.0.8';
 
 	/**
 	 * Unique identifier for this plugin.
@@ -79,12 +79,27 @@ class SH_Crafty_Social_Buttons_Plugin {
 	 * @param    boolean    $network_wide    True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog.
 	 */
 	public static function activate( $network_wide ) {
-		
+		if (function_exists('is_multisite') && is_multisite() && $network_wide) {
+			global $wpdb;
+			$old_blog =  get_current_blog_id();
+
+			$blogids = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
+			foreach ($blogids as $blog_id) {
+				switch_to_blog($blog_id);
+				self::activate_single_site();
+			}
+			switch_to_blog($old_blog);
+    	} else { // activate non-multi-site or single site
+			self::activate_single_site();	
+		}
+	}
+	
+	private static function activate_single_site() {
 		 $settings = get_option("crafty-social-buttons");
-		 if ( false === $settings ) {
+		 if ( !$settings || count($settings) <= 1 ) {
 			  $settings = self::get_default_settings();
 		 }
-		 update_option("crafty-social-buttons", $settings );			
+		 update_option("crafty-social-buttons", $settings );				
 	}
 
 	/**

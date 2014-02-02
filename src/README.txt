@@ -90,6 +90,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 == Changelog ==
 
+= 1.0.8 =
+* Enabled support for WordPress MultiSite
+
 = 1.0.6 =
 * Fixed bug with headers not sent
 
@@ -115,6 +118,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 * First version!
 
 == Upgrade Notice ==
+
+= 1.0.8 =
+* Enables WordPress MultiSite
 
 = 1.0.6 =
 * Fixed bug with headers not sent

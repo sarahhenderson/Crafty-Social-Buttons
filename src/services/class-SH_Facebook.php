@@ -18,7 +18,7 @@ class SH_Facebook extends SH_Social_Service {
 
 	public function shareButton($url, $title = '', $showCount = false) {
 		
-		$html = '<a class="' . $this->cssClass() . '" href="http://www.facebook.com/sharer.php?' 
+		$html = '<a class="' . $this->cssClass() . '" href="http://www.facebook.com/sharer/sharer.php?' 
 			 . 'u=' . $url. '" ' 
 			 . ($this->newWindow ? 'target="_blank"' : '') . '>';
 	

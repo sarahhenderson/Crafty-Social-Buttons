@@ -10,11 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class SH_Crafty_Social_Buttons_Shortcode {
 
 	/**
-	 * Plugin version, used for cache-busting of style and script file references.
-	 */
-	protected $version = '1.0.5';
-
-	/**
 	 * Unique identifier for this plugin.
 	 */
 	protected $plugin_slug = 'crafty-social-buttons';
