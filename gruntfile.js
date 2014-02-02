@@ -7,6 +7,7 @@ module.exports = function (grunt) {
    grunt.loadNpmTasks('grunt-contrib-copy');
    grunt.loadNpmTasks('grunt-contrib-clean');
    grunt.loadNpmTasks('grunt-strip');
+   grunt.loadNpmTasks('grunt-bump');
    grunt.loadNpmTasks('grunt-contrib-watch');
    grunt.loadNpmTasks('grunt-contrib-compress');
 
@@ -174,6 +175,15 @@ module.exports = function (grunt) {
             files: [
                {src: ['<%= pkg.name %>/**/*'], dest: ''} 
             ]
+         }
+      },
+      bump: {
+      options: {
+         files: ['package.json'],
+         updateConfigs: ['pkg'],
+         commitMessage: 'Updated version number to %VERSION%',
+         createTag: false,
+         push: false,
          }
       }
 
