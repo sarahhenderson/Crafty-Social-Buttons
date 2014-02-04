@@ -39,6 +39,7 @@ Supported social services include:
 *	Stumble Upon
 *	Tumblr
 *	Twitter
+*   YouTube
 
 You can also choose exactly which services you want separately for each mode, so you can can have *Share Buttons* for Ravelry, Pinterest, Facebook, Twitter and Email, but have *Link Buttons* for Google+, Craftsy, Pinterest and your Etsy shop.
 
@@ -90,6 +91,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 == Changelog ==
 
+= 1.0.9 =
+* Added YouTube link button option
+
 = 1.0.8 =
 * Enabled support for WordPress MultiSite
 
@@ -118,6 +122,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 * First version!
 
 == Upgrade Notice ==
+
+= 1.0.9 =
+* Added YouTube link button option
 
 = 1.0.8 =
 * Enables WordPress MultiSite
