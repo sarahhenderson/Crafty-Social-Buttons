@@ -12,7 +12,7 @@ class SH_Crafty_Social_Buttons_Plugin {
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
 	 */
-	protected $version = '1.0.9';
+	protected $version = '1.0.10';
 
 	/**
 	 * Unique identifier for this plugin.

@@ -139,6 +139,15 @@ module.exports = function (grunt) {
                dest: '../svn/crafty-social-buttons/trunk/'
             }]
          },
+		test: {
+			files: [{
+				expand: true,
+				cwd: '../svn/crafty-social-buttons/trunk',
+				src: ['**/*', '!assets/**'],
+				dest: 'D:/Dropbox/Websites/sarah.geek.nz/blog/wp-content/plugins/crafty-social-buttons/'
+			}]
+		},
+         
          svnAssets: {
             files: [{
                expand: true,
@@ -147,7 +156,6 @@ module.exports = function (grunt) {
                dest: '../svn/crafty-social-buttons/assets/'
             }]
          },
-
          docs: {
             files: [{
                expand: true,
@@ -191,6 +199,9 @@ module.exports = function (grunt) {
 
    grunt.registerTask('default', 
       ['jshint', 'uglify:dev', 'cssmin', 'watch']);
+   
+   grunt.registerTask('test', 
+      ['copy:test']);
       
    grunt.registerTask('release', 
       [  'jshint', 
