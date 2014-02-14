@@ -91,6 +91,10 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 == Changelog ==
 
+= 1.0.10 =
+* Added RSS link button option
+* Fixed problem with special characters in titles appearing wrongly in the Twitter share
+
 = 1.0.9 =
 * Added YouTube link button option
 
@@ -123,6 +127,10 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 == Upgrade Notice ==
 
+= 1.0.10 =
+* Added RSS link button option
+* Fixed problem with special characters in titles appearing wrongly in the Twitter share
+
 = 1.0.9 =
 * Added YouTube link button option
 
@@ -151,7 +159,6 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 These are the things currently in the pipeline:
 
-* Add support for YouTube (for crafters who post video tutorials)
 * Adding an option to choose image sizes for the icons
 * Changing the post count feature to request data only after the page is loaded so it doesn't slow things down so much.
 * Option to diplays in archives and category listings (?)

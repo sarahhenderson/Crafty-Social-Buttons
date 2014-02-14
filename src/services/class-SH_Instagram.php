@@ -17,21 +17,7 @@ class SH_Instagram extends SH_Social_Service {
 
 	
 	public function shareButton($url, $title = '', $showCount = false) {
-
-		$html = '<a class="' . $this->cssClass() . '" href="http://instagram.com/share?'
-			. 'url=' . $url . '" ' 
-			. ($this->newWindow ? 'target="_blank"' : '') 
-			. '>';
-	
-		$html .= $this->buttonImage();
-	
-		if ($showCount) {
-			$html .= '<span class="crafty-social-share-count">' . $this->shareCount($url) . '</span>';	
-		}
-	
-		$html .= '</a>';
-	
-		return $html;
+		return '';
 	}
 	
 	public function linkButton($username) {

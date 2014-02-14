@@ -1,18 +1,18 @@
 <?php
 /**
- * SH_Flickr Class
+ * SH_RSS Class
  * @author 		Sarah Henderson
- * @date			2013-07-07
+ * @date			2013-12-26
  */
  
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 	
 // widget class
-class SH_Flickr extends SH_Social_Service {
+class SH_RSS extends SH_Social_Service {
 	
 	public function __construct($newWindow, $imageSet, $settings) {
 		parent::__construct($newWindow, $imageSet, $settings);
-		$this->service = "Flickr";
+		$this->service = "RSS";
 	}
 
 	
@@ -22,9 +22,10 @@ class SH_Flickr extends SH_Social_Service {
 	
 	public function linkButton($username) {
 		
-		$url = "http://flickr.com/photos/$username";
-		$html = '<a class="' . $this->cssClass() . '" href="'. $url. '" ' . 
-						($this->newWindow ? 'target="_blank"' : '') . '>';
+		$url = empty($username) ? get_bloginfo('rss2_url') : $username;
+		$html = '<a class="' . $this->cssClass() 
+				. '" href="'. $url. '" ' 
+				. '>';
 	
 		$html .= $this->buttonImage();	
 		
@@ -38,8 +39,9 @@ class SH_Flickr extends SH_Social_Service {
 	}
 
 	public static function description() {
-		return "Hint: flickr.com/photos/<strong>user-id</strong> (numbers and letters)";	
+		return "Hint: enter full url for feed service (including http://) or leave blank to use built-in WordPress RSS feed url";	
 	}
+
 }
 
 ?>
