@@ -5,7 +5,7 @@ Author URI: http://sarahhenderson.info
 Plugin URL: http://github.io/sarahhenderson/crafty-social-buttons
 Tags: social, social buttions, social icons, ravelry, etsy, craftsy, widget, shortcode
 Requires at least: 3.5
-Tested up to: 3.8
+Tested up to: 3.9
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -90,6 +90,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 5. *Share buttons* displayed with post count bubbles next to them (twenty thirteen theme, arbenting icon set).
 
 == Changelog ==
+
+= 1.0.11 =
+* Allows arbitrary URLs for link buttons
 
 = 1.0.10 =
 * Added RSS link button option
