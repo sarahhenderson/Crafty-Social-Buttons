@@ -22,7 +22,11 @@ class SH_Instagram extends SH_Social_Service {
 	
 	public function linkButton($username) {
 		
-		$url = "http://instagram.com/$username";
+		if (strpos($username, 'http://') === 0) {
+			$url = $username;
+		} else {
+			$url = "http://instagram.com/$username";
+		}
 		$html = '<a class="' . $this->cssClass() 
 				. '" href="'. $url. '" ' 
 				. ($this->newWindow ? 'target="_blank"' : '') 

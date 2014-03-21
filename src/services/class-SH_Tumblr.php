@@ -38,8 +38,11 @@ class SH_Tumblr extends SH_Social_Service {
 	}
 	
 	public function linkButton($username) {
-		if (!empty($username)) $username = $username.'.';
-		$url = "http://".$username."tumblr.com/";
+		if (strpos($username, 'http://') === 0) {
+			$url = $username;
+		} else {
+			$url = "http://".$username.".tumblr.com/";
+		}
 		$html = '<a class="' . $this->cssClass() . '" href="'. $url . '" ' . 
 			($this->newWindow ? 'target="_blank"' : '') . '>';
 	

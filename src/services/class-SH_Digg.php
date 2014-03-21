@@ -30,7 +30,11 @@ class SH_Digg extends SH_Social_Service {
 	
 	public function linkButton($username) {
 		
-		$url = "http://www.digg.com/$username";
+		if (strpos($username, 'http://') === 0) {
+			$url = $username;
+		} else {
+			$url = "http://www.digg.com/$username";
+		}
 		$html = '<a class="' . $this->cssClass() . '" href="'. $url. '" ' . 
 			($this->newWindow ? 'target="_blank"' : '') . '>';
 	

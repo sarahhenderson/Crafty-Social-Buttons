@@ -22,7 +22,11 @@ class SH_Flickr extends SH_Social_Service {
 	
 	public function linkButton($username) {
 		
-		$url = "http://flickr.com/photos/$username";
+		if (strpos($username, 'http://') === 0) {
+			$url = $username;
+		} else {
+			$url = "http://flickr.com/photos/$username";
+		}
 		$html = '<a class="' . $this->cssClass() . '" href="'. $url. '" ' . 
 						($this->newWindow ? 'target="_blank"' : '') . '>';
 	

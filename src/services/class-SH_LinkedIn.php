@@ -36,7 +36,9 @@ class SH_LinkedIn extends SH_Social_Service {
 	
 	public function linkButton($username) {
 		
-		if (strpos($username, "company/") === 0) {
+		if (strpos($username, 'http://') === 0) {
+			$url = $username;
+		} else if (strpos($username, "company/") === 0) {
 			$url = "http://linkedin.com/$username";
 		} else {
 			$url = "http://linkedin.com/in/$username";

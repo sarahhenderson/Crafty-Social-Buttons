@@ -37,7 +37,11 @@ class SH_Google extends SH_Social_Service {
 	
 	public function linkButton($username) {
 		
-		$url = "http://plus.google.com/$username";
+		if (strpos($username, 'http://') === 0) {
+			$url = $username;
+		} else {
+			$url = "http://plus.google.com/$username";
+		}
 		$html = '<a class="' . $this->cssClass() . '" href="'. $url. '" ' . 
 		 ($this->newWindow ? 'target="_blank"' : '') . '>';
 	

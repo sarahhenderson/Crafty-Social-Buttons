@@ -22,7 +22,11 @@ class SH_YouTube extends SH_Social_Service {
 	
 	public function linkButton($username) {
 		
-		$url = "http://youtube.com/user/$username";
+		if (strpos($username, 'http://') === 0) {
+			$url = $username;
+		} else {
+			$url = "http://youtube.com/user/$username";
+		}
 		$html = '<a class="' . $this->cssClass() 
 				. '" href="'. $url. '" ' 
 				. ($this->newWindow ? 'target="_blank"' : '') 
