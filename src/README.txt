@@ -91,6 +91,10 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 == Changelog ==
 
+= 1.0.12 =
+* Fixed bug where twitter prompt text wasn't appearing
+* Fixed ragged edge on somacro YouTube icon
+
 = 1.0.11 =
 * Allows arbitrary URLs for link buttons
 
