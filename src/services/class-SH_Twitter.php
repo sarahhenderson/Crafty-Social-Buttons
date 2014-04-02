@@ -13,7 +13,7 @@ class SH_Twitter extends SH_Social_Service {
 	public function __construct($newWindow, $imageSet, $settings) {
 		parent::__construct($newWindow, $imageSet, $settings);
 		$this->service = "Twitter";
-		$this->text = isset($settings['twitter_body']) ? '' : $settings['twitter_body']; 
+		$this->text = isset($settings['twitter_body']) ? $settings['twitter_body'] : ''; 
 	}
 
 	
