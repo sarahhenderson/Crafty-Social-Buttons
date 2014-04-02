@@ -165,6 +165,16 @@ module.exports = function (grunt) {
                flatten: true,
                filter: 'isFile'
             }]
+         },
+         doc_buttons: {
+            files: [{
+               expand: true,
+               cwd: 'src/buttons',
+               src: ['**/*.png'],
+               dest: '../gh-pages/buttons/',
+               flatten: false,
+               filter: 'isFile'
+            }]
          }
 
 
@@ -217,6 +227,7 @@ module.exports = function (grunt) {
          'copy:svn',
          'copy:svnAssets',
          'copy:docs',
+         'copy:doc_buttons',
          'clean:release',
          'clean:zipStaging']);   
             
