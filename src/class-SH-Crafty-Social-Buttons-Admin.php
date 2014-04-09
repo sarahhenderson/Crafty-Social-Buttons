@@ -184,8 +184,13 @@ class SH_Crafty_Social_Buttons_Admin {
 		add_settings_field( 'email_body', 'Email text',  
 			array($this, 'renderTextbox'), $page,  $section, array('email_body')  );  
 		
-		add_settings_field( 'twitter_body', 'Twitter text',  
-		array($this, 'renderTextbox'), $page,  $section, array('twitter_body') );  
+		add_settings_field( 'twitter_body', 'Tweet text',  
+			array($this, 'renderTextbox'), $page,  $section, 
+			array('twitter_body', 'Default Tweet text (user can override this)') );  
+
+		add_settings_field( 'twitter_show_title', 'Title in Tweet text',  
+			array($this, 'renderCheckbox'), $page,  $section, 
+			array('twitter_show_title', 'Include the post/page title in the default Tweet text') );  
 		
 		
 	
@@ -470,6 +475,7 @@ class SH_Crafty_Social_Buttons_Admin {
 			$settings['show_on_home'] = isset($input['show_on_home']);
 			$settings['show_count'] = isset($input['show_count']);
 			$settings['new_window'] = isset($input['new_window']);
+			$settings['twitter_show_title'] = isset($input['twitter_show_title']);
 			
 			// our select boxes have constrained UI, so just update them
 			$settings['share_image_set'] = isset($input['share_image_set']) ? $input['share_image_set'] : 'simple';
@@ -482,7 +488,7 @@ class SH_Crafty_Social_Buttons_Admin {
 			$settings['twitter_body'] = sanitize_text_field ($input['twitter_body']);
 			
 			// including numeric ones
-			$settings['share_image_size'] = sanitize_text_field ($input['share_image_size']);
+			$settings['share_image_size'] = $this->sanitize_image_size($input['share_image_size']);
 			
 			
 	
@@ -496,7 +502,7 @@ class SH_Crafty_Social_Buttons_Admin {
 			$settings['link_caption'] = sanitize_text_field ($input['link_caption']);
 			
 			// including numeric ones
-			$settings['link_image_size'] = sanitize_text_field ($input['link_image_size']);
+			$settings['link_image_size'] = $this->sanitize_image_size($input['link_image_size']);
 			
 			// and the textboxes for all our services
 			foreach($this->all_services as $service) {
@@ -505,6 +511,20 @@ class SH_Crafty_Social_Buttons_Admin {
 
 		}
 		return $settings; 
+	}
+	
+	function sanitize_image_size($image_size_string) {
+		$size = sanitize_text_field ($image_size_string);
+		if (!is_numeric($size)) {
+			return 48;	
+		}
+		if ($size < 24) {
+			return 24;
+		}
+		if ($size > 64) {
+			return 64;
+		}
+		return $size;
 	}
 		
 	/**

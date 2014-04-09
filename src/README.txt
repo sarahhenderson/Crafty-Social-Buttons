@@ -91,6 +91,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 == Changelog ==
 
+= 1.1.1 =
+* Including page/post title in default tweet text is optional
+
 = 1.1.0 =
 * Allows you to choose the size of share and link buttons
 * CSS uses ID instead of class to better protect against theme interference
@@ -137,6 +140,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 * First version!
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+* Including page/post title in default tweet text is optional
 
 = 1.1.0 =
 * Allows you to choose the size of share and link buttons

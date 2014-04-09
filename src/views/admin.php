@@ -1,5 +1,4 @@
 ﻿            <div class="wrap <?php echo $this->plugin_slug; ?>">
-                <?php screen_icon(); ?>
                 <h2>Crafty Social Buttons</h2>
 
                 <?php  $active_tab = (isset($_GET[ 'tab' ])) ? $_GET[ 'tab' ] : 'share_options'; ?>
@@ -11,9 +10,7 @@
                        class="nav-tab <?php echo $active_tab == 'link_options' ? 'nav-tab-active' : ''; ?>">
                        Link Button Options</a> 
                 </h2>
-                
-                <? settings_errors(); ?>
-        
+                        
     			<form method="post" action="options.php">
         			<?php  
 					settings_fields( $this->plugin_slug );  

@@ -12,7 +12,7 @@ class SH_Crafty_Social_Buttons_Plugin {
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
 	 */
-	protected $version = '1.1.0';
+	protected $version = '1.1.1';
 
 	/**
 	 * Unique identifier for this plugin.
@@ -236,6 +236,7 @@ class SH_Crafty_Social_Buttons_Plugin {
 			'new_window'			=> true,
 			'email_body'			=> 'I thought you might like this: ',
 			'twitter_body'			=> '',
+			'twitter_show_title'	=> true,
 						
 			'link_image_set'	 	=> 'simple',
 			'link_image_size'		=> 48,

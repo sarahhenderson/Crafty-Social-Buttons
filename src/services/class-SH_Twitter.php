@@ -13,15 +13,20 @@ class SH_Twitter extends SH_Social_Service {
 	public function __construct($type, $settings) {
 		parent::__construct($type, $settings);
 		$this->service = "Twitter";
-		$this->text = isset($settings['twitter_body']) ? $settings['twitter_body'] : ''; 
+		$this->text = isset($settings['twitter_body']) ? $settings['twitter_body'] : '';
+		$this->show_title = isset($settings['twitter_show_title']) && $settings['twitter_show_title'];
 	}
 
 	
 	public function shareButton($url, $title = '', $showCount = false) {
 
+		if ($this->show_title) {
+			$this->text .= ' '.$title; 
+		}
+
 		$html = '<a class="' . $this->cssClass() . '" href="http://twitter.com/share?'
 			. 'url=' . $url 
-			. '&text=' . htmlspecialchars(urlencode(html_entity_decode(trim($this->text . ' ' . $title), ENT_COMPAT, 'UTF-8')), ENT_COMPAT, 'UTF-8')
+			. '&text=' . htmlspecialchars(urlencode(html_entity_decode(trim($this->text), ENT_COMPAT, 'UTF-8')), ENT_COMPAT, 'UTF-8')
 			. '" ' 
 			. ($this->newWindow ? 'target="_blank"' : '') . '>';
 	
