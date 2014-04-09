@@ -91,6 +91,10 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 == Changelog ==
 
+= 1.1.0 =
+* Allows you to choose the size of share and link buttons
+* CSS uses ID instead of class to better protect against theme interference
+
 = 1.0.12 =
 * Fixed bug where twitter prompt text wasn't appearing
 * Fixed ragged edge on somacro YouTube icon
@@ -134,6 +138,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 == Upgrade Notice ==
 
+= 1.1.0 =
+* Allows you to choose the size of share and link buttons
+
 = 1.0.10 =
 * Added RSS link button option
 * Fixed problem with special characters in titles appearing wrongly in the Twitter share
@@ -166,7 +173,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 These are the things currently in the pipeline:
 
-* Adding an option to choose image sizes for the icons
 * Changing the post count feature to request data only after the page is loaded so it doesn't slow things down so much.
+* Choosing which post types the share buttons are added to
+* Adding more services (ebay, Xing, Vimeo)
+* Adding your own icons (in a way that they don't disappear after you update the plugin)
 * Option to diplays in archives and category listings (?)
 * (Anything else?  You tell me!)

@@ -140,6 +140,10 @@ class SH_Crafty_Social_Buttons_Admin {
 		
 		add_settings_field( 'share_image_set', 'Image Set',  
 			array($this, 'renderImageSetSelect'), $page,  $section, array('share_image_set')  );  
+
+		add_settings_field( 'share_image_size', 'Image Size',  
+			array($this, 'renderNumericTextbox'), $page,  $section, 
+			array('share_image_size', 'Size in pixels, between 24 and 64')  );  
 		
 		add_settings_field( 'share_caption', 'Caption',  
 			array($this, 'renderTextbox'), $page,  $section, 
@@ -192,6 +196,9 @@ class SH_Crafty_Social_Buttons_Admin {
 	 
 		add_settings_field( 'link_image_set', 'Image Set',  
 			array($this, 'renderImageSetSelect'), $page,  $section, array('link_image_set')  );  
+		add_settings_field( 'link_image_size', 'Image Size',  
+			array($this, 'renderNumericTextbox'), $page,  $section, 
+			array('link_image_size', 'Size in pixels, between 24 and 64')  );  
 		
 		add_settings_field( 'link_caption', 'Caption',  
 			array($this, 'renderTextbox'), $page,  $section, 
@@ -341,6 +348,28 @@ class SH_Crafty_Social_Buttons_Admin {
             
 		<?php 
 	}
+
+	/**
+	 * Display a settings textbox
+	 */
+	public function renderNumericTextbox($args) {
+		$id = $args[0];
+		$settings = $this->getSettings();
+		$value = isset($settings[$id]) ? $settings[$id] : ' ';
+		$name = $this->plugin_slug . '[' . $args[0] . ']';
+		$description = isset($args[1]) ? $args[1] : '';
+		$min = isset($args[2]) ? $args[2] : 24;
+		$max = isset($args[3]) ? $args[3] : 64;
+		
+		?>
+
+            <input type="number" id="<?=$id?>" name="<?=$name?>" value="<?=$value?>" min="<?=$min?>" max="<?=$max?>" />
+            <span class="description">
+ 	           <?=$description?>
+            </span>
+            
+		<?php 
+	}
 	
 	/**
 	 * Display share settings section
@@ -376,6 +405,7 @@ class SH_Crafty_Social_Buttons_Admin {
 		$name = $this->plugin_slug . '[' . $args[0] . ']';
 		$settings = $this->getSettings();
 		$image_set = ($id == 'link_services') ? $settings['link_image_set'] : $settings['share_image_set'];
+		$image_size = ($id == 'link_services') ? $settings['link_image_size'] : $settings['share_image_size'];
 		$shareOrLink = ($id == 'link_services') ? 'Link' : 'Share';
 		$value = $settings[$id];
 		?>
@@ -385,7 +415,7 @@ class SH_Crafty_Social_Buttons_Admin {
                 <div class="csb-include-list chosen">
                     <div><span class="include-heading">Selected</span> (these will be displayed)</div>
                     <ul id="csbsort2" class="connectedSortable data-base="<?=$image_set?>"">
-                        <?php echo $this->get_selected_services_html($value, $image_set); ?>
+                        <?php echo $this->get_selected_services_html($value, $image_set, $image_size); ?>
                     </ul>
                     <input type="hidden" name="<?=$name?>" id="<?=$id?>" class="csb-services" />
                 </div>
@@ -393,7 +423,7 @@ class SH_Crafty_Social_Buttons_Admin {
                 <div class="csb-include-list available">
                     <div><span class="include-heading">Available</span> (these will <strong>not</strong> be displayed)</div>
                     <ul id="csbsort1" class="connectedSortable">
-                        <?php echo $this->get_available_services_html($value, $image_set, $shareOrLink); ?>
+                        <?php echo $this->get_available_services_html($value, $image_set, $image_size, $shareOrLink); ?>
                     </ul>
                     </center>
                 </div>
@@ -446,10 +476,14 @@ class SH_Crafty_Social_Buttons_Admin {
 			$settings['share_services'] = isset($input['share_services']) ? $input['share_services'] : '';
 			$settings['position'] = isset($input['position']) ? $input['position'] : 'below';
 			
-			// and finally, validate our text
+			// and finally, validate our text boxes
 			$settings['share_caption'] = sanitize_text_field ($input['share_caption']);
 			$settings['email_body'] = sanitize_text_field ($input['email_body']);
 			$settings['twitter_body'] = sanitize_text_field ($input['twitter_body']);
+			
+			// including numeric ones
+			$settings['share_image_size'] = sanitize_text_field ($input['share_image_size']);
+			
 			
 	
 		} else if ('link_options' == $tab) {
@@ -460,6 +494,9 @@ class SH_Crafty_Social_Buttons_Admin {
 			
 			// and finally, validate our text boxes
 			$settings['link_caption'] = sanitize_text_field ($input['link_caption']);
+			
+			// including numeric ones
+			$settings['link_image_size'] = sanitize_text_field ($input['link_image_size']);
 			
 			// and the textboxes for all our services
 			foreach($this->all_services as $service) {
@@ -473,7 +510,7 @@ class SH_Crafty_Social_Buttons_Admin {
 	/**
 	 * Get list item HTML for selected services from our text list
 	 */
-	function get_selected_services_html($selectedServicesString, $image_set) {
+	function get_selected_services_html($selectedServicesString, $image_set, $image_size) {
 
 		$htmlListItems = '';	
 		if ($selectedServicesString != '') {
@@ -481,7 +518,7 @@ class SH_Crafty_Social_Buttons_Admin {
 			$selectedServices = explode(',', $selectedServicesString); // explode string to array
 			foreach ($selectedServices as $service) {
 				$url = plugin_dir_url(__FILE__) . "buttons/" . $image_set . "/" . $service . ".png";
-				$htmlListItems .= $this->get_service_icon_html($url, $service, $image_set);
+				$htmlListItems .= $this->get_service_icon_html($url, $service, $image_set, $image_size);
 			}
 		}
 		return $htmlListItems;
@@ -490,7 +527,7 @@ class SH_Crafty_Social_Buttons_Admin {
 	/**
 	 * Get list item HTML for all services EXCEPT those already selected
 	 */
-	function get_available_services_html($selectedServicesString, $image_set, $shareOrLink = 'Share') {
+	function get_available_services_html($selectedServicesString, $image_set, $image_size, $shareOrLink = 'Share') {
 	
 		$htmlListItems = '';	
 		$selectedServices = array();
@@ -503,7 +540,7 @@ class SH_Crafty_Social_Buttons_Admin {
 			if (in_array($service, $selectedServices)) continue;
 				
 			$url = plugin_dir_url(__FILE__) . "buttons/" . $image_set . "/" . $service . ".png";
-			$htmlListItems .= $this->get_service_icon_html($url, $service, $image_set);
+			$htmlListItems .= $this->get_service_icon_html($url, $service, $image_set, $image_size);
 		
 		}
 		
@@ -521,11 +558,11 @@ class SH_Crafty_Social_Buttons_Admin {
 	/**
 	 * Get html for a single service icon for selection on the admin page
 	 */
-	function get_service_icon_html($url, $service, $image_set) {
+	function get_service_icon_html($url, $service, $image_set, $image_size) {
 		return '<li id="' . $service
 				.'"><img src="' . strtolower($url) 
 				. '" data-image-set="' . strtolower($image_set)
-				. '" alt="' . $service . '" width="48" height="48" /></li>';
+				. '" alt="' . $service . '" width="'.$image_size.'" height="'.$image_size.'" /></li>';
 
 	}
 	
@@ -534,7 +571,8 @@ class SH_Crafty_Social_Buttons_Admin {
 	 */	
 	function getSettings() {
 		$settings = get_option($this->plugin_slug);
-		return $settings;
+		$defaults = SH_Crafty_Social_Buttons_Plugin::get_default_settings();
+		return wp_parse_args($settings, $defaults);
 	}	
 
 }

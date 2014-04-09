@@ -11,12 +11,16 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 class SH_Social_Service {
 
 	// construct the class
-	public function __construct($newWindow, $imageSet, $settings) {
-		$this->newWindow = $newWindow;
-		$this->imagePath = plugins_url() . "/crafty-social-buttons/buttons/$imageSet/";
-		$this->imageExtension = ".png";
-		$this->settings = $settings;
+	public function __construct($type, $settings) {
 		$this->service = "Default"; // must be set correctly in the subclass constructors
+		$this->settings = $settings;
+
+		$imageSet = $settings[$type.'_image_set'];
+		$this->imagePath = plugins_url() . "/crafty-social-buttons/buttons/$imageSet/";
+
+		$this->imageExtension = ".png";
+		$this->imageSize = $settings[$type.'_image_size'];
+		$this->newWindow = $settings['new_window'];
 	}
 	
 	// generates the css class for the button link
@@ -50,7 +54,11 @@ class SH_Social_Service {
 
 	protected function buttonImage() {
 		$imageUrl = $this->imagePath . trim(strtolower($this->service)) . $this->imageExtension;
-		return '<img title="'.$this->service.'" alt="'.$this->service. '" src="' . $imageUrl .'" />';
+		return '<img title="'.$this->service.'" '
+		.'alt="'.$this->service.'" '
+		.'width="'.$this->imageSize.'" '
+		.'height="'.$this->imageSize.'" '
+		.'src="' . $imageUrl .'" />';
 	}
 	
 }

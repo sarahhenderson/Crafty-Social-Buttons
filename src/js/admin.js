@@ -26,10 +26,28 @@
 				var fileSrc = $(item).attr('src');
 				var oldSet = $(item).attr('data-image-set');
 				var	newPath = fileSrc.replace(oldSet, imageset);
-				console.log(newPath);
 				$(item).attr('src', newPath);
 				$(item).attr('data-image-set', imageset);
 		});
 	});
+
+	$('#share_image_size').bind('input', function() {
+		var imagesize = $(this).val();
+		
+		$.each($(".csb-services img"), function(index, item) {
+				$(item).attr('width', imagesize);
+				$(item).attr('height', imagesize);
+		});
+	});
+
+	$('#link_image_size').bind('input', function() {
+		var imagesize = $(this).val();
+		
+		$.each($(".csb-services img"), function(index, item) {
+				$(item).attr('width', imagesize);
+				$(item).attr('height', imagesize);
+		});
+	});
+
 	  
 });

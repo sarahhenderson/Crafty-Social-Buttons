@@ -12,7 +12,7 @@ class SH_Crafty_Social_Buttons_Plugin {
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
 	 */
-	protected $version = '1.0.10';
+	protected $version = '1.1.0';
 
 	/**
 	 * Unique identifier for this plugin.
@@ -225,6 +225,7 @@ class SH_Crafty_Social_Buttons_Plugin {
 			'configured'			=> false,
 			
 			'share_image_set' 	=> 'simple',
+			'share_image_size'		=> 48,
 			'share_caption'		=> 'Share this:',
 			'share_services'		=> 'Facebook,Google,Twitter,Ravelry',
 			'show_on_posts'		=> false,
@@ -234,9 +235,10 @@ class SH_Crafty_Social_Buttons_Plugin {
 			'show_count'			=> false,
 			'new_window'			=> true,
 			'email_body'			=> 'I thought you might like this: ',
-			'twitter_body'			=> 'I like this: ',
+			'twitter_body'			=> '',
 						
 			'link_image_set'	 	=> 'simple',
+			'link_image_size'		=> 48,
 			'link_caption'			=> 'Find me on:',
 			'link_services'		=> 'Facebook,Google,Twitter,Ravelry,Etsy',
 		);

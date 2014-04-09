@@ -10,8 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // widget class
 class SH_Twitter extends SH_Social_Service {
 	
-	public function __construct($newWindow, $imageSet, $settings) {
-		parent::__construct($newWindow, $imageSet, $settings);
+	public function __construct($type, $settings) {
+		parent::__construct($type, $settings);
 		$this->service = "Twitter";
 		$this->text = isset($settings['twitter_body']) ? $settings['twitter_body'] : ''; 
 	}

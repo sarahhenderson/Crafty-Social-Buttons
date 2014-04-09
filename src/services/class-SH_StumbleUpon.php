@@ -10,8 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // widget class
 class SH_StumbleUpon extends SH_Social_Service {
 
-	public function __construct($newWindow, $imageSet, $settings) {
-		parent::__construct($newWindow, $imageSet, $settings);
+	public function __construct($type, $settings) {
+		parent::__construct($type, $settings);
 		$this->service = "StumbleUpon";
 		$this->imageUrl = $this->imagePath . "stumbleupon.png";
 	}

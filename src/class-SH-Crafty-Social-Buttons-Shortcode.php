@@ -167,7 +167,7 @@ class SH_Crafty_Social_Buttons_Shortcode {
 		$url = get_permalink($post->ID);	
 		$title = get_the_title($post->ID);
 
-		$buttonHtml = '<div class="crafty-social-buttons crafty-social-'.$type.'-buttons">';
+		$buttonHtml = '<div id="crafty-social-buttons" class="crafty-social-'.$type.'-buttons">';
 		if ($text != '') {
 				$buttonHtml .= '<span class="crafty-social-caption">' . $text . '</span>';
 		}
@@ -198,7 +198,7 @@ class SH_Crafty_Social_Buttons_Shortcode {
 		
 			$file = include_once(plugin_dir_path(__FILE__) . "services/class-$class.php");
 			
-			$service = new $class($settings['new_window'], $settings[$type.'_image_set'], $settings);
+			$service = new $class($type, $settings);
 			
 			$username = isset($settings[$serviceName]) ? $settings[$serviceName] : '';
 			if ('share' == $type) {
