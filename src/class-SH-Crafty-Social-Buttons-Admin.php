@@ -122,7 +122,8 @@ class SH_Crafty_Social_Buttons_Admin {
 			}
 		}
 
-		$directory = wp_upload_dir()['basedir'] . '/crafty-social-buttons/buttons'; // custom image sets
+        $upload_dir = wp_upload_dir();
+		$directory = $upload_dir['basedir'] . '/crafty-social-buttons/buttons'; // custom image sets
 		if (is_dir($directory)) {
 			foreach ( scandir( $directory ) as $folder ) {
 				if ( '.' === $folder ) {
@@ -626,7 +627,8 @@ class SH_Crafty_Social_Buttons_Admin {
 	function get_service_icon_html( $service, $image_set, $image_size ) {
 		$filename = strtolower($service) . ".png";
 		$base_url = plugin_dir_url( __FILE__ ) . "buttons/";
-		$alt_url = wp_upload_dir()['baseurl'] . '/' . $this->plugin_slug . "/buttons/";
+        $upload_dir = wp_upload_dir();
+		$alt_url = $upload_dir['baseurl'] . '/' . $this->plugin_slug . "/buttons/";
 
 		$url = $base_url . $image_set . "/" . $filename;
 		$path = plugin_dir_path( __FILE__ ) . "buttons/" . $image_set . "/" . $filename;

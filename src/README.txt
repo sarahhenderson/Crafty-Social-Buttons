@@ -91,6 +91,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 == Changelog ==
 
+= 1.2.1 =
+* Fixed bug causing fatal errors in some versions of PHP
+
 = 1.2.0 =
 * Share counts are now loaded via Ajax (so don't slow down the page loading)
 * Custom icons can be placed under wp-content (so aren't deleted when the plugin is updated)

@@ -36,7 +36,8 @@ class SH_Social_Service {
 		if (is_dir($plugin_file_path)) {
 			return $plugin_url;
 		} else {
-			$custom_url = wp_upload_dir()['baseurl'] . "/crafty-social-buttons/buttons/$imageSet/";
+            $upload_dir = wp_upload_dir();
+			$custom_url = $upload_dir['baseurl'] . "/crafty-social-buttons/buttons/$imageSet/";
 			return $custom_url;
 		}
 	}
