@@ -10,8 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // widget class
 class SH_Facebook extends SH_Social_Service {
 
-	public function __construct($type, $settings) {
-		parent::__construct($type, $settings);
+	public function __construct($type, $settings, $key) {
+		parent::__construct($type, $settings, $key);
 		$this->service = "Facebook";
 		$this->imageUrl = $this->imagePath . "facebook.png";
 	}
@@ -22,11 +22,9 @@ class SH_Facebook extends SH_Social_Service {
 			 . 'u=' . $url. '" ' 
 			 . ($this->newWindow ? 'target="_blank"' : '') . '>';
 	
-		$html .= $this->buttonImage();	
-	
-		if ($showCount) {
-			$html .= '<span class="crafty-social-share-count">' . $this->shareCount($url) . '</span>';	
-		}
+		$html .= $this->buttonImage();
+
+		$html .= $this->shareCountHtml($showCount);
 	
 		$html .= '</a>';
 	
@@ -59,6 +57,8 @@ class SH_Facebook extends SH_Social_Service {
 			 $json = json_decode($response['body'], true);
 			 if (isset($json['shares'])) {
 				 return $json['shares'];
+			 } elseif (isset($json['likes'])) {
+				 return $json['likes'];
 			 } else {
 				 return '0';
 			 }

@@ -4,10 +4,11 @@
 	 $( "#csbsort1, #csbsort2" ).sortable({
 			connectWith: ".connectedSortable",
 			update: function() {
-				var newList = $('#csbsort2 li').map(function() {
-					// For each <li> in the list, the id as a text array
-					return $(this).attr('id');
-				}).get();
+                var newList;
+                newList = $('#csbsort2 li').map(function () {
+                    // For each <li> in the list, the id as a text array
+                    return $(this).attr('id');
+                }).get();
 				
 				$('.csb-services').val(newList);
 			}
@@ -20,14 +21,24 @@
 	
 	$('.csb-image-set').change(function() {
 		var imageset = $(this).val();
-		var basePath = $(".csb-image-preview").attr('data-base');
-		
+
 		$.each($(".csb-services img"), function(index, item) {
-				var fileSrc = $(item).attr('src');
-				var oldSet = $(item).attr('data-image-set');
-				var	newPath = fileSrc.replace(oldSet, imageset);
-				$(item).attr('src', newPath);
-				$(item).attr('data-image-set', imageset);
+
+            var url = $(item).attr('data-url');
+            var altUrl = $(item).attr('data-alt-url');
+            var filename = $(item).attr('data-filename');
+
+            var newPath = url + imageset + '/' + filename;
+            var altPath = altUrl + imageset + '/' + filename;
+
+            $(item).attr('src', newPath);
+            $(item).attr('data-image-set', imageset);
+
+            $.ajax(newPath, { method: 'get', // make sure the file exists
+                error: function(jqXHR, status, error) {
+                    $(item).attr('src', altPath);
+                }
+            });
 		});
 	});
 

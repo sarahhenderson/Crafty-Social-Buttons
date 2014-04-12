@@ -10,8 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // widget class
 class SH_Pinterest extends SH_Social_Service {
 
-	public function __construct($type, $settings) {
-		parent::__construct($type, $settings);
+	public function __construct($type, $settings, $key) {
+		parent::__construct($type, $settings, $key);
 		$this->service = "Pinterest";
 		$this->imageUrl = $this->imagePath . "pinterest.png";
 	}
@@ -20,11 +20,9 @@ class SH_Pinterest extends SH_Social_Service {
 		
 		$html = "<a class=\"" . $this->cssClass() . "\" href='javascript:void((function()%7Bvar%20e=document.createElement(&apos;script&apos;);e.setAttribute(&apos;type&apos;,&apos;text/javascript&apos;);e.setAttribute(&apos;charset&apos;,&apos;UTF-8&apos;);e.setAttribute(&apos;src&apos;,&apos;http://assets.pinterest.com/js/pinmarklet.js?r=&apos;+Math.random()*99999999);document.body.appendChild(e)%7D)());'>";
 
-		$html .= $this->buttonImage();	
-		
-		if ($showCount) {
-			$html .= '<span class="crafty-social-share-count">' . $this->shareCount($url) . '</span>';	
-		}
+		$html .= $this->buttonImage();
+
+		$html .= $this->shareCountHtml($showCount);
 
 		$html .= '</a>';
 	
@@ -49,12 +47,12 @@ class SH_Pinterest extends SH_Social_Service {
 	}
 	
 	public function shareCount($url) {
-		 $response = wp_remote_get('http://api.pinterest.com/v1/urls/count.json?callback=&url=' . $url);
+		 $response = wp_remote_get('http://api.pinterest.com/v1/urls/count.json?callback=receiveCount&url=' . $url);
 		 if (is_wp_error($response)){
         // return zero if response is error                             
         return "0";             
 		 } else {
-			 $responseBody = str_replace('(', '', $response['body']); // strip random extra parens in json
+			 $responseBody = str_replace('receiveCount(', '', $response['body']); // strip callback info from jsonp
 			 $responseBody = str_replace(')', '', $responseBody);
 			 $json = json_decode($responseBody, true);
 			 if (isset($json['count'])) {

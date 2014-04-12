@@ -10,8 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // widget class
 class SH_Etsy extends SH_Social_Service {
 	
-	public function __construct($type, $settings) {
-		parent::__construct($type, $settings);
+	public function __construct($type, $settings, $key) {
+		parent::__construct($type, $settings, $key);
 		$this->service = "Etsy";
 		$this->imageUrl = $this->imagePath . "etsy.png";
 	}

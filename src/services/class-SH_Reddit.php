@@ -10,8 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // widget class
 class SH_Reddit extends SH_Social_Service {
 
-	public function __construct($type, $settings) {
-		parent::__construct($type, $settings);
+	public function __construct($type, $settings, $key) {
+		parent::__construct($type, $settings, $key);
 		$this->service = "Reddit";
 		$this->imageUrl = $this->imagePath . "reddit.png";
 	}
@@ -23,11 +23,9 @@ class SH_Reddit extends SH_Social_Service {
 			. '&title=' . urlencode($title) . '" ' 
 			. ($this->newWindow ? 'target="_blank"' : '') . '>';
 	
-		$html .= $this->buttonImage();	
-		
-		if ($showCount) {
-			$html .= '<span class="crafty-social-share-count">' . $this->shareCount($url) . '</span>';	
-		}
+		$html .= $this->buttonImage();
+
+		$html .= $this->shareCountHtml($showCount);
 
 		$html .= '</a>';
 	
@@ -52,7 +50,7 @@ class SH_Reddit extends SH_Social_Service {
 	}
 	
 	public function shareCount($url) {
-		 $response = wp_remote_get('www.reddit.com/api/info.json?url=' . $url);
+		 $response = wp_remote_get('http://www.reddit.com/api/info.json?url=' . $url);
 		 if (is_wp_error($response)){
         // return zero if response is error                             
         return "0";             
@@ -65,6 +63,7 @@ class SH_Reddit extends SH_Social_Service {
 			 }
 		 }
 	}
+
 	public static function description() {
 		return "Hint: www.reddit.com/user/<strong>user-id</strong>";	
 	}

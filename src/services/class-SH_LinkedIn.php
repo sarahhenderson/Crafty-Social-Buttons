@@ -10,8 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // widget class
 class SH_LinkedIn extends SH_Social_Service {
 
-	public function __construct($type, $settings) {
-		parent::__construct($type, $settings);
+	public function __construct($type, $settings, $key) {
+		parent::__construct($type, $settings, $key);
 		$this->service = "LinkedIn";
 		$this->imageUrl = $this->imagePath . "linkedin.png";
 	}
@@ -23,11 +23,9 @@ class SH_LinkedIn extends SH_Social_Service {
 			 . '&title=' . urlencode($title) . '" ' 
 			 . ($this->newWindow ? 'target="_blank"' : '') . '>';
 	
-		$html .= $this->buttonImage();	
-		
-		if ($showCount) {
-			$html .= '<span class="crafty-social-share-count">' . $this->shareCount($url) . '</span>';	
-		}
+		$html .= $this->buttonImage();
+
+		$html .= $this->shareCountHtml($showCount);
 
 		$html .= '</a>';
 	
@@ -56,15 +54,11 @@ class SH_LinkedIn extends SH_Social_Service {
 
 	public function shareCount($url) {
    	
-		 $response = wp_remote_get('http://www.linkedin.com/countserv/count/share?url=' . $url);
+		 $response = wp_remote_get('http://www.linkedin.com/countserv/count/share?format=json&url=' . $url);
 		 if (is_wp_error($response)){
         // return zero if response is error                             
         return "0";             
 		 } else {
-	
-			$responseBody = str_replace('IN.Tags.Share.handleCount(', '', $response['body']);
-    	   $responseBody = str_replace(');', '', $responseBody);
-
 			 $json = json_decode($response['body'], true);
 			 if (isset($json['count'])) {
 				 return $json['count'];

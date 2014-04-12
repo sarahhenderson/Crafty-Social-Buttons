@@ -10,8 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // widget class
 class SH_Digg extends SH_Social_Service {
 
-	public function __construct($type, $settings) {
-		parent::__construct($type, $settings);
+	public function __construct($type, $settings, $key) {
+		parent::__construct($type, $settings, $key);
 		$this->service = "Digg";
 	}
 
@@ -21,8 +21,8 @@ class SH_Digg extends SH_Social_Service {
 			. 'url='. $url. '" ' 
 			. ($this->newWindow ? 'target="_blank"' : '') . '>';
 	
-		$html .= $this->buttonImage();	
-		
+		$html .= $this->buttonImage();
+
 		$html .= '</a>';
 	
 		return $html;
@@ -44,7 +44,7 @@ class SH_Digg extends SH_Social_Service {
 	
 		return $html;
 	}
-	
+
 	public static function description() {
 		return "Hint: www.digg.com/<strong>user-id</strong>";	
 	}

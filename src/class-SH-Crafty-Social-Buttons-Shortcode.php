@@ -110,7 +110,7 @@ class SH_Crafty_Social_Buttons_Shortcode {
 				default:
 				return $content;
 			}
-	
+
 		}
 		return $content;
 	}
@@ -167,6 +167,15 @@ class SH_Crafty_Social_Buttons_Shortcode {
 		$url = get_permalink($post->ID);	
 		$title = get_the_title($post->ID);
 
+		if ($showCount && $type == 'share') { // add url and title to JS for our scripts to access
+			$data = array( 'url' => $url,
+						   'callbackUrl' => wp_nonce_url(admin_url( 'admin-ajax.php' ) . '?action=share_count'),
+			               'title' => $title,
+			               'services' => $selectedServices,
+						   'key' => $post->ID);
+			wp_localize_script( $this->plugin_slug . '-scripts', 'crafty_social_buttons_data_'.$post->ID, $data );
+		}
+
 		$buttonHtml = '<div id="crafty-social-buttons" class="crafty-social-'.$type.'-buttons">';
 		if ($text != '') {
 				$buttonHtml .= '<span class="crafty-social-caption">' . $text . '</span>';
@@ -176,7 +185,7 @@ class SH_Crafty_Social_Buttons_Shortcode {
 		// generate markup for each button
 		foreach ($selectedServices as $serviceName) {
 
-			 $button = $this->get_individual_button_html($type, $serviceName, $url, $title, $showCount, $settings);						
+			 $button = $this->get_individual_button_html($type, $serviceName, $url, $title, $showCount, $settings, $post->ID);
 			 if (!empty($button)) {
 				 $buttonHtml .= '<li>' . $button . '</li>';
 			 }
@@ -189,7 +198,7 @@ class SH_Crafty_Social_Buttons_Shortcode {
 	/**
 	 * Generates the markup for an individual share button
 	 */
-	function get_individual_button_html($type, $serviceName, $url, $title, $showCount, $settings) {
+	function get_individual_button_html($type, $serviceName, $url, $title, $showCount, $settings, $key) {
 			
 		include_once(plugin_dir_path(__FILE__) . "services/class-SH_Social_Service.php");
 		$class = "SH_$serviceName";
@@ -198,7 +207,7 @@ class SH_Crafty_Social_Buttons_Shortcode {
 		
 			$file = include_once(plugin_dir_path(__FILE__) . "services/class-$class.php");
 			
-			$service = new $class($type, $settings);
+			$service = new $class($type, $settings, $key);
 			
 			$username = isset($settings[$serviceName]) ? $settings[$serviceName] : '';
 			if ('share' == $type) {
@@ -214,7 +223,7 @@ class SH_Crafty_Social_Buttons_Shortcode {
 	/**
 	 * Generates the markup for an individual link button
 	 */
-	function get_individual_link_button_html($serviceName, $settings) {
+	function get_individual_link_button_html($serviceName, $settings, $key = '') {
 			
 		include_once(plugin_dir_path(__FILE__) ."services/class-SH_Social_Service.php");
 		$class = "SH_$serviceName";
@@ -222,7 +231,7 @@ class SH_Crafty_Social_Buttons_Shortcode {
 		if (file_exists(plugin_dir_path(__FILE__) . "services/class-$class.php")) {
 		
 			$file = include_once(plugin_dir_path(__FILE__) ."services/class-$class.php");
-			$service = new $class($settings['new_window'], $settings['link_image_set'], $settings);
+			$service = new $class($settings['new_window'], $settings['link_image_set'], $settings, $key);
 		
 			return $service->linkButton();
 		

@@ -50,7 +50,7 @@
 	margin-top: -6px;
 }
 #crafty-social-buttons .crafty-social-share-count {
-	font: 11px Arial, Helvetica, sans-serif;
+	font: 18px Arial, Helvetica, sans-serif;
 	color: #555e58;
 	padding: 5px;
 	-khtml-border-radius: 6px;
@@ -61,4 +61,9 @@
 	position: relative;
 	background: #f5f5f5;
 	border: 1px solid #e0dddd;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 2px;
+    min-width: 24px;
+    text-align: center;
 }
