@@ -91,6 +91,12 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 == Changelog ==
 
+= 1.2.0 =
+* Share counts are now loaded via Ajax (so don't slow down the page loading)
+* Custom icons can be placed under wp-content (so aren't deleted when the plugin is updated)
+* Fixed issues with share counts not being retrieved because of API changes
+* Improved layout of share count bubbles
+
 = 1.1.1 =
 * Including page/post title in default tweet text is optional
 
@@ -141,6 +147,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 == Upgrade Notice ==
 
+= 1.2.0 =
+* Share counts load faster and look better
+
 = 1.1.1 =
 * Including page/post title in default tweet text is optional
 
@@ -179,9 +188,7 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 These are the things currently in the pipeline:
 
-* Changing the post count feature to request data only after the page is loaded so it doesn't slow things down so much.
 * Choosing which post types the share buttons are added to
 * Adding more services (ebay, Xing, Vimeo)
-* Adding your own icons (in a way that they don't disappear after you update the plugin)
-* Option to diplays in archives and category listings (?)
+* Option to display in archives and category listings (?)
 * (Anything else?  You tell me!)
