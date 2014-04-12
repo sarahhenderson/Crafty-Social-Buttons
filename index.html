@@ -139,7 +139,7 @@
         <section id="download">    
         	<h1>Download</h1>
 			<div class="well well-lg">
-<a href="downloads/crafty-social-buttons-1.1.1.zip" class="btn btn-success btn-lg"><i class="glyphicon glyphicon-download"></i> Download crafty-social-buttons-1.1.1.zip (2.51MB)</a>
+<a href="downloads/crafty-social-buttons-1.2.0.zip" class="btn btn-success btn-lg"><i class="glyphicon glyphicon-download"></i> Download crafty-social-buttons-1.2.0.zip (2.51MB)</a>
             </div>
 
 		</section>
@@ -327,7 +327,7 @@
         <section id="styling">    
         	<h1>Instructions | Styling</h1>
             <p>You can override the styles used by the plugin to better match your theme.</p>
-            <p>The entire block is wrapped in a <code>.crafty-social-buttons</code> class, as well as either
+            <p>The entire block is wrapped in a <code>#crafty-social-buttons</code> id, as well as either
             <code>.crafty-social-share-buttons</code> or <code>.crafty-social-link-buttons</code>, so you can
             style the share and link buttons separately.</p>
             <p>The caption is an inline-block with the class <code>.crafty-social-caption</code>.  The images
@@ -339,17 +339,8 @@
         
         <section id="changing-sizes">    
         	<h1>Instructions | Changing Sizes</h1>
-            <p>This is the CSS that determines the default icon size:
-<pre>
-.crafty-social-buttons img
- {
-	max-width: 48px;
-	max-height: 48px;	
-}
-</pre>
-			<p>You can override that in your theme to change the icon size.  The icon images are mostly
-            64x64px so they won't look good if they are bigger than that.</p>
-
+            <p>You can change the size of the buttons in the options screen.  You can choose any size
+            between 24x24px and 64x64px.</p>
 		</section>
         
         
@@ -358,19 +349,26 @@
 			<h1>Instructions | Adding Icons</h1>
             <p>Here is what you need to do:</p>
             <ol>
-            	<li>Prepare your icons.  They should ideally be 48px square and png format.  
-                If they aren't that size, see
-                <a href="#changing-sizes">above</a> for how to modify your CSS to set a different size.</li>
+            	<li>Prepare your icons.  They must be png format and square.  They should be between
+                    24x24px and 64x64px.</li>
             	<li>Name your icons the same
                 as the existing icon sets.  The names are quite straighforward, e.g. 
                 <code>facebook.png</code> and <code>ravelry.png</code>.</li>
-                <li>Find the <code>buttons</code> folder inside the <code>crafty-social-buttons</code>
-                plugin folder.</li>
-                <li>Create a new folder inside here (next to the existing folders).  It is best if your 
+                <li>Create the following folder structure: <code>/wp-content/uploads/crafty-social-buttons/buttons</code></li>
+                <li>Create a new folder inside the buttons folder for your custom icons,
+                    e.g. <code><em>my-custom-icon-set</em></code>.  It is best if your
                 folder name doesn't have spaces or punctuation</li>
-                <li>Upload your icons into this folder</li>
+                <li>Upload your icons into the <code><em>my-custom-icon-set</em></code> folder you just created.</li>
             </ol>
-            <p>You should now be able to choose your custom icon set in the settings screen.</p>
+            <p>As a check, the plugin should be able to find the facebook icon at
+                <code>/wp-content/uploads/crafty-social-buttons/buttons/<em>my-custom-icon-set</em>/facebook.png</code></p>
+
+            <p>You should now be able to choose <em>my-custom-icon-set</em> from the image sets in the options screen.</p>
+
+            <p class="text-muted">Note: previously, these instructions said to put your icons inside the plugins subdirectory.
+                That works, but when you update the plugin via WordPress, it deletes everything and the custom icons are lost.
+                Putting them under wp-content/uploads is a little more hassle, but means the icons won't disappear.
+            </p>
         </section>
         
         
