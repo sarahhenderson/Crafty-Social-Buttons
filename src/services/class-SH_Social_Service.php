@@ -31,7 +31,7 @@ class SH_Social_Service {
 
 	protected function getImageUrlPath($imageSet) {
 		$plugin_url = plugins_url() . "/crafty-social-buttons/buttons/$imageSet/";
-		$plugin_file_path = plugin_dir_path(__FILE__) . "..\buttons\\$imageSet";
+		$plugin_file_path = plugin_dir_path(__FILE__) . "../buttons/$imageSet";
 
 		if (is_dir($plugin_file_path)) {
 			return $plugin_url;

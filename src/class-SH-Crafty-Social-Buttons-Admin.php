@@ -122,7 +122,7 @@ class SH_Crafty_Social_Buttons_Admin {
 			}
 		}
 
-		$directory = wp_upload_dir()['basedir'] . '\crafty-social-buttons\buttons'; // custom image sets
+		$directory = wp_upload_dir()['basedir'] . '/crafty-social-buttons/buttons'; // custom image sets
 		if (is_dir($directory)) {
 			foreach ( scandir( $directory ) as $folder ) {
 				if ( '.' === $folder ) {
