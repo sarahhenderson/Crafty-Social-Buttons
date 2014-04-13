@@ -176,7 +176,7 @@ class SH_Crafty_Social_Buttons_Shortcode {
 			wp_localize_script( $this->plugin_slug . '-scripts', 'crafty_social_buttons_data_'.$post->ID, $data );
 		}
 
-		$buttonHtml = '<div id="crafty-social-buttons" class="crafty-social-'.$type.'-buttons">';
+		$buttonHtml = '<div id="crafty-social-buttons" class="crafty-social-buttons crafty-social-'.$type.'-buttons">';
 		if ($text != '') {
 				$buttonHtml .= '<span class="crafty-social-caption">' . $text . '</span>';
 		}
