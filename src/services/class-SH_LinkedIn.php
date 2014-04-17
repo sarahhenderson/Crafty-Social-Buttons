@@ -33,8 +33,8 @@ class SH_LinkedIn extends SH_Social_Service {
 	}
 	
 	public function linkButton($username) {
-		
-		if (strpos($username, 'http://') === 0) {
+
+        if (strpos($username, 'http://') === 0 || strpos($username, 'https://') === 0) {
 			$url = $username;
 		} else if (strpos($username, "company/") === 0) {
 			$url = "http://linkedin.com/$username";
@@ -69,7 +69,7 @@ class SH_LinkedIn extends SH_Social_Service {
 	}
 
 	public static function description() {
-		return "Hint: www.linkedin.com/in/<strong>user-id</strong> or www.linkedin.com/<strong>company/company-id</strong>";	
+		return __('Hint','crafty-social-buttons') . ": www.linkedin.com/in/<strong>user-id</strong> or www.linkedin.com/<strong>company/company-id</strong>";
 	}
 }
 

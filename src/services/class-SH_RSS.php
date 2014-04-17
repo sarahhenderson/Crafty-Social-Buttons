@@ -39,7 +39,7 @@ class SH_RSS extends SH_Social_Service {
 	}
 
 	public static function description() {
-		return "Hint: enter full url for feed service (including http://) or leave blank to use built-in WordPress RSS feed url";	
+		return __('Hint: enter full url for feed service (including http://) or leave blank to use built-in WordPress RSS feed url','crafty-social-buttons');
 	}
 
 }

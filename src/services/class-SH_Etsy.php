@@ -22,8 +22,8 @@ class SH_Etsy extends SH_Social_Service {
 	}
 	
 	public function linkButton($username) {
-		
-		if (strpos($username, 'http://') === 0) {
+
+        if (strpos($username, 'http://') === 0 || strpos($username, 'https://') === 0) {
 			$url = $username;
 		} else {
 			$url = "http://etsy.com/shop/$username";
@@ -43,7 +43,7 @@ class SH_Etsy extends SH_Social_Service {
 	}
 
 	public static function description() {
-		return "Hint: www.etsy.com/shop/<strong>user-id</strong>/";	
+		return __('Hint','crafty-social-buttons') . ": www.etsy.com/shop/<strong>user-id</strong>/";
 	}
 }
 ?>

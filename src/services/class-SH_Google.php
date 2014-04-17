@@ -34,8 +34,8 @@ class SH_Google extends SH_Social_Service {
 	}
 	
 	public function linkButton($username) {
-		
-		if (strpos($username, 'http://') === 0) {
+
+        if (strpos($username, 'http://') === 0 || strpos($username, 'https://') === 0) {
 			$url = $username;
 		} else {
 			$url = "http://plus.google.com/$username";
@@ -90,7 +90,7 @@ class SH_Google extends SH_Social_Service {
 	}
 
 	public static function description() {
-		return "Hint: plus.google.com/u/0/<strong>user-id</strong> (it's a long number)";	
+		return __('Hint','crafty-social-buttons') . ": plus.google.com/u/0/<strong>user-id</strong> (".__('a long number','crafty-social-buttons') .")";
 	}
 }
 ?>

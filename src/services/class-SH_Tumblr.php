@@ -38,7 +38,8 @@ class SH_Tumblr extends SH_Social_Service {
 	}
 	
 	public function linkButton($username) {
-		if (strpos($username, 'http://') === 0) {
+
+        if (strpos($username, 'http://') === 0 || strpos($username, 'https://') === 0) {
 			$url = $username;
 		} else {
 			$url = "http://".$username.".tumblr.com/";
@@ -54,7 +55,7 @@ class SH_Tumblr extends SH_Social_Service {
 	}
 	
 	public static function description() {
-		return "Hint: http://<strong>user-id</strong>.tumblr.com";	
+		return __('Hint','crafty-social-buttons') . ": http://<strong>user-id</strong>.tumblr.com";
 	}
 }
 

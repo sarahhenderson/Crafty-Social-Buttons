@@ -40,8 +40,8 @@ class SH_Twitter extends SH_Social_Service {
 	}
 	
 	public function linkButton($username) {
-		
-		if (strpos($username, 'http://') === 0) {
+
+        if (strpos($username, 'http://') === 0 || strpos($username, 'https://') === 0) {
 			$url = $username;
 		} else {
 			$url = "http://twitter.com/$username";
@@ -73,7 +73,7 @@ class SH_Twitter extends SH_Social_Service {
 	}
 	
 	public static function description() {
-		return "Hint: @<strong>user-id</strong>";	
+		return __('Hint','crafty-social-buttons') . ": @<strong>user-id</strong>";
 	}
 }
 

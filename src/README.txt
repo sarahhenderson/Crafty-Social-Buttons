@@ -3,7 +3,7 @@ Contributors: shen045
 Donate link: http://sarahhenderson.info/donate
 Author URI: http://sarahhenderson.info
 Plugin URL: http://github.io/sarahhenderson/crafty-social-buttons
-Tags: social, social buttions, social icons, ravelry, etsy, craftsy, widget, shortcode
+Tags: social, social buttons, social icons, sharing, social sharing, facebook, google, pinterest, flickr, ravelry, etsy, craftsy, youtube, widget, shortcode
 Requires at least: 3.5
 Tested up to: 3.9
 Stable tag: trunk
@@ -61,7 +61,7 @@ You will also find a new Widget called Crafty Social Link Buttons, which can be 
 
 = Can I add a different set of icons? =
 
-Yes!  There are instructions in the help section of the Plugin (pull down the help menu in the top right of the WordPress admin, or at the plugin homepage.
+Yes!  There are instructions in the help section of the Plugin (pull down the help menu in the top right of the WordPress admin, or at the plugin webpage (http://sarahhenderson.github.io/Crafty-Social-Buttons/#adding-icons).
 
 = Can I add a different social/craft network ? =
 
@@ -79,7 +79,7 @@ If your theme doesn't have a widget area where you want the *Link Buttons* to be
 *  `<?php do_action('crafty-social-link-buttons'); ?>` 
 *  `<?php do_action('crafty-social-share-buttons'); ?>` 
 
-Since the *Share buttons* are page/post specific, the shortcode is usualy best, and since the *Link buttons* are site/site owner specific, the widget or action hook will normally be a better choice.
+Since the *Share buttons* are page/post specific, the shortcode is usually best, and since the *Link buttons* are site/site owner specific, the widget or action hook will normally be a better choice.
 
 == Screenshots ==
 
@@ -91,6 +91,11 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 
 == Changelog ==
 
+= 1.2.2 =
+* Changed font size of share buttons
+* CSS uses class instead of id to allow multiple sets of buttons per page
+* Allow https:// urls to override link button usernames
+
 = 1.2.1 =
 * Fixed bug causing fatal errors in some versions of PHP
 
@@ -99,6 +104,7 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 * Custom icons can be placed under wp-content (so aren't deleted when the plugin is updated)
 * Fixed issues with share counts not being retrieved because of API changes
 * Improved layout of share count bubbles
+* Admin section is translation-ready except for help section
 
 = 1.1.1 =
 * Including page/post title in default tweet text is optional
@@ -149,6 +155,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usualy best, 
 * First version!
 
 == Upgrade Notice ==
+
+= 1.2.2 =
+* Share count font sizes better match icon size
 
 = 1.2.0 =
 * Share counts load faster and look better

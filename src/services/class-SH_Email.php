@@ -43,7 +43,7 @@ class SH_Email extends SH_Social_Service {
 	}
 	
 	public static function description() {
-		return "Hint: Your email address";	
+		return __('Hint: Your email address','crafty-social-buttons');
 	}
 }
 ?>

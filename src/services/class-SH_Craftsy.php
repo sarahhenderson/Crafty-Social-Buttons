@@ -20,7 +20,7 @@ class SH_Craftsy extends SH_Social_Service {
 	}
 	
 	public function linkButton($username) {
-		if (strpos($username, 'http://') === 0) {
+		if (strpos($username, 'http://') === 0 || strpos($username, 'https://') === 0) {
 			$url = $username;
 		} else if (strpos($username, "instructors/") !== false) {
 			$url = "http://craftsy.com/$username";
@@ -47,7 +47,9 @@ class SH_Craftsy extends SH_Social_Service {
 	}
 	
 	public static function description() {
-		return "Hint: www.craftsy.com/user/<strong>user-id</strong>/ (numbers). For more options see Help > Link Buttons (link top right of screen)";	
+        return __('Hint','crafty-social-buttons').": www.craftsy.com/user/<strong>user-id</strong>/ ("
+        . __('numbers','crafty-social-buttons') .')'
+        . __('For more options see Help > Link Buttons (link top right of screen)','crafty-social-buttons');
 	}
 }
 ?>

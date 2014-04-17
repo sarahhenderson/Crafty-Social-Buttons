@@ -1,0 +1,283 @@
+# Copyright (C) 2014 Crafty Social Buttons
+# This file is distributed under the same license as the Crafty Social Buttons package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Crafty Social Buttons 1.2.2\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/src\n"
+"POT-Creation-Date: 2014-04-17 06:08:44+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:64
+msgid "You cannot access this page"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:69
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:169
+#: class-SH-Crafty-Social-Buttons-Admin.php:228
+msgid "Display Options"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:172
+#: class-SH-Crafty-Social-Buttons-Admin.php:231
+msgid "Image Set"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:175
+#: class-SH-Crafty-Social-Buttons-Admin.php:233
+msgid "Image Size"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:177
+#: class-SH-Crafty-Social-Buttons-Admin.php:235
+msgid "Size in pixels, between 24 and 64"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:179
+#: class-SH-Crafty-Social-Buttons-Admin.php:237
+msgid "Caption"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:181
+msgid "Displays before the set of share buttons"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:183
+#: class-SH-Crafty-Social-Buttons-Admin.php:241
+msgid "Show these services"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:187
+msgid "Above or below content"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:190
+msgid "Show on Posts"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:192
+msgid "Shows on post single individual pages"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:194
+msgid "Show on Pages"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:197
+msgid "Show on Home Page"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:202
+msgid "Advanced Options"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:204
+msgid "Open in new window"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:207
+msgid "Show post counts"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:209
+msgid "Only done if service supports it."
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:211
+msgid "Email text"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:214
+msgid "Tweet text"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:216
+msgid "Default Tweet text (user can override this)"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:218
+msgid "Title in Tweet text"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:222
+msgid "Include the post/page title in the default Tweet text"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:239
+msgid "Displays before the set of link buttons"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:246
+msgid "User IDs"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:281
+msgid "Welcome"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:287
+msgid "Share Buttons"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:293
+msgid "Link Buttons"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:299
+msgid "Widget"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:305
+msgid "Shortcodes"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:311
+msgid "Action Hooks"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:317
+msgid "Adding Icons"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:323
+msgid "Credits"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:329
+msgid "About Me"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:339
+msgid "Share Buttons will prompt the user to share the current post or page URL."
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:349
+msgid "Link Buttons will link to your user profile on each site."
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:351
+msgid "Enter your <strong>user id</strong> for each service you choose below to make the button link directly to your profile."
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:360
+msgid "Enter just your <strong>user id</strong> for each service, not the full URL. The bit in bold that says <strong>user-id</strong> in the hint is the part you should enter."
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:466
+msgid "Selected"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:466
+msgid "these will be displayed"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:474
+msgid "Available"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:475
+msgid "these will <strong>not</strong> be displayed"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:498
+msgid "Above"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:500
+msgid "Below"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Admin.php:502
+msgid "Both"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Plugin.php:201
+#: class-SH-Crafty-Social-Buttons-Plugin.php:202
+#: class-SH-Crafty-Social-Buttons-Widget.php:34 views/admin.php:2
+msgid "Crafty Social Buttons"
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Plugin.php:241
+msgid "You have taken too long. Please go back and retry."
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Plugin.php:248
+msgid "Service not specified."
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Plugin.php:256
+msgid "Url not specified."
+msgstr ""
+
+#: class-SH-Crafty-Social-Buttons-Widget.php:35
+msgid "Add Crafty Social Link Buttons or Share Buttons to your site"
+msgstr ""
+
+#: services/class-SH_Craftsy.php:50 services/class-SH_Digg.php:49
+#: services/class-SH_Etsy.php:46 services/class-SH_Facebook.php:69
+#: services/class-SH_Flickr.php:45 services/class-SH_Google.php:93
+#: services/class-SH_Instagram.php:47 services/class-SH_LinkedIn.php:72
+#: services/class-SH_Pinterest.php:66 services/class-SH_Ravelry.php:53
+#: services/class-SH_Reddit.php:68 services/class-SH_StumbleUpon.php:67
+#: services/class-SH_Tumblr.php:58 services/class-SH_Twitter.php:76
+#: services/class-SH_YouTube.php:47
+msgid "Hint"
+msgstr ""
+
+#: services/class-SH_Craftsy.php:51
+msgid "numbers"
+msgstr ""
+
+#: services/class-SH_Craftsy.php:52
+msgid "For more options see Help > Link Buttons (link top right of screen)"
+msgstr ""
+
+#: services/class-SH_Email.php:46
+msgid "Hint: Your email address"
+msgstr ""
+
+#: services/class-SH_Flickr.php:46
+msgid "numbers and letters"
+msgstr ""
+
+#: services/class-SH_Google.php:93
+msgid "a long number"
+msgstr ""
+
+#: services/class-SH_RSS.php:42
+msgid "Hint: enter full url for feed service (including http://) or leave blank to use built-in WordPress RSS feed url"
+msgstr ""
+
+#: views/admin.php:8
+msgid "Share Button Options"
+msgstr ""
+
+#: views/admin.php:11
+msgid "Link Button Options"
+msgstr ""
+#. Plugin Name of the plugin/theme
+msgid "Crafty Social Buttons"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://github.com/sarahhenderson/crafty-social-buttons"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Adds social sharing buttons and links to your site, including Ravelry, Etsy, Craftsy and Pinterest"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Sarah Henderson"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://sarahhenderson.info"
+msgstr ""

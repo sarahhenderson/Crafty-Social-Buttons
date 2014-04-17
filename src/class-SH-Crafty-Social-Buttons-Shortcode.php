@@ -159,6 +159,7 @@ class SH_Crafty_Social_Buttons_Shortcode {
 		
 		$text = $settings[$type.'_caption'];
 		$selectedServices = explode(',', $settings[$type.'_services']);
+        $sizeKey = substr(strval($settings[$type.'_image_size']),0,1);
 		
 		// check if we should show the share count
 		$showCount = $settings['show_count'];
@@ -176,7 +177,7 @@ class SH_Crafty_Social_Buttons_Shortcode {
 			wp_localize_script( $this->plugin_slug . '-scripts', 'crafty_social_buttons_data_'.$post->ID, $data );
 		}
 
-		$buttonHtml = '<div id="crafty-social-buttons" class="crafty-social-buttons crafty-social-'.$type.'-buttons">';
+		$buttonHtml = '<div class="crafty-social-buttons crafty-social-'.$type.'-buttons crafty-social-buttons-size-'.$sizeKey.'">';
 		if ($text != '') {
 				$buttonHtml .= '<span class="crafty-social-caption">' . $text . '</span>';
 		}

@@ -21,8 +21,8 @@ class SH_Instagram extends SH_Social_Service {
 	}
 	
 	public function linkButton($username) {
-		
-		if (strpos($username, 'http://') === 0) {
+
+        if (strpos($username, 'http://') === 0 || strpos($username, 'https://') === 0) {
 			$url = $username;
 		} else {
 			$url = "http://instagram.com/$username";
@@ -44,7 +44,7 @@ class SH_Instagram extends SH_Social_Service {
 	}
 
 	public static function description() {
-		return "Hint: instagram.com/<strong>user-id</strong>";	
+		return __('Hint','crafty-social-buttons') . ": instagram.com/<strong>user-id</strong>";
 	}
 
 }
