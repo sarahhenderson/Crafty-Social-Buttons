@@ -91,6 +91,10 @@ class SH_Crafty_Social_Buttons_Shortcode {
 			 is_single() && $settings['show_on_posts'] || 
 			 is_home() && $settings['show_on_home'] ) {
 							
+			//special case: static front page must have both show_on_pages and show_on_home
+			if (is_page() && is_front_page() && $settings['show_on_pages'] && !$settings['show_on_home'])
+				return $content;
+							
 			$buttons = $this->get_buttons_html('share');
 			
 			switch ($settings['position']) {
