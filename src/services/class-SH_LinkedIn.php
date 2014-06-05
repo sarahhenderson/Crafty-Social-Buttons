@@ -37,9 +37,9 @@ class SH_LinkedIn extends SH_Social_Service {
         if (strpos($username, 'http://') === 0 || strpos($username, 'https://') === 0) {
 			$url = $username;
 		} else if (strpos($username, "company/") === 0) {
-			$url = "http://linkedin.com/$username";
-		} else {
 			$url = "http://linkedin.com/in/$username";
+		} else {
+			$url = "http://linkedin.com/company/$username";
 		}
 		$html = '<a class="' . $this->cssClass() . '" href="'. $url. '" ' . 
 			 ($this->newWindow ? 'target="_blank"' : '') . '>';
