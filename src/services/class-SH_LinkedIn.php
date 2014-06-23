@@ -35,6 +35,7 @@ class SH_LinkedIn extends SH_Social_Service {
 	public function linkButton($username) {
 
         if (strpos($username, 'http://') === 0 || strpos($username, 'https://') === 0) {
+<<<<<<< HEAD
             $url = $username;
         } else if (strpos($username, "company/") === 0) {
             $url = "http://linkedin.com/in/$username";
@@ -50,6 +51,23 @@ class SH_LinkedIn extends SH_Social_Service {
 
         return $html;
   	}
+=======
+			$url = $username;
+		} else if (strpos($username, "company/") === 0) {
+			$url = "http://linkedin.com/in/$username";
+		} else {
+			$url = "http://linkedin.com/company/$username";
+		}
+		$html = '<a class="' . $this->cssClass() . '" href="'. $url. '" ' . 
+			 ($this->newWindow ? 'target="_blank"' : '') . '>';
+	
+		$html .= $this->buttonImage();	
+		
+		$html .= '</a>';
+	
+		return $html;
+	}
+>>>>>>> 3de25c5af7335aee324c7ced96db5c2815c37fff
 
 
 	public function shareCount($url) {
