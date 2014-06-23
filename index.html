@@ -149,7 +149,7 @@
         <section id="download">    
         	<h1>Download</h1>
 			<div class="well well-lg">
-<a href="downloads/crafty-social-buttons-1.2.2.zip" class="btn btn-success btn-lg"><i class="glyphicon glyphicon-download"></i> Download crafty-social-buttons-1.2.2.zip (2.51MB)</a>
+<a href="downloads/crafty-social-buttons-1.3.0.zip" class="btn btn-success btn-lg"><i class="glyphicon glyphicon-download"></i> Download crafty-social-buttons-1.3.0.zip (2.51MB)</a>
             </div>
 
 		</section>
@@ -201,7 +201,7 @@
             bottom of each post.  Each button will share that post with that particular service.  
             That is, clicking the facebook icon will open a window for the user to share your post on 
             their Facebook page.  <small>(Note that not all services support sharing, for instance, 
-            you can't share via Etsy or Craftsy.</small></p>
+            you can't share via Etsy or Craftsy).</small></p>
 
 			<p class="question"><strong>What are Link Buttons?</strong></p>
 			<p><strong>Link buttons</strong> let you link the icons directly 
@@ -254,9 +254,15 @@
  			<p>Yes!  See the instructions section below on how to use the <a href="#widget">widget</a>,
             <a href="#shortcodes">shortcodes</a>, or <a href="#actionhooks">action hooks</a>.</p>
 
+            <p class="question">Can I share pages or just posts?</p>
+            <p>You can share any page.  There are automatic options for adding sharing buttons to every page
+                and to a static home page.  You can also add share buttons to archive and category
+                pages by adding an <a href="#actionhooks">action hook</a> to your theme templates.</p>
 
             <p class="question"><strong>Can I add a different social/craft network?</strong></p>
-            <p>I'm happy to take requests for new services to add.</p>
+            <p>I'm happy to take requests for new services to add.  I want to keep these buttons lightweight
+            and secure though, so I won't be adding any services that require JavaScript to be added
+            to the page.</p>
             
             
         </section>
@@ -323,13 +329,17 @@
             <ul>
             	<li><code>&lt;?php do_action('crafty-social-link-buttons'); ?&gt;</code></li>
              	<li><code>&lt;?php do_action('crafty-social-share-buttons'); ?&gt;</code></li>
+                <li><code>&lt;?php do_action('crafty-social-share-page-buttons'); ?&gt;</code></li>
             </ul>
             
-            <p>Since the Share buttons are page/post specific, the shortcode is usualy best, 
-            and since the Link buttons are site/site owner specific, the widget or action 
+            <p>Since the Link buttons are site/owner specific, the widget or action
             hook will normally be a better choice.</p>
-            
-            
+            <p>The <code>crafty-social-share-page-buttons</code> action hook allows you to put
+            share buttons outside the WordPress loop.  It will use the URL and title of the current
+            page.  This will be most useful if you want to
+            share your category, archive or tag pages, or if you have some special purpose pages in
+            your theme that lack a loop.</p>
+
         </section>
         
         
@@ -337,7 +347,7 @@
         <section id="styling">    
         	<h1>Instructions | Styling</h1>
             <p>You can override the styles used by the plugin to better match your theme.</p>
-            <p>The entire block is wrapped in a <code>#crafty-social-buttons</code> id, as well as either
+            <p>The entire block is wrapped in a <code>.crafty-social-buttons</code> class, as well as either
             <code>.crafty-social-share-buttons</code> or <code>.crafty-social-link-buttons</code>, so you can
             style the share and link buttons separately.</p>
             <p>The caption is an inline-block with the class <code>.crafty-social-caption</code>.  The images
