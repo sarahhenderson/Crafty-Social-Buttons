@@ -55,9 +55,9 @@ module.exports = function (grunt) {
                     cwd: 'src/js',      // Src matches are relative to this path.
                     src: ['*.js', '!*.min.js'], // Actual pattern(s) to match.
                     dest: 'src/js',   // Destination path prefix.
-                    ext: '.min.js',   // Dest filepaths will have this extension.
-                 },
-            ],
+                    ext: '.min.js'   // Dest filepaths will have this extension.
+                 }
+            ]
          }
 
       },

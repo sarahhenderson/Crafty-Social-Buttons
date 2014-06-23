@@ -31,25 +31,25 @@ class SH_LinkedIn extends SH_Social_Service {
 	
 		return $html;
 	}
-	
+
 	public function linkButton($username) {
 
         if (strpos($username, 'http://') === 0 || strpos($username, 'https://') === 0) {
-			$url = $username;
-		} else if (strpos($username, "company/") === 0) {
-			$url = "http://linkedin.com/$username";
-		} else {
-			$url = "http://linkedin.com/in/$username";
-		}
-		$html = '<a class="' . $this->cssClass() . '" href="'. $url. '" ' . 
-			 ($this->newWindow ? 'target="_blank"' : '') . '>';
-	
-		$html .= $this->buttonImage();	
-		
-		$html .= '</a>';
-	
-		return $html;
-	}
+            $url = $username;
+        } else if (strpos($username, "company/") === 0) {
+            $url = "http://linkedin.com/in/$username";
+        } else {
+            $url = "http://linkedin.com/company/$username";
+        }
+        $html = '<a class="' . $this->cssClass() . '" href="'. $url. '" ' .
+            ($this->newWindow ? 'target="_blank"' : '') . '>';
+
+        $html .= $this->buttonImage();
+
+        $html .= '</a>';
+
+        return $html;
+  	}
 
 
 	public function shareCount($url) {

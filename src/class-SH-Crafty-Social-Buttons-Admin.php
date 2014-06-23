@@ -142,23 +142,6 @@ class SH_Crafty_Social_Buttons_Admin {
 	}
 
 	/**
-	 * Show admin notifications
-	 */
-	function show_admin_messages() {
-
-		$settings = $this->getSettings();
-
-		// check if any buttons have been configured
-		if ( ! $settings['configured'] ) {
-
-			// output a warning that buttons need configuring and provide a link to settings
-			echo '<div class="updated fade"><p>Thanks for installing <strong>Crafty Social Buttons!</strong>. ' .
-			     ' Your buttons need <a href="admin.php?page=' . $this->plugin_slug .
-			     '"><strong>configuration</strong></a> before they will appear.</p></div>';
-		}
-	}
-
-	/**
 	 * Configure admin settings
 	 */
 	public function register_settings() {
@@ -166,7 +149,7 @@ class SH_Crafty_Social_Buttons_Admin {
 		$section = 'cbs_basic_share_settings';
 		$page    = $this->plugin_slug . '-share';
 
-		add_settings_section( $section, __( 'Display Options', $this->plugin_slug ),
+		add_settings_section( $section, __( 'Basic Options', $this->plugin_slug ),
 			array( $this, 'displayShareBasicSettingsText' ), $page );
 
 		add_settings_field( 'share_image_set', __( 'Image Set', $this->plugin_slug ),
@@ -183,33 +166,56 @@ class SH_Crafty_Social_Buttons_Admin {
 		add_settings_field( 'share_services', __( 'Show these services', $this->plugin_slug ),
 			array( $this, 'render_service_select' ), $page, $section, array( 'share_services' ) );
 
-
 		add_settings_field( 'position', __( 'Above or below content', $this->plugin_slug ),
 			array( $this, 'renderPositionSelect' ), $page, $section, array( 'position' ) );
 
+        $section = 'cbs_display_share_settings';
+        add_settings_section( $section, __( 'Display Options', $this->plugin_slug ), null, $page );
+
 		add_settings_field( 'show_on_posts', __( 'Show on Posts', $this->plugin_slug ),
 			array( $this, 'renderCheckbox' ), $page, $section,
-			array( 'show_on_posts', __( 'Shows on post single individual pages', $this->plugin_slug ) ) );
-
-		add_settings_field( 'show_on_pages', __( 'Show on Pages', $this->plugin_slug ),
-			array( $this, 'renderCheckbox' ), $page, $section, array( 'show_on_pages' ) );
+			array( 'show_on_posts', __( 'Shares a single post', $this->plugin_slug ) ) );
 
 		add_settings_field( 'show_on_home', __( 'Show on Home Page', $this->plugin_slug ),
-			array( $this, 'renderCheckbox' ), $page, $section, array( 'show_on_home' ) );
+			array( $this, 'renderCheckbox' ), $page, $section,
+            array( 'show_on_home', __( 'Shares each post on home page', $this->plugin_slug ) ) );
 
+        add_settings_field( 'show_on_category', __( 'Show on Category Pages', $this->plugin_slug ),
+            array( $this, 'renderCheckbox' ), $page, $section,
+            array( 'show_on_category', __( 'Shares each post on category pages', $this->plugin_slug ) ) );
+
+        add_settings_field( 'show_on_archive', __( 'Show on Archive Pages', $this->plugin_slug ),
+            array( $this, 'renderCheckbox' ), $page, $section,
+            array( 'show_on_archive', __( 'Shares each post on archive and tags pages', $this->plugin_slug ) ) );
+
+        add_settings_field( 'show_on_pages', __( 'Show on Pages', $this->plugin_slug ),
+            array( $this, 'renderCheckbox' ), $page, $section,
+            array( 'show_on_pages', __( 'Shares the page', $this->plugin_slug ) ) );
+
+        add_settings_field( 'show_on_static_home', __( 'Show on Static Front Page', $this->plugin_slug ),
+            array( $this, 'renderCheckbox' ), $page, $section,
+            array( 'show_on_static_home', __( 'Shares the home page if you have a static front page', $this->plugin_slug ) ) );
 
 		$section = 'cbs_advanced_share_settings';
 		add_settings_section( $section, __( 'Advanced Options', $this->plugin_slug ), null, $page );
 
-		add_settings_field( 'new_window', __( 'Open in new window', $this->plugin_slug ),
-			array( $this, 'renderCheckbox' ), $page, $section, array( 'new_window' ) );
+        add_settings_field( 'open_in', __( 'Open in', $this->plugin_slug ),
+            array( $this, 'renderRadio' ), $page, $section,
+            array( 'open_in', '',
+                array(
+                    'new_window' => __( 'New Window', $this->plugin_slug ),
+                    'same_window' => __( 'Same Window', $this->plugin_slug ),
+                    'popup' => __( 'Popup', $this->plugin_slug ))
+            ) );
 
 		add_settings_field( 'show_count', __( 'Show post counts', $this->plugin_slug ),
 			array( $this, 'renderCheckbox' ), $page, $section,
-			array( 'show_count', __( 'Only done if service supports it.', $this->plugin_slug ) ) );
+			array( 'show_count', __( 'Only displayed if service supports it.', $this->plugin_slug ) ) );
 
 		add_settings_field( 'email_body', __( 'Email text', $this->plugin_slug ),
-			array( $this, 'renderTextbox' ), $page, $section, array( 'email_body' ) );
+			array( $this, 'renderTextbox' ), $page, $section,
+            array( 'email_body', __( 'Default Email text (user can override this)', $this->plugin_slug ) ) );
+
 
 		add_settings_field( 'twitter_body', __( 'Tweet text', $this->plugin_slug ),
 			array( $this, 'renderTextbox' ), $page, $section,
@@ -225,11 +231,13 @@ class SH_Crafty_Social_Buttons_Admin {
 
 		$section = 'cbs_link_button_settings';
 		$page    = $this->plugin_slug . '-link';
-		add_settings_section( $section, __( 'Display Options', $this->plugin_slug ),
+
+        add_settings_section( $section, __( 'Display Options', $this->plugin_slug ),
 			array( $this, 'displayLinkSettingsText' ), $page );
 
 		add_settings_field( 'link_image_set', __( 'Image Set', $this->plugin_slug ),
 			array( $this, 'renderImageSetSelect' ), $page, $section, array( 'link_image_set' ) );
+
 		add_settings_field( 'link_image_size', __( 'Image Size', $this->plugin_slug ),
 			array( $this, 'renderNumericTextbox' ), $page, $section,
 			array( 'link_image_size', __( 'Size in pixels, between 24 and 64', $this->plugin_slug ) ) );
@@ -380,6 +388,28 @@ class SH_Crafty_Social_Buttons_Admin {
 	<?php
 	}
 
+    /**
+     * Display a set of radio buttons
+     */
+    public function renderRadio( $args ) {
+        $id          = $args[0];
+        $name        = $this->plugin_slug . '[' . $args[0] . ']';
+        $description = isset( $args[1] ) ? $args[1] : '';
+        $options     = isset( $args[2] ) ? $args[2] : array();
+        $settings    = $this->getSettings();
+        $value       = $settings[ $id ];
+        ?>
+
+        <?php foreach ($options as $key => $label) { ?>
+        <input type="radio" id="<?= $id ?>" name="<?= $name ?>" <?= checked( $key, $value ); ?> value="<?= $key ?>"/> <?= $label; ?>
+        <?php } ?>
+        <span class="description" for="<?= $id ?>">
+                <?= $description ?>
+            </span>
+
+    <?php
+    }
+
 	/**
 	 * Display a settings textbox
 	 */
@@ -523,9 +553,16 @@ class SH_Crafty_Social_Buttons_Admin {
 			$settings['show_on_posts']      = isset( $input['show_on_posts'] );
 			$settings['show_on_pages']      = isset( $input['show_on_pages'] );
 			$settings['show_on_home']       = isset( $input['show_on_home'] );
+			$settings['show_on_static_home']= isset( $input['show_on_static_home'] );
+			$settings['show_on_category']   = isset( $input['show_on_category'] );
+			$settings['show_on_archive']    = isset( $input['show_on_archive'] );
 			$settings['show_count']         = isset( $input['show_count'] );
-			$settings['new_window']         = isset( $input['new_window'] );
-			$settings['twitter_show_title'] = isset( $input['twitter_show_title'] );
+            $settings['twitter_show_title'] = isset( $input['twitter_show_title'] );
+
+            // parse out our radio buttons, they are constrained so just take the values
+            $settings['open_in']            = $input['open_in'];
+            $settings['new_window']         = $input['open_in'] == 'new_window';
+            $settings['popup']              = $input['open_in'] == 'popup';
 
 			// our select boxes have constrained UI, so just update them
 			$settings['share_image_set'] = isset( $input['share_image_set'] ) ? $input['share_image_set'] : 'simple';

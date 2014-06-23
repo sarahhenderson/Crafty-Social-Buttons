@@ -12,7 +12,7 @@ class SH_Crafty_Social_Buttons_Plugin {
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
 	 */
-	protected $version = '1.2.2';
+	protected $version = '1.3.0';
 
 	/**
 	 * Unique identifier for this plugin.
@@ -38,7 +38,6 @@ class SH_Crafty_Social_Buttons_Plugin {
 	 * Initialize the plugin by setting localization, filters, and administration functions.
 	 */
 	private function __construct() {
-
 		if (is_admin() && !class_exists('SH_Crafty_Social_buttons_Admin')) {
 			require_once( plugin_dir_path( __FILE__ ) . 'class-SH-Crafty-Social-Buttons-Admin.php' );
 			$this->admin_class = SH_Crafty_Social_Buttons_Admin::get_instance();
@@ -103,7 +102,7 @@ class SH_Crafty_Social_Buttons_Plugin {
 		 if ( !$settings || count($settings) <= 1 ) {
 			  $settings = self::get_default_settings();
 		 }
-		 update_option("crafty-social-buttons", $settings );				
+		 update_option("crafty-social-buttons", $settings );
 	}
 
 	/**
@@ -180,7 +179,7 @@ class SH_Crafty_Social_Buttons_Plugin {
 	 */
 	public function enqueue_scripts() {
 
-		$settings = get_option($this->plugin_slug);
+		$settings = $this->getSettings();
 
 		// only add javascript if post counts are to be shown
 		if ($settings['show_count']) {
@@ -207,30 +206,31 @@ class SH_Crafty_Social_Buttons_Plugin {
 
 		// Adds help tab when admin page loads
     	add_action('load-'.$this->plugin_screen_hook_suffix, array($this->admin_class, 'add_contextual_help'));
-	}	
-	
-	/**
-	 * Show admin notifications
-	 */
-	function show_admin_messages() {
-		// query the db for current settings
-		$settings = get_option($this->plugin_slug);
-		
-		// check if any buttons have been selected
-		if (!$settings['configured']) {
-		
-			// output a warning that buttons need configuring and provide a link to settings
-			echo '<div class="updated fade"><p>Thanks for installing <strong>Crafty Social Buttons!</strong>. '.
-				 ' Your buttons need <a href="admin.php?page=' . $this->plugin_slug . 
-				 '"><strong>configuration</strong></a> before they will appear.</p></div>';
-		}
 	}
+
+
+    /**
+     * Show admin notifications
+     */
+    function show_admin_messages() {
+
+        $settings = $this->getSettings();
+
+        // check if any buttons have been configured
+        if ( ! $settings['configured'] ) {
+
+            // output a warning that buttons need configuring and provide a link to settings
+            echo '<div class="updated fade"><p>Thanks for installing <strong>Crafty Social Buttons!</strong> ' .
+                ' Your posts now have the default share buttons. <a href="admin.php?page=' . $this->plugin_slug .
+                '"><strong>Configure them!</strong></a></p></div>';
+        }
+    }
 
 	/**
 	 * Ajax callback method for those services that don't support directly getting share counts on client
 	 */
 	function get_share_count() {
-		$settings = get_option($this->plugin_slug);
+		$settings = $this->getSettings();
 		$result = new stdClass();
 		try {
 
@@ -277,8 +277,19 @@ class SH_Crafty_Social_Buttons_Plugin {
 		}
 	}
 
+    /**
+     * Loads all the settings from the database
+     */
+    function getSettings() {
+        $settings = get_option( $this->plugin_slug );
+        $defaults = SH_Crafty_Social_Buttons_Plugin::get_default_settings();
 
-	/** 
+        return wp_parse_args( $settings, $defaults );
+    }
+
+
+
+    /**
 	 * Get default settings (as an array)
 	 */
 	public static function get_default_settings() {
@@ -286,16 +297,21 @@ class SH_Crafty_Social_Buttons_Plugin {
 			'version'				=> '1',
 			'configured'			=> false,
 			
-			'share_image_set' 	=> 'simple',
+			'share_image_set' 	    => 'simple',
 			'share_image_size'		=> 48,
-			'share_caption'		=> 'Share this:',
-			'share_services'		=> 'Facebook,Google,Twitter,Ravelry',
-			'show_on_posts'		=> false,
-			'show_on_pages'		=> false,
+			'share_caption'		    => 'Share this:',
+			'share_services'		=> 'Facebook,Google,Twitter',
+            'show_on_posts'		    => true,
+			'show_on_pages'		    => false,
 			'show_on_home'			=> false,
+			'show_on_static_home'	=> false,
+			'show_on_category'		=> false,
+			'show_on_archive'		=> false,
 			'position'				=> 'below',
 			'show_count'			=> false,
+            'open_in'			    => 'new_window',
 			'new_window'			=> true,
+            'popup'			        => false,
 			'email_body'			=> 'I thought you might like this: ',
 			'twitter_body'			=> '',
 			'twitter_show_title'	=> true,

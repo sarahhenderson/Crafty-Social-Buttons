@@ -8,7 +8,7 @@
         }
     }
 
-    var makeLocalAjaxCallbackForShareCount = function(service, shareUrl, callbackUrl, key) {
+    var csb_makeLocalAjaxCallbackForShareCount = function(service, shareUrl, callbackUrl, key) {
 
         var url = callbackUrl + '&service=' + service + '&url=' + shareUrl;
 
@@ -38,8 +38,25 @@
 
         for (var s = 0, sl = settings.services.length; s < sl; s++) {
             var service = settings.services[s];
-            makeLocalAjaxCallbackForShareCount(service, url, callbackUrl, key);
+            csb_makeLocalAjaxCallbackForShareCount(service, url, callbackUrl, key);
         }
     }
+
+   var csb_popupSharePage = function(url) {
+      var size = 'height=400,width=640';
+      if (url.indexOf('ravelry.com') > -1) { size = 'fullscreen=yes'}
+      newwindow=window.open(url,'share', size + ',resizable=yes');
+      if (window.focus) {newwindow.focus()}
+      return false;
+   }
+
+   var $popupLinks = $(".crafty-social-buttons a.popup");
+   $.each($popupLinks, function (index, link){
+      if (!$(link).hasClass('csb-email') && !$(link).hasClass('csb-pinterest')) {
+         link.onclick = function () {
+            return csb_popupSharePage(this.href)
+         }
+      }
+   });
 
 });

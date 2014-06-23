@@ -22,11 +22,16 @@ class SH_Social_Service {
 		$this->imageExtension = ".png";
 		$this->imageSize = $settings[$type.'_image_size'];
 		$this->newWindow = $settings['new_window'];
+        $this->popup = $settings['popup'];
 	}
 	
 	// generates the css class for the button link
 	protected function cssClass() {
-		return "crafty-social-button csb-" . trim(strtolower($this->service));		
+		$css = "crafty-social-button csb-" . trim(strtolower($this->service));
+        if ($this->popup) {
+            $css .= " popup";
+        }
+        return $css;
 	}
 
 	protected function getImageUrlPath($imageSet) {
