@@ -233,26 +233,6 @@ class SH_Crafty_Social_Buttons_Shortcode {
 		}
 	}
 
-	/**
-	 * Generates the markup for an individual link button
-	 */
-	function get_individual_link_button_html($serviceName, $settings, $key = '') {
-			
-		include_once(plugin_dir_path(__FILE__) ."services/class-SH_Social_Service.php");
-		$class = "SH_$serviceName";
-		
-		if (file_exists(plugin_dir_path(__FILE__) . "services/class-$class.php")) {
-		
-			$file = include_once(plugin_dir_path(__FILE__) ."services/class-$class.php");
-			$service = new $class($settings['new_window'], $settings['link_image_set'], $settings, $key);
-		
-			return $service->linkButton();
-		
-		} else {
-			return "";	
-		}
-	}
-
     /**
      * Loads all the settings from the database
      */

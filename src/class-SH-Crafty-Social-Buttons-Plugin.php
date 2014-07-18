@@ -310,7 +310,6 @@ class SH_Crafty_Social_Buttons_Plugin {
 			'position'				=> 'below',
 			'show_count'			=> false,
             'open_in'			    => 'new_window',
-			'new_window'			=> true,
             'popup'			        => false,
 			'email_body'			=> 'I thought you might like this: ',
 			'twitter_body'			=> '',
@@ -319,7 +318,8 @@ class SH_Crafty_Social_Buttons_Plugin {
 			'link_image_set'	 	=> 'simple',
 			'link_image_size'		=> 48,
 			'link_caption'			=> 'Find me on:',
-			'link_services'		=> 'Facebook,Google,Twitter,Ravelry,Etsy',
+			'link_services'		    => 'Facebook,Google,Twitter,Ravelry,Etsy',
+            'new_window'			=> true,
 		);
 		return $settings;
 	}

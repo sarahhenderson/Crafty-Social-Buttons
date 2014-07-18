@@ -21,8 +21,8 @@ class SH_Social_Service {
 
 		$this->imageExtension = ".png";
 		$this->imageSize = $settings[$type.'_image_size'];
-		$this->newWindow = $settings['new_window'];
-        $this->popup = $settings['popup'];
+		$this->newWindow = ($type == "link" ? $settings['new_window'] : $settings['open_in'] == 'new_window');
+        $this->popup = ($type == 'share' && $settings['popup']);
 	}
 	
 	// generates the css class for the button link
