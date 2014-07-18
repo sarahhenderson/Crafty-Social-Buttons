@@ -93,6 +93,11 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 == Changelog ==
 
+= 1.3.1 =
+* Fixed bug with post counts not showing both above and below posts
+* Added separate option for opening link buttons in a new window
+* Fixed issue with php short tags in old versions of PHP
+
 = 1.3.0 =
 * Added more detailed options for where share buttons should appear
 * Added action hooks to put share buttons on category, tag and archive pages
@@ -163,6 +168,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 * First version!
 
 == Upgrade Notice ==
+
+= 1.3.1 =
+* Fixed bug with post counts both above and below posts
 
 = 1.3.0 =
 * Better control of where share buttons appear, and option to have share links in a popup
