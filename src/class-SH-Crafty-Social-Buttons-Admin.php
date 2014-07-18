@@ -380,9 +380,9 @@ class SH_Crafty_Social_Buttons_Admin {
 		$value       = $settings[ $id ];
 		?>
 
-		<input type="checkbox" id="<?= $id ?>" name="<?= $name ?>" <?php echo checked( 1, $value ) ?> value="0"/>
-		<span class="description" for="<?= $id ?>">
-                <?= $description ?>
+		<input type="checkbox" id="<?php echo $id ?>" name="<?php echo $name ?>" <?php echo checked( 1, $value ) ?> value="0"/>
+		<span class="description" for="<?php echo $id ?>">
+                <?php echo $description ?>
             </span>
 
 	<?php
@@ -401,10 +401,10 @@ class SH_Crafty_Social_Buttons_Admin {
         ?>
 
         <?php foreach ($options as $key => $label) { ?>
-        <input type="radio" id="<?= $id ?>" name="<?= $name ?>" <?= checked( $key, $value ); ?> value="<?= $key ?>"/> <?= $label; ?>
+        <input type="radio" id="<?php echo $id ?>" name="<?php echo $name ?>" <?php echo checked( $key, $value ); ?> value="<?php echo $key ?>"/> <?php echo $label; ?>
         <?php } ?>
-        <span class="description" for="<?= $id ?>">
-                <?= $description ?>
+        <span class="description" for="<?php echo $id ?>">
+                <?php echo $description ?>
             </span>
 
     <?php
@@ -422,9 +422,9 @@ class SH_Crafty_Social_Buttons_Admin {
 
 		?>
 
-		<input type="text" id="<?= $id ?>" name="<?= $name ?>" value="<?= $value ?>"/>
+		<input type="text" id="<?php echo $id ?>" name="<?php echo $name ?>" value="<?php echo $value ?>"/>
 		<span class="description">
- 	           <?= $description ?>
+ 	           <?php echo $description ?>
             </span>
 
 	<?php
@@ -444,10 +444,10 @@ class SH_Crafty_Social_Buttons_Admin {
 
 		?>
 
-		<input type="number" id="<?= $id ?>" name="<?= $name ?>" value="<?= $value ?>" min="<?= $min ?>"
-		       max="<?= $max ?>"/>
+		<input type="number" id="<?php echo $id ?>" name="<?php echo $name ?>" value="<?php echo $value ?>" min="<?php echo $min ?>"
+		       max="<?php echo $max ?>"/>
 		<span class="description">
- 	           <?= $description ?>
+ 	           <?php echo $description ?>
             </span>
 
 	<?php
@@ -464,11 +464,11 @@ class SH_Crafty_Social_Buttons_Admin {
 		$base     = plugin_dir_url( __FILE__ ) . "buttons/";
 		?>
 
-		<select id="<?= $id ?>" class="csb-image-set" name="<?= $name ?>">
+		<select id="<?php echo $id ?>" class="csb-image-set" name="<?php echo $name ?>">
 
 			<?php foreach ( $this->all_image_sets as $set ) { ?>
-				<option value="<?= $set ?>" <?php echo selected( $set, $value );?>">
-    		    	<?=$set?>
+				<option value="<?php echo $set ?>" <?php echo selected( $set, $value );?>">
+    		    	<?php echo$set?>
     	    	</option>
     		<?php } ?>
 
@@ -494,10 +494,10 @@ class SH_Crafty_Social_Buttons_Admin {
 
 			<div class="csb-include-list chosen">
 				<div><span class="include-heading"><?php _e('Selected',$this->plugin_slug); ?></span> (<?php _e('these will be displayed',$this->plugin_slug);?></div>
-				<ul id="csbsort2" class="connectedSortable data-base="<?= $image_set ?>"">
+				<ul id="csbsort2" class="connectedSortable data-base="<?php echo $image_set ?>"">
 					<?php echo $this->get_selected_services_html( $value, $image_set, $image_size ); ?>
 				</ul>
-				<input type="hidden" name="<?= $name ?>" id="<?= $id ?>" class="csb-services"/>
+				<input type="hidden" name="<?php echo $name ?>" id="<?php echo $id ?>" class="csb-services"/>
 			</div>
 
 			<div class="csb-include-list available">
@@ -523,7 +523,7 @@ class SH_Crafty_Social_Buttons_Admin {
 		$value    = $settings[ $id ];
 		?>
 
-		<select id="<?= $id ?>" name="<?= $name ?>">
+		<select id="<?php echo $id ?>" name="<?php echo $name ?>">
 			<option
 				value="above" <?php echo selected( 'above', $value ); ?> ><?php _e( 'Above', $this->plugin_slug ) ?></option>
 			<option
