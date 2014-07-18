@@ -20,7 +20,7 @@
             contentType: 'application/json',
             success: function (data) {
                 if (data && data.count) {
-                    $("#crafty-social-share-count-" + serviceSlug + '-' + key).html(data.count);
+                    $(".crafty-social-share-count-" + serviceSlug + '-' + key).html(data.count);
                 }
             },
             error: function(jqXHR, status, error) {
