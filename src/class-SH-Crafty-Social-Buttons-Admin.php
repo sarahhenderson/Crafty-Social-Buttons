@@ -356,7 +356,7 @@ class SH_Crafty_Social_Buttons_Admin {
 	 */
 	public function displayLinkSettingsText() {
 		echo '<p>';
-		_e( 'Link Buttons will link to your user profile on each site.', $this->plugin_slug );
+		_e( 'Link Buttons will link to your user profile on each site.  Add them to the theme using the Crafty Social Buttons <strong>widget</strong>.', $this->plugin_slug );
 		echo '</p><p>';
 		_e( 'Enter your <strong>user id</strong> for each service you choose below to make the button link directly to your profile.', $this->plugin_slug );
 		echo '</p>';

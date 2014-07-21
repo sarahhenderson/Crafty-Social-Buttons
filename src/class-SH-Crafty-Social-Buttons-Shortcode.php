@@ -185,9 +185,9 @@ class SH_Crafty_Social_Buttons_Shortcode {
 						   'callbackUrl' => wp_nonce_url(admin_url( 'admin-ajax.php' ) . '?action=share_count'),
 			               'title' => $title,
 			               'services' => $selectedServices,
-						   'key' => $post->ID);
-			wp_localize_script( $this->plugin_slug . '-scripts', 'crafty_social_buttons_data_'.$postId, $data );
-		}
+						   'key' => $postId);
+            wp_localize_script( $this->plugin_slug . '-scripts', 'crafty_social_buttons_data_'.$postId, $data );
+ 		}
 
 		$buttonHtml = '<div class="crafty-social-buttons crafty-social-'.$type.'-buttons crafty-social-buttons-size-'.$sizeKey.'">';
 		if ($text != '') {
@@ -198,7 +198,7 @@ class SH_Crafty_Social_Buttons_Shortcode {
 		// generate markup for each button
 		foreach ($selectedServices as $serviceName) {
 
-			 $button = $this->get_individual_button_html($type, $serviceName, $url, $title, $showCount, $settings, $post->ID);
+			 $button = $this->get_individual_button_html($type, $serviceName, $url, $title, $showCount, $settings, $postId);
 			 if (!empty($button)) {
 				 $buttonHtml .= '<li>' . $button . '</li>';
 			 }
