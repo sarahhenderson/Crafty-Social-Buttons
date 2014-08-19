@@ -10,7 +10,9 @@
 
     var csb_makeLocalAjaxCallbackForShareCount = function(service, shareUrl, callbackUrl, key) {
 
-        var url = callbackUrl + '&service=' + service + '&url=' + shareUrl;
+        var url = callbackUrl + '&service=' + service + '&key=' + key;
+        if (key == "page")
+           url += '&url=' + shareUrl;
 
         var serviceSlug = service.toLowerCase();
         $.ajax(url, {

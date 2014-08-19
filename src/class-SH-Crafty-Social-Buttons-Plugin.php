@@ -249,13 +249,25 @@ class SH_Crafty_Social_Buttons_Plugin {
 				wp_die(json_encode($result));
 			}
 
+            // get key
+            $key = isset($_GET['key']) ? $_GET['key'] : '';
+            if (empty($key)) {
+                $result->error = true;
+                $result->message = __( 'Key not specified.', $this->plugin_slug );
+                wp_die(json_encode($result));
+            }
+
 			// get url
-			$url = isset($_GET['url']) ? $_GET['url'] : '';
-			if (empty($url)) {
-				$result->error = true;
-				$result->message = __( 'Url not specified.', $this->plugin_slug );
-				wp_die(json_encode($result));
-			}
+            if ($key == "page") {
+                $url = isset($_GET['url']) ? $_GET['url'] : '';
+                if (empty($url)) {
+                    $result->error = true;
+                    $result->message = __( 'Url not specified.', $this->plugin_slug );
+                    wp_die(json_encode($result));
+                }
+            } else {
+                $url = get_permalink($key);
+            }
 
 			include_once(plugin_dir_path(__FILE__) . "services/class-SH_Social_Service.php");
 			$class = "SH_$service";
