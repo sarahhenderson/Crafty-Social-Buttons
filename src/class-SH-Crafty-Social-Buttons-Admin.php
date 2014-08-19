@@ -208,7 +208,7 @@ class SH_Crafty_Social_Buttons_Admin {
                     'popup' => __( 'Popup', $this->plugin_slug ))
             ) );
 
-		add_settings_field( 'show_count', __( 'Show post counts', $this->plugin_slug ),
+		add_settings_field( 'show_count', __( 'Show share counts', $this->plugin_slug ),
 			array( $this, 'renderCheckbox' ), $page, $section,
 			array( 'show_count', __( 'Only displayed if service supports it.', $this->plugin_slug ) ) );
 
