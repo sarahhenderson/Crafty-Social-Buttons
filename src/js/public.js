@@ -22,7 +22,9 @@
             contentType: 'application/json',
             success: function (data) {
                 if (data && data.count) {
-                    $(".crafty-social-share-count-" + serviceSlug + '-' + key).html(data.count);
+                    $count = $(".crafty-social-share-count-" + serviceSlug + '-' + key);
+                    $count.html(data.count);
+                    $count.show();
                 }
             },
             error: function(jqXHR, status, error) {

@@ -84,7 +84,7 @@ class SH_Social_Service {
 		if ($display) {
 			$slug = trim(strtolower($this->service));
 			$key = $this->key;
-			return '<span class="crafty-social-share-count-'.$slug.'-'.$key.' crafty-social-share-count">&nbsp;</span>';
+			return '<span class="crafty-social-share-count-'.$slug.'-'.$key.' crafty-social-share-count" style="display:none;">&nbsp;</span>';
 		} else {
 			return '';
 		}
