@@ -60,8 +60,8 @@ class SH_Twitter extends SH_Social_Service {
 		
 		 $response = wp_remote_get('http://urls.api.twitter.com/1/urls/count.json?url=' . $url);
 		 if (is_wp_error($response)){
-        // return zero if response is error                             
-        return "0";             
+	        // return zero if response is error
+            return "0";
 		 } else {
 			 $json = json_decode($response['body'], true);
 			 if (isset($json['count'])) {
