@@ -4,11 +4,27 @@ div.crafty-social-buttons {
 	margin: 0.3em 0;
 }
 
+div.crafty-social-buttons-align-left {
+    text-align: left;
+}
+
+div.crafty-social-buttons-align-center {
+    text-align: center;
+}
+
+div.crafty-social-buttons-align-right {
+    text-align: right;
+}
+
 div.crafty-social-buttons .crafty-social-caption {
 	display: inline-block;
 	padding-right: 1em;
 	vertical-align: top;
 	font-size: 1.2em;
+}
+
+div.crafty-social-buttons-caption-block .crafty-social-caption {
+    display: block;
 }
 
 div.crafty-social-buttons  ul {

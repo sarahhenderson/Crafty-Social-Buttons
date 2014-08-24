@@ -163,11 +163,17 @@ class SH_Crafty_Social_Buttons_Admin {
 			array( $this, 'renderTextbox' ), $page, $section,
 			array( 'share_caption', __( 'Displays before the set of share buttons', $this->plugin_slug ) ) );
 
+		add_settings_field( 'share_caption_position', __( 'Caption Position', $this->plugin_slug ),
+			array( $this, 'renderCaptionPositionSelect' ), $page, $section, array( 'share_caption_position' ) );
+
 		add_settings_field( 'share_services', __( 'Show these services', $this->plugin_slug ),
 			array( $this, 'render_service_select' ), $page, $section, array( 'share_services' ) );
 
 		add_settings_field( 'position', __( 'Above or below content', $this->plugin_slug ),
 			array( $this, 'renderPositionSelect' ), $page, $section, array( 'position' ) );
+
+		add_settings_field( 'share_alignment', __( 'Alignment', $this->plugin_slug ),
+			array( $this, 'renderAlignmentSelect' ), $page, $section, array( 'share_alignment' ) );
 
         $section = 'cbs_display_share_settings';
         add_settings_section( $section, __( 'Display Options', $this->plugin_slug ), null, $page );
@@ -246,8 +252,14 @@ class SH_Crafty_Social_Buttons_Admin {
 			array( $this, 'renderTextbox' ), $page, $section,
 			array( 'link_caption', __( 'Displays before the set of link buttons', $this->plugin_slug ) ) );
 
+		add_settings_field( 'link_caption_position', __( 'Caption Position', $this->plugin_slug ),
+			array( $this, 'renderCaptionPositionSelect' ), $page, $section, array( 'link_caption_position' ) );
+
 		add_settings_field( 'link_services', __( 'Show these services', $this->plugin_slug ),
 			array( $this, 'render_service_select' ), $page, $section, array( 'link_services' ) );
+
+		add_settings_field( 'link_alignment', __( 'Alignment', $this->plugin_slug ),
+			array( $this, 'renderAlignmentSelect' ), $page, $section, array( 'link_alignment' ) );
 
         add_settings_field( 'new_window', __( 'Open in new window', $this->plugin_slug ),
             array( $this, 'renderCheckbox' ), $page, $section, array( 'new_window' ) );
@@ -515,9 +527,7 @@ class SH_Crafty_Social_Buttons_Admin {
 	<?php
 	}
 
-	/**
-	 * Display share settings section
-	 */
+	/** Display selection for position */
 	public function renderPositionSelect( $args ) {
 		$id       = $args[0];
 		$name     = $this->plugin_slug . '[' . $args[0] . ']';
@@ -532,6 +542,44 @@ class SH_Crafty_Social_Buttons_Admin {
 				value="below" <?php echo selected( 'below', $value ); ?> ><?php _e( 'Below', $this->plugin_slug ) ?></option>
 			<option
 				value="both" <?php echo selected( 'both', $value ); ?> ><?php _e( 'Both', $this->plugin_slug ) ?></option>
+		</select>
+
+	<?php
+	}
+
+	/** Display selection for caption position */
+	public function renderCaptionPositionSelect( $args ) {
+		$id       = $args[0];
+		$name     = $this->plugin_slug . '[' . $args[0] . ']';
+		$settings = $this->getSettings();
+		$value    = $settings[ $id ];
+		?>
+
+		<select id="<?php echo $id ?>" name="<?php echo $name ?>">
+			<option
+				value="inline-block" <?php echo selected( 'inline-block', $value ); ?> ><?php _e( 'On same line as icons', $this->plugin_slug ) ?></option>
+			<option
+				value="block" <?php echo selected( 'block', $value ); ?> ><?php _e( 'On separate line above icons &nbsp; ', $this->plugin_slug ) ?></option>
+		</select>
+
+	<?php
+	}
+
+	/** Display selection for alignment */
+	public function renderAlignmentSelect( $args ) {
+		$id       = $args[0];
+		$name     = $this->plugin_slug . '[' . $args[0] . ']';
+		$settings = $this->getSettings();
+		$value    = $settings[ $id ];
+		?>
+
+		<select id="<?php echo $id ?>" name="<?php echo $name ?>">
+			<option
+				value="left" <?php echo selected( 'left', $value ); ?> ><?php _e( 'Left', $this->plugin_slug ) ?></option>
+			<option
+				value="center" <?php echo selected( 'center', $value ); ?> ><?php _e( 'Center', $this->plugin_slug ) ?></option>
+			<option
+				value="right" <?php echo selected( 'right', $value ); ?> ><?php _e( 'Right', $this->plugin_slug ) ?></option>
 		</select>
 
 	<?php
@@ -569,6 +617,8 @@ class SH_Crafty_Social_Buttons_Admin {
 			$settings['share_image_set'] = isset( $input['share_image_set'] ) ? $input['share_image_set'] : 'simple';
 			$settings['share_services']  = isset( $input['share_services'] ) ? $input['share_services'] : '';
 			$settings['position']        = isset( $input['position'] ) ? $input['position'] : 'below';
+			$settings['share_alignment'] = isset( $input['share_alignment'] ) ? $input['share_alignment'] : 'left';
+			$settings['share_caption_position']  = isset( $input['share_caption_position'] ) ? $input['share_caption_position'] : 'inline-block';
 
 			// and finally, validate our text boxes
 			$settings['share_caption'] = sanitize_text_field( $input['share_caption'] );
@@ -587,6 +637,8 @@ class SH_Crafty_Social_Buttons_Admin {
             // our select boxes have constrained UI, so just update them
 			$settings['link_image_set'] = $input['link_image_set'];
 			$settings['link_services']  = $input['link_services'];
+			$settings['link_alignment'] = isset( $input['link_alignment'] ) ? $input['link_alignment'] : 'left';
+			$settings['link_caption_position']  = isset( $input['link_caption_position'] ) ? $input['link_caption_position'] : 'inline-block';
 
 			// and finally, validate our text boxes
 			$settings['link_caption']   = sanitize_text_field( $input['link_caption'] );

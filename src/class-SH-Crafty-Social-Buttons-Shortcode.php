@@ -160,12 +160,12 @@ class SH_Crafty_Social_Buttons_Shortcode {
 		// get settings
 		$settings = $this->getSettings();
 		
-		$text = $settings[$type.'_caption'];
-		$selectedServices = explode(',', $settings[$type.'_services']);
-        $sizeKey = substr(strval($settings[$type.'_image_size']),0,1);
-		
-		// check if we should show the share count
-		$showCount = $settings['show_count'];
+		$text               = $settings[$type.'_caption'];
+		$selectedServices   = explode(',', $settings[$type.'_services']);
+        $sizeKey            = substr(strval($settings[$type.'_image_size']),0,1);
+		$alignment          = $settings[$type.'_alignment'];
+		$caption_position   = $settings[$type.'_caption_position'];
+		$showCount          = $settings['show_count'];
 		
 		// use wordpress functions for page/post details
 
@@ -190,7 +190,15 @@ class SH_Crafty_Social_Buttons_Shortcode {
             wp_localize_script( $this->plugin_slug . '-scripts', 'crafty_social_buttons_data_'.$postId, $data );
  		}
 
-		$buttonHtml = '<div class="crafty-social-buttons crafty-social-'.$type.'-buttons crafty-social-buttons-size-'.$sizeKey.'">';
+		$css_classes = array();
+		$css_classes[] = "crafty-social-buttons";
+		$css_classes[] = "crafty-social-$type-buttons";
+		$css_classes[] = "crafty-social-buttons-size-$sizeKey";
+		$css_classes[] = "crafty-social-buttons-align-$alignment";
+		$css_classes[] = "crafty-social-buttons-caption-$caption_position";
+		$css_class_string = join(" ", $css_classes);
+
+		$buttonHtml = '<div class="'.$css_class_string.'">';
 		if ($text != '') {
 				$buttonHtml .= '<span class="crafty-social-caption">' . $text . '</span>';
 		}

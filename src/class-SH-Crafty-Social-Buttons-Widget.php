@@ -46,7 +46,7 @@ class SH_Crafty_Social_Buttons_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 		extract( $args );
 
-		$buttonType = $instance['buttonType'];
+		$buttonType = isset($instance['buttonType']) ? $instance['buttonType'] : 'csblink';
 
 		echo $before_widget;		
 		$shortcode = "[$buttonType]";
