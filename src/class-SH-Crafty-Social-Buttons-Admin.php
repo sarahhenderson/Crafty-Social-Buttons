@@ -379,7 +379,12 @@ class SH_Crafty_Social_Buttons_Admin {
 	 */
 	public function displayLinkServiceText() {
 		echo '<p>';
-		_e( 'Enter just your <strong>user id</strong> for each service, not the full URL. The bit in bold that says <strong>user-id</strong> in the hint is the part you should enter.', $this->plugin_slug );
+		_e( '<strong>Option 1</strong>: Enter just your <strong>user id</strong> for each service, and the link url will be generated for you.
+			The bit in bold that says <strong>user-id</strong> in the hint is the part you should enter.', $this->plugin_slug );
+		echo '</p>';
+		echo '<p>';
+		_e( '<strong>Option 2</strong>: Enter the url you want to link to, starting with http or https.
+            This will make the button link directly to that url.', $this->plugin_slug );
 		echo '</p>';
 	}
 
