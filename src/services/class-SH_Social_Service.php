@@ -46,13 +46,47 @@ class SH_Social_Service {
 			return $custom_url;
 		}
 	}
-	
-	public function shareButton($url, $title = '', $showCount = false) {
+
+	public function shareButtonUrl($url, $title) {
 		return "";
 	}
-	
+
+	public function linkButtonUrl($username) {
+		return "";
+	}
+
+	public function shareButton($url, $title = '', $showCount = false) {
+
+		$service_url = esc_url($this-> shareButtonUrl($url, $title));
+
+		$html = '<a class="' . $this->cssClass() . '" href="' . $service_url . '" '
+		        . ($this->newWindow ? 'target="_blank"' : '') . '>';
+
+		$html .= $this->buttonImage();
+
+		if ($this->hasShareCount()) {
+			$html .= $this->shareCountHtml($showCount);
+		}
+
+		$html .= '</a>';
+
+		return $html;
+	}
+
+
 	public function linkButton($username) {
-		return "";	
+
+		$url = esc_url($this->linkButtonUrl($username));
+
+		$html = '<a class="' . $this->cssClass()
+		        . '" href="'. $url. '" ' .
+		        ($this->newWindow ? 'target="_blank"' : '') . '>';
+
+		$html .= $this->buttonImage();
+
+		$html .= '</a>';
+
+		return $html;
 	}
 	
 	public function shareCount($url) {
@@ -65,6 +99,10 @@ class SH_Social_Service {
 
 	public static function canLink() {
 		return true;	
+	}
+
+	public static function hasShareCount() {
+		return false;
 	}
 
 	public static function description() {

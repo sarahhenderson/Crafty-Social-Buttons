@@ -16,38 +16,22 @@ class SH_Facebook extends SH_Social_Service {
 		$this->imageUrl = $this->imagePath . "facebook.png";
 	}
 
-	public function shareButton($url, $title = '', $showCount = false) {
-		
-		$html = '<a class="' . $this->cssClass() . '" href="http://www.facebook.com/sharer/sharer.php?' 
-			 . 'u=' . $url. '" ' 
-			 . ($this->newWindow ? 'target="_blank"' : '') . '>';
-	
-		$html .= $this->buttonImage();
+	public function shareButtonUrl($url, $title) {
 
-		$html .= $this->shareCountHtml($showCount);
-	
-		$html .= '</a>';
-	
-		return $html;
+		return "http://www.facebook.com/sharer/sharer.php?u=$url";
+
 	}
-	
-	public function linkButton($username) {
 
-        if (strpos($username, 'http://') === 0 || strpos($username, 'https://') === 0) {
+	public function linkButtonUrl($username) {
+
+		if (strpos($username, 'http://') === 0 || strpos($username, 'https://') === 0) {
 			$url = $username;
 		} else {
 			$url = "http://www.facebook.com/$username";
 		}
-		$html = '<a class="' . $this->cssClass() . '" href="'. $url. '" ' . 
-			 ($this->newWindow ? 'target="_blank"' : '') . '>';
-	
-		$html .= $this->buttonImage();	
-		
-		$html .= '</a>';
-	
-		return $html;
+		return $url;
 	}
-	
+
 	public function shareCount($url) {
 		 $response = wp_remote_get('http://graph.facebook.com/' . $url);
 		 if (is_wp_error($response)){
@@ -63,6 +47,10 @@ class SH_Facebook extends SH_Social_Service {
 				 return '0';
 			 }
 		 }
+	}
+
+	public static function hasShareCount() {
+		return true;
 	}
 
 	public static function description() {

@@ -20,18 +20,10 @@ class SH_RSS extends SH_Social_Service {
 		return '';
 	}
 	
-	public function linkButton($username) {
+	public function linkButtonUrl($username) {
 		
 		$url = empty($username) ? get_bloginfo('rss2_url') : $username;
-		$html = '<a class="' . $this->cssClass() 
-				. '" href="'. $url. '" ' 
-				. '>';
-	
-		$html .= $this->buttonImage();	
-		
-		$html .= '</a>';
-	
-		return $html;
+		return $url;
 	}
 	
 	public static function canShare() {

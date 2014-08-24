@@ -16,23 +16,12 @@ class SH_LinkedIn extends SH_Social_Service {
 		$this->imageUrl = $this->imagePath . "linkedin.png";
 	}
 
-	public function shareButton($url, $title = '', $showCount = false) {
-		
-		$html = '<a class="' . $this->cssClass() . '" href="http://www.linkedin.com/shareArticle?mini=true&' 
-			 . 'url='. $url
-			 . '&title=' . urlencode($title) . '" ' 
-			 . ($this->newWindow ? 'target="_blank"' : '') . '>';
-	
-		$html .= $this->buttonImage();
+	public function shareButtonUrl($url, $title) {
 
-		$html .= $this->shareCountHtml($showCount);
-
-		$html .= '</a>';
-	
-		return $html;
+		return "http://www.linkedin.com/shareArticle?mini=true&url=$url&title=$title";
 	}
 
-	public function linkButton($username) {
+	public function linkButtonUrl($username) {
 
         if (strpos($username, 'http://') === 0 || strpos($username, 'https://') === 0) {
             $url = $username;
@@ -41,14 +30,7 @@ class SH_LinkedIn extends SH_Social_Service {
         } else {
             $url = "http://linkedin.com/company/$username";
         }
-        $html = '<a class="' . $this->cssClass() . '" href="'. $url. '" ' .
-            ($this->newWindow ? 'target="_blank"' : '') . '>';
-
-        $html .= $this->buttonImage();
-
-        $html .= '</a>';
-
-        return $html;
+		return $url;
   	}
 
 	public function shareCount($url) {
@@ -66,6 +48,11 @@ class SH_LinkedIn extends SH_Social_Service {
 			 }
 		 }
 	}
+
+	public static function hasShareCount() {
+		return true;
+	}
+
 
 	public static function description() {
 		return __('Hint','crafty-social-buttons') . ": www.linkedin.com/in/<strong>user-id</strong> or www.linkedin.com/<strong>company/company-id</strong>";

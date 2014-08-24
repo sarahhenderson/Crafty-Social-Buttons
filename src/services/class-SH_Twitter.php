@@ -17,43 +17,23 @@ class SH_Twitter extends SH_Social_Service {
 		$this->show_title = isset($settings['twitter_show_title']) && $settings['twitter_show_title'];
 	}
 
-	
-	public function shareButton($url, $title = '', $showCount = false) {
-
+	public function shareButtonUrl($url, $title) {
 		if ($this->show_title) {
-			$this->text .= ' '.$title; 
+			$this->text .= ' '.$title;
 		}
+		$text = htmlspecialchars(urlencode(html_entity_decode(trim($this->text), ENT_COMPAT, 'UTF-8')), ENT_COMPAT, 'UTF-8');
 
-		$html = '<a class="' . $this->cssClass() . '" href="http://twitter.com/share?'
-			. 'url=' . $url 
-			. '&text=' . htmlspecialchars(urlencode(html_entity_decode(trim($this->text), ENT_COMPAT, 'UTF-8')), ENT_COMPAT, 'UTF-8')
-			. '" ' 
-			. ($this->newWindow ? 'target="_blank"' : '') . '>';
-	
-		$html .= $this->buttonImage();
-
-		$html .= $this->shareCountHtml($showCount);
-
-		$html .= '</a>';
-	
-		return $html;
+		return "http://twitter.com/share?url=$url&text=$text";
 	}
-	
-	public function linkButton($username) {
+
+	public function linkButtonUrl($username) {
 
         if (strpos($username, 'http://') === 0 || strpos($username, 'https://') === 0) {
 			$url = $username;
 		} else {
 			$url = "http://twitter.com/$username";
 		}
-		$html = '<a class="' . $this->cssClass() . '" href="'. $url. '" ' . 
-						($this->newWindow ? 'target="_blank"' : '') . '>';
-	
-		$html .= $this->buttonImage();	
-		
-		$html .= '</a>';
-	
-		return $html;
+		return $url;
 	}
 	
 	public function shareCount($url) {
@@ -71,7 +51,12 @@ class SH_Twitter extends SH_Social_Service {
 			 }
 		 }
 	}
-	
+
+	public static function hasShareCount() {
+		return true;
+	}
+
+
 	public static function description() {
 		return __('Hint','crafty-social-buttons') . ": @<strong>user-id</strong>";
 	}

@@ -16,7 +16,7 @@ class SH_Pinterest extends SH_Social_Service {
 		$this->imageUrl = $this->imagePath . "pinterest.png";
 	}
 
-	public function shareButton($url, $title = '', $showCount = false) {
+	public function shareButtonUrl($url, $title = '', $showCount = false) {
 		
 		$html = "<a class=\"" . $this->cssClass() . "\" href='javascript:void((function()%7Bvar%20e=document.createElement(&apos;script&apos;);e.setAttribute(&apos;type&apos;,&apos;text/javascript&apos;);e.setAttribute(&apos;charset&apos;,&apos;UTF-8&apos;);e.setAttribute(&apos;src&apos;,&apos;http://assets.pinterest.com/js/pinmarklet.js?r=&apos;+Math.random()*99999999);document.body.appendChild(e)%7D)());'>";
 
@@ -25,25 +25,18 @@ class SH_Pinterest extends SH_Social_Service {
 		$html .= $this->shareCountHtml($showCount);
 
 		$html .= '</a>';
-	
+
 		return $html;
 	}
 	
-	public function linkButton($username) {
+	public function linkButtonUrl($username) {
 
         if (strpos($username, 'http://') === 0 || strpos($username, 'https://') === 0) {
 			$url = $username;
 		} else {
 			$url = "http://pinterest.com/$username";
 		}
-		$html = '<a class="' . $this->cssClass() . '" href="'. $url. '" ' . 
-			 ($this->newWindow ? 'target="_blank"' : '') . '>';
-	
-		$html .= $this->buttonImage();	
-		
-		$html .= '</a>';
-	
-		return $html;
+		return $url;
 	}
 	
 	public function shareCount($url) {
@@ -62,6 +55,11 @@ class SH_Pinterest extends SH_Social_Service {
 			 }
 		 }
 	}
+
+	public static function hasShareCount() {
+		return true;
+	}
+
 	public static function description() {
 		return __('Hint','crafty-social-buttons') . ": www.pinterest.com/<strong>user-id</strong>";
 	}

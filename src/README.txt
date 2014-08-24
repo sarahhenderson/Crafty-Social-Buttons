@@ -97,6 +97,7 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 * Changed caption 'post counts' to 'share counts' in settings page.
 * Changed format of ajax share count request url to avoid issues with apache security plugins
 * Share counts are hidden until data is available, prevents row of zeros displaying
+* Escaped entities in urls to ensure HTML validator compliance
 
 = 1.3.1 =
 * Fixed bug with post counts not showing both above and below posts

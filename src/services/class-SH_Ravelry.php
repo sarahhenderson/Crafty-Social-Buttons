@@ -17,37 +17,24 @@ class SH_Ravelry extends SH_Social_Service {
 	}
 
 	
-	public function shareButton($url, $title = '', $showCount = false) {
+	public function shareButtonUrl($url, $title) {
 
-		$html = '<a class="' . $this->cssClass() . '" href="http://www.ravelry.com/bookmarklets/queue?'
-			. 'url=' . $url 
-			. '&title=' . urlencode($title) . '" ' 
-			. ($this->newWindow ? 'target="_blank"' : '') . '>';
-	
-		$html .= $this->buttonImage();
-	
-		$html .= '</a>';
-	
-		return $html;
+		return "http://www.ravelry.com/bookmarklets/queue?url=$url&title=$title";
 	}
 	
-	public function linkButton($username) {
+	public function linkButtonUrl($username) {
 
         if (strpos($username, 'http://') === 0 || strpos($username, 'https://') === 0) {
 			$url = $username;
 		} else {
 			$url = "http://www.ravelry.com/people/$username";
 		}
-		$html = '<a class="' . $this->cssClass() . '" href="'. $url. '" ' . 
-			($this->newWindow ? 'target="_blank"' : '') . '>';
-	
-		$html .= $this->buttonImage();	
-		
-		$html .= '</a>';
-	
-		return $html;
+		return $url;
 	}
-	
+
+	public static function hasShareCount() {
+		return true;
+	}
 
 	public static function description() {
 		return __('Hint','crafty-social-buttons') . ": www.ravelry.com/people/<strong>user-id</strong>";

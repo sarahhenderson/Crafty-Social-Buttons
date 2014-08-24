@@ -16,37 +16,19 @@ class SH_Reddit extends SH_Social_Service {
 		$this->imageUrl = $this->imagePath . "reddit.png";
 	}
 
-	public function shareButton($url, $title = '', $showCount = false) {
-		
-		$html = '<a class="' . $this->cssClass() . '" href="http://reddit.com/submit?' 
-			. 'url=' . $url 
-			. '&title=' . urlencode($title) . '" ' 
-			. ($this->newWindow ? 'target="_blank"' : '') . '>';
-	
-		$html .= $this->buttonImage();
+	public function shareButtonUrl($url, $title) {
 
-		$html .= $this->shareCountHtml($showCount);
-
-		$html .= '</a>';
-	
-		return $html;
+		return "http://reddit.com/submit?url=$url&title=$title";
 	}
 	
-	public function linkButton($username) {
+	public function linkButtonUrl($username) {
 
         if (strpos($username, 'http://') === 0 || strpos($username, 'https://') === 0) {
 			$url = $username;
 		} else {
 			$url = "http://www.reddit.com/user/$username";
 		}
-		$html = '<a class="' . $this->cssClass() . '" href="'. $url. '" ' . 
-		 ($this->newWindow ? 'target="_blank"' : '') . '>';
-	
-		$html .= $this->buttonImage();	
-		
-		$html .= '</a>';
-	
-		return $html;
+		return $url;
 	}
 	
 	public function shareCount($url) {
@@ -63,6 +45,11 @@ class SH_Reddit extends SH_Social_Service {
 			 }
 		 }
 	}
+
+	public static function hasShareCount() {
+		return true;
+	}
+
 
 	public static function description() {
 		return __('Hint','crafty-social-buttons') . ": www.reddit.com/user/<strong>user-id</strong>";

@@ -20,23 +20,14 @@ class SH_Instagram extends SH_Social_Service {
 		return '';
 	}
 	
-	public function linkButton($username) {
+	public function linkButtonUrl($username) {
 
         if (strpos($username, 'http://') === 0 || strpos($username, 'https://') === 0) {
 			$url = $username;
 		} else {
 			$url = "http://instagram.com/$username";
 		}
-		$html = '<a class="' . $this->cssClass() 
-				. '" href="'. $url. '" ' 
-				. ($this->newWindow ? 'target="_blank"' : '') 
-				. '>';
-	
-		$html .= $this->buttonImage();	
-		
-		$html .= '</a>';
-	
-		return $html;
+		return $url;
 	}
 	
 	public static function canShare() {
