@@ -26,6 +26,7 @@ div.crafty-social-buttons .crafty-social-caption {
 
 div.crafty-social-buttons-caption-block .crafty-social-caption {
     display: block;
+    padding-right: 0;
 }
 
 div.crafty-social-buttons  ul {
