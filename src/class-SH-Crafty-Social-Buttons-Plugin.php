@@ -320,6 +320,8 @@ class SH_Crafty_Social_Buttons_Plugin {
 			'show_on_category'		=> false,
 			'show_on_archive'		=> false,
 			'position'				=> 'below',
+			'share_caption_position'=> 'inline-block',
+			'share_alignment'		=> 'left',
 			'show_count'			=> false,
             'open_in'			    => 'new_window',
             'popup'			        => false,
@@ -330,6 +332,8 @@ class SH_Crafty_Social_Buttons_Plugin {
 			'link_image_set'	 	=> 'simple',
 			'link_image_size'		=> 48,
 			'link_caption'			=> 'Find me on:',
+			'link_caption_position'	=> 'inline-block',
+			'link_alignment'	    => 'left',
 			'link_services'		    => 'Facebook,Google,Twitter,Ravelry,Etsy',
             'new_window'			=> true,
 		);
