@@ -90,7 +90,7 @@ class SH_Social_Service {
 	}
 	
 	public function shareCount($url) {
-		return "0";	
+		return 0;
 	}
 	
 	public static function canShare() {

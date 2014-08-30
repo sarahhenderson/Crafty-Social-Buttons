@@ -276,7 +276,7 @@ class SH_Crafty_Social_Buttons_Plugin {
 				$file = include_once(plugin_dir_path(__FILE__) . "services/class-$class.php");
 
 				$service = new $class('share', $settings, '');
-				$count = $service->shareCount($url);
+				$count = intval($service->shareCount($url));
 				$result->count = $count;
 				wp_die(json_encode($result));
 			}

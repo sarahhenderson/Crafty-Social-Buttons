@@ -35,8 +35,8 @@ class SH_Facebook extends SH_Social_Service {
 	public function shareCount($url) {
 		 $response = wp_remote_get('http://graph.facebook.com/' . $url);
 		 if (is_wp_error($response)){
-        // return zero if response is error                             
-        return "0";             
+            // return zero if response is error
+            return 0;
 		 } else {
 			 $json = json_decode($response['body'], true);
 			 if (isset($json['shares'])) {
@@ -44,7 +44,7 @@ class SH_Facebook extends SH_Social_Service {
 			 } elseif (isset($json['likes'])) {
 				 return $json['likes'];
 			 } else {
-				 return '0';
+				 return 0;
 			 }
 		 }
 	}

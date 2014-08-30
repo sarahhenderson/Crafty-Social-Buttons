@@ -66,7 +66,7 @@ class SH_Google extends SH_Social_Service {
 
 		if ( is_wp_error( $response ) ) {
 			// return zero if response is error
-			return "0";
+			return 0;
 		} else {
 			$json = json_decode( $response['body'], true );
 

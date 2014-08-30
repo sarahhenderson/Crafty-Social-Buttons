@@ -34,14 +34,14 @@ class SH_StumbleUpon extends SH_Social_Service {
 	public function shareCount($url) {
 		 $response = wp_remote_get('http://www.stumbleupon.com/services/1.01/badge.getinfo?url=' . $url);
 		 if (is_wp_error($response)){
-        // return zero if response is error                             
-        return "0";             
+            // return zero if response is error
+            return 0;
 		 } else {
 			 $json = json_decode($response['body'], true);
 			 if (isset($json['result']['views'])) {
 				 return $json['result']['views'];
 			 } else {
-				 return '0';
+				 return 0;
 			 }
 		 }
 	}

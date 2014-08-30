@@ -25,13 +25,13 @@ You can use the share button and link button functions either separately, or tog
 Supported social services include:
 
 *	Digg
-*   Craftsy (link only)
+*  Craftsy (link only)
 *	Email (share only)
 *	Etsy (link only)
-*   Facebook
-*   Flickr (link only)
+*  Facebook
+*  Flickr (link only)
 *	Google+
-*   Instagram (link only)
+*  Instagram (link only)
 *	LinkedIn
 *	Pinterest
 *	Ravelry
@@ -39,7 +39,7 @@ Supported social services include:
 *	Stumble Upon
 *	Tumblr
 *	Twitter
-*   YouTube
+*  YouTube
 
 You can also choose exactly which services you want separately for each mode, so you can can have *Share Buttons* for Ravelry, Pinterest, Facebook, Twitter and Email, but have *Link Buttons* for Google+, Craftsy, Pinterest and your Etsy shop.
 
@@ -92,6 +92,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 5. *Share buttons* displayed with post count bubbles next to them (twenty thirteen theme, arbenting icon set).
 
 == Changelog ==
+
+= 1.3.4 =
+* Hide the zeros that Facebook returns as a string
 
 = 1.3.3 =
 * Fixed issue affecting PHP 5.2 installations

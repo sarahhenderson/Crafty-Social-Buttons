@@ -34,14 +34,14 @@ class SH_Reddit extends SH_Social_Service {
 	public function shareCount($url) {
 		 $response = wp_remote_get('http://www.reddit.com/api/info.json?url=' . $url);
 		 if (is_wp_error($response)){
-        // return zero if response is error                             
-        return "0";             
+            // return zero if response is error
+            return 0;
 		 } else {
 			 $json = json_decode($response['body'], true);
 			 if (isset($json['data']['children']['0']['data']['score'])) {
 				 return $json['data']['children']['0']['data']['score'];
 			 } else {
-				 return '0';
+				 return 0;
 			 }
 		 }
 	}
