@@ -217,6 +217,7 @@ class SH_Crafty_Social_Buttons_Shortcode {
 		return $buttonHtml;
 	}
 
+	/* Returns a list containing only those selected services that support getting share counts */
 	function get_services_with_share_count($selectedServices) {
 		$services = array();
 
@@ -225,7 +226,8 @@ class SH_Crafty_Social_Buttons_Shortcode {
 			$class = "SH_$serviceName";
 
 			if (class_exists($class)) {
-				$hasCount = $class::hasShareCount();
+				//$hasCount = $class::hasShareCount(); // PHP 5.3+
+				$hasCount = call_user_func("$class::hasShareCount"); // PHP 5.2
 				if ($hasCount)
 					$services[] = $serviceName;
 			}
@@ -233,7 +235,7 @@ class SH_Crafty_Social_Buttons_Shortcode {
 		return $services;
 	}
 
-	/** Generates the markup for an individual share button */
+	/* Generates the markup for an individual share button */
 	function get_individual_button_html($type, $serviceName, $url, $title, $showCount, $settings, $key) {
 
 		$this->ensure_class_included($serviceName);
