@@ -93,6 +93,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 == Changelog ==
 
+= 1.3.5 =
+* Fix broken Pinterest share link
+
 = 1.3.4 =
 * Hide the zeros that Facebook returns as a string
 
