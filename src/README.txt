@@ -93,6 +93,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 == Changelog ==
 
+= 1.3.7 =
+* Fixed Facebook share counts not appearing by switching to different Facebook API
+
 = 1.3.6 =
 * Fix site url incorrectly showing up in email To: field
 
@@ -187,6 +190,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 * First version!
 
 == Upgrade Notice ==
+
+= 1.3.7 =
+* Fixes Facebook share counts not appearing
 
 = 1.3.2 =
 * Choose button alignment, and share counts hidden until loaded
