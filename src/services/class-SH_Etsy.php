@@ -39,4 +39,3 @@ class SH_Etsy extends SH_Social_Service {
 		return __('Hint','crafty-social-buttons') . ": www.etsy.com/shop/<strong>user-id</strong>/";
 	}
 }
-?>

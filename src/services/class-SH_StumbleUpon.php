@@ -54,4 +54,3 @@ class SH_StumbleUpon extends SH_Social_Service {
 		return __('Hint','crafty-social-buttons') . ": www.stumbleupon/stumbler/<strong>user-id</strong>";
 	}
 }
-?>

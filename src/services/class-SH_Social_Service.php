@@ -130,5 +130,3 @@ class SH_Social_Service {
 	}
 	
 }
- 
-?>

@@ -83,5 +83,3 @@ class SH_Google extends SH_Social_Service {
 		return __( 'Hint', 'crafty-social-buttons' ) . ": plus.google.com/u/0/<strong>user-id</strong> (" . __( 'a long number', 'crafty-social-buttons' ) . ")";
 	}
 }
-
-?>

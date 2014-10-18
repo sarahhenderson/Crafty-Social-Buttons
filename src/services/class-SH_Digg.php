@@ -34,4 +34,3 @@ class SH_Digg extends SH_Social_Service {
 		return __('Hint','crafty-social-buttons') . ": www.digg.com/<strong>user-id</strong>";
 	}
 }
-?>

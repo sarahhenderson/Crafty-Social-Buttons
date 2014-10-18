@@ -42,5 +42,3 @@ class SH_Tumblr extends SH_Social_Service {
 		return __('Hint','crafty-social-buttons') . ": http://<strong>user-id</strong>.tumblr.com";
 	}
 }
-
-?>

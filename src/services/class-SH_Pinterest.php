@@ -64,5 +64,3 @@ class SH_Pinterest extends SH_Social_Service {
 		return __('Hint','crafty-social-buttons') . ": www.pinterest.com/<strong>user-id</strong>";
 	}
 }
-
-?>

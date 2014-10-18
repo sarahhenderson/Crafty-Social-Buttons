@@ -61,5 +61,3 @@ class SH_Twitter extends SH_Social_Service {
 		return __('Hint','crafty-social-buttons') . ": @<strong>user-id</strong>";
 	}
 }
-
-?>

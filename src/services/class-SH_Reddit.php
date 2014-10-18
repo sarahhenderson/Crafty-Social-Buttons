@@ -55,5 +55,3 @@ class SH_Reddit extends SH_Social_Service {
 		return __('Hint','crafty-social-buttons') . ": www.reddit.com/user/<strong>user-id</strong>";
 	}
 }
-
-?>

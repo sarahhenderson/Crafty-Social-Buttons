@@ -59,4 +59,3 @@ class SH_Facebook extends SH_Social_Service {
 		return __('Hint','crafty-social-buttons') . ": www.facebook.com/<strong>user-id</strong>/";
 	}
 }
-?>

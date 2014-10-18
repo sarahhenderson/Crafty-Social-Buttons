@@ -39,5 +39,3 @@ class SH_Instagram extends SH_Social_Service {
 	}
 
 }
-
-?>

@@ -45,4 +45,3 @@ class SH_Craftsy extends SH_Social_Service {
         . __('For more options see Help > Link Buttons (link top right of screen)','crafty-social-buttons');
 	}
 }
-?>

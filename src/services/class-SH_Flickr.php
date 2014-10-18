@@ -39,5 +39,3 @@ class SH_Flickr extends SH_Social_Service {
         ."(".__('numbers and letters','crafty-social-buttons') .")";
 	}
 }
-
-?>

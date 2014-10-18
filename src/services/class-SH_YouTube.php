@@ -39,5 +39,3 @@ class SH_YouTube extends SH_Social_Service {
 	}
 
 }
-
-?>

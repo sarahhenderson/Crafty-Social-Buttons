@@ -58,5 +58,3 @@ class SH_LinkedIn extends SH_Social_Service {
 		return __('Hint','crafty-social-buttons') . ": www.linkedin.com/in/<strong>user-id</strong> or www.linkedin.com/<strong>company/company-id</strong>";
 	}
 }
-
-?>

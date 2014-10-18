@@ -35,5 +35,3 @@ class SH_RSS extends SH_Social_Service {
 	}
 
 }
-
-?>

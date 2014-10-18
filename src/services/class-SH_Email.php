@@ -33,4 +33,3 @@ class SH_Email extends SH_Social_Service {
 		return __('Hint: Your email address','crafty-social-buttons');
 	}
 }
-?>
