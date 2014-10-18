@@ -334,7 +334,7 @@ class SH_Crafty_Social_Buttons_Plugin {
 			'link_caption'			=> 'Find me on:',
 			'link_caption_position'	=> 'inline-block',
 			'link_alignment'	    => 'left',
-			'link_services'		    => 'Facebook,Google,Twitter,Ravelry,Etsy',
+			'link_services'		    => 'Facebook,Google,Twitter,Ravelry,Etsy,SpecificFeeds',
             'new_window'			=> true,
 		);
 		return $settings;
