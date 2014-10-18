@@ -24,8 +24,9 @@ You can use the share button and link button functions either separately, or tog
 
 Supported social services include:
 
-*	Digg
 *  Craftsy (link only)
+*	Digg
+*	Ebay (link only)
 *	Email (share only)
 *	Etsy (link only)
 *  Facebook
@@ -36,9 +37,11 @@ Supported social services include:
 *	Pinterest
 *	Ravelry
 *	Reddit
+*	Specific Feeds (link only)
 *	Stumble Upon
 *	Tumblr
 *	Twitter
+*  Vimeo
 *  YouTube
 
 You can also choose exactly which services you want separately for each mode, so you can can have *Share Buttons* for Ravelry, Pinterest, Facebook, Twitter and Email, but have *Link Buttons* for Google+, Craftsy, Pinterest and your Etsy shop.
@@ -73,7 +76,6 @@ Yes! The buttons can also be included in any post or page by using one of these 
 
 *	[csblink] for the *Link buttons*
 *	[csbshare] for the *Share buttons*
-*	[csbpageshare] for the *Page Share buttons* (to go outside loop)
 
 If your theme doesn't have a widget area where you want the buttons to be placed, you can include them by editing your theme template.  Just include one of these links in your template to generate the buttons:
 
@@ -92,6 +94,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 5. *Share buttons* displayed with post count bubbles next to them (twenty thirteen theme, arbenting icon set).
 
 == Changelog ==
+
+= 1.3.8 =
+* Added link buttons for Ebay, Vimeo and SpecificFeeds
 
 = 1.3.7 =
 * Fixed Facebook share counts not appearing by switching to different Facebook API
@@ -191,6 +196,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 == Upgrade Notice ==
 
+= 1.3.8 =
+* Add link buttons for Ebay, Vimeo and SpecificFeeds
+
 = 1.3.7 =
 * Fixes Facebook share counts not appearing
 
@@ -247,6 +255,6 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 These are the things currently in the pipeline:
 
+* Adding the ability to hide buttons on specific pages
 * Choosing which post types the share buttons are added to
-* Adding more services (ebay, Xing, Vimeo)
 * (Anything else?  You tell me!)
