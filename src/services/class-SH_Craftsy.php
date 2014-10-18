@@ -42,6 +42,6 @@ class SH_Craftsy extends SH_Social_Service {
 	public static function description() {
         return __('Hint','crafty-social-buttons').": www.craftsy.com/user/<strong>user-id</strong>/ ("
         . __('numbers','crafty-social-buttons') .')'
-        . __('For more options see Help > Link Buttons (link top right of screen)','crafty-social-buttons');
+        . __('To link to pattern store or instructor page, enter the full url.','crafty-social-buttons');
 	}
 }

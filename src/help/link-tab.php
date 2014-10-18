@@ -13,14 +13,16 @@
 <dd>Lets you choose which icons are displayed and in which order.  Just drag the icons to reorder them, and drag them between the selected and available boxes to include only the ones you want.</dd>
 
 <dt>User IDs</dt>
-<dd>For any service you choose, you should enter your username in the box.  This is so the link will go directly to your profile (e.g. your facebook page, your Etsy shop) and not just to the homepage of the site.</dd>
+<dd>For any service you choose, you should enter your username in the box and the URL to your page will
+    be automatically generated.  If you do not have a standard URL (e.g. you have a custom or store URL)
+    just enter the full url (starting with http://) in the box.</dd>
 
-<dt>Craftsy Links</dt>
-<dd>There are three ways to link to your Craftsy profile.
-<ol>
-	<li><strong>User profile</strong>. The link will be in this form: www.craftsy.com/user/<strong>user-id/</strong>. You should enter just your user ID (all numbers).</li>
-    <li><strong>Pattern store</strong>.  The link will be in this form: www.craftsy.com/user/<strong>user-id/pattern-store</strong>.  You should enter <code>user-id/pattern-store</code> (e.g. 12345/pattern-store).  The user-id part will be all numbers. </li>
-    <li><strong>Instructor profile</strong>.  The link will be in this form: www.craftsy.com/<strong>instructors/user-id</strong>/.  You should enter <code>/instructors/user-id</code>. The user-id will be a combination of letters and numbers</li>
-</ol>
+<dt>Specific Feeds</dt>
+<dd><a href="http://www.specificfeeds.com/rss">SpecificFeeds</a> is a free service which allows
+    your visitors to subscribe to your blog by RSS or Email.
+    No configuration is necessary - your visitors will be automatically linked to the Specific Feeds
+    follow page (<a href="http://www.specificfeeds.com/follow">http://www.specificfeeds.com/follow</a>).
+    You can also generate a unique subscription url for your
+    blog <a href="http://www.specificfeeds.com/rss">here</a>.
 </dd>
 <p>Done forget to hit <em>Save changes</em> when you're done!</p>
