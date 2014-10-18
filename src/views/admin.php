@@ -1,4 +1,4 @@
-﻿<div class="wrap <?php echo $this->plugin_slug; ?>">
+<div class="wrap <?php echo $this->plugin_slug; ?>">
     <h2><?php _e('Crafty Social Buttons', $this->plugin_slug); ?></h2>
 
     <?php $active_tab = (isset($_GET['tab'])) ? $_GET['tab'] : 'share_options'; ?>

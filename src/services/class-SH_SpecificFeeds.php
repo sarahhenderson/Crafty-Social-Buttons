@@ -39,4 +39,3 @@ class SH_SpecificFeeds extends SH_Social_Service {
 		return 'Not necessary - will automatically <a href="http://www.specificfeeds.com/rss">let users subscribe to your blog via email</a>.  Optionally enter your custom url.';
 	}
 }
-

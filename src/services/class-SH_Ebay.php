@@ -1,4 +1,3 @@
-
 <?php
 /**
  * SH_Ebay Class

@@ -340,6 +340,4 @@ class SH_Crafty_Social_Buttons_Plugin {
 		return $settings;
 	}
 
-	
 }
-?>

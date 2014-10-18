@@ -1,4 +1,4 @@
-﻿<p>
+<p>
 	<label for="<?php echo $this->get_field_id('buttonType'); ?>">Type:</label>
 
 	<select class="widefat" 

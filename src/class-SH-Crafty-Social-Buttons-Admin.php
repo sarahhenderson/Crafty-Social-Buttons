@@ -762,5 +762,3 @@ class SH_Crafty_Social_Buttons_Admin {
 	}
 
 }
-
-?>

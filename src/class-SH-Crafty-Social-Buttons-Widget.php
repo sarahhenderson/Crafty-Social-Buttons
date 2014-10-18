@@ -47,8 +47,10 @@ class SH_Crafty_Social_Buttons_Widget extends WP_Widget {
 		extract( $args );
 
 		$buttonType = isset($instance['buttonType']) ? $instance['buttonType'] : 'csblink';
+		$before_widget = isset($instance['$before_widget']) ? $instance['$before_widget'] : '';
+		$after_widget = isset($instance['$after_widget']) ? $instance['$after_widget'] : '';
 
-		echo $before_widget;		
+		echo $before_widget;
 		$shortcode = "[$buttonType]";
 	
 		echo do_shortcode($shortcode, $this->plugin_slug . "_widget" );
@@ -60,8 +62,10 @@ class SH_Crafty_Social_Buttons_Widget extends WP_Widget {
 	/**
 	 * Processes the widget's options to be saved.
 	 *
-	 * @param	array	new_instance	The previous instance of values before the update.
-	 * @param	array	old_instance	The new instance of values to be generated via the update.
+	 * @param    array    new_instance    The previous instance of values before the update.
+	 * @param    array    old_instance    The new instance of values to be generated via the update.
+	 *
+	 * @return array
 	 */
 	public function update( $new_instance, $old_instance ) {
 		
@@ -75,13 +79,15 @@ class SH_Crafty_Social_Buttons_Widget extends WP_Widget {
 	/**
 	 * Generates the administration form for the widget.
 	 *
-	 * @param	array	instance	The array of keys and values for the widget.
+	 * @param    array    instance    The array of keys and values for the widget.
+	 *
+	 * @return string|void
 	 */
 	public function form( $instance ) {
 		
 		extract($instance);
 
-		$buttonType = isset($instance['buttonType']) ? $buttonType : 'csblink';			
+		$buttonType = isset($instance['buttonType']) ? $instance['buttonType'] : 'csblink';
 
 		include( plugin_dir_path( __FILE__ ) . '/views/widget.php' );
 
@@ -98,8 +104,4 @@ class SH_Crafty_Social_Buttons_Widget extends WP_Widget {
 		}
 		return self::$instance;
 	}
-
-
-
-}	
-?>
+}
