@@ -30,6 +30,10 @@ class SH_RSS extends SH_Social_Service {
 		return false;	
 	}
 
+	public function getLinkButtonTitle() {
+		return "Subscribe via RSS";
+	}
+
 	public static function description() {
 		return __('Hint: enter full url for feed service (including http://) or leave blank to use built-in WordPress RSS feed url','crafty-social-buttons');
 	}

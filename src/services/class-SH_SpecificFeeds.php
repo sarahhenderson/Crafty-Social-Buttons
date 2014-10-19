@@ -35,7 +35,11 @@ class SH_SpecificFeeds extends SH_Social_Service {
 		return false;	
 	}
 
+	public function getLinkButtonTitle() {
+		return "Subscribe via email using Specific Feeds";
+	}
+
 	public static function description() {
-		return 'Not necessary - will automatically <a href="http://www.specificfeeds.com/rss">let users subscribe to your blog via email</a>.  Optionally enter your custom url.';
+		return 'Optional - defaults to <em>subscribe by email</em> page.  Or enter your custom url. <a href="http://www.specificfeeds.com/rss">More info</a>.';
 	}
 }

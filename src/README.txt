@@ -97,6 +97,8 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 = 1.3.8 =
 * Added link buttons for Ebay, Vimeo and SpecificFeeds
+* Stopped email links opening a blank window
+* Added titles to share and link buttons
 
 = 1.3.7 =
 * Fixed Facebook share counts not appearing by switching to different Facebook API
@@ -197,7 +199,7 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 == Upgrade Notice ==
 
 = 1.3.8 =
-* Add link buttons for Ebay, Vimeo and SpecificFeeds
+* Add link buttons for Ebay, Vimeo and SpecificFeeds (allows visitors to subscribe by email)
 
 = 1.3.7 =
 * Fixes Facebook share counts not appearing

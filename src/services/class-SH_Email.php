@@ -15,6 +15,7 @@ class SH_Email extends SH_Social_Service {
 		$this->service = "Email";
 		$this->imageUrl = $this->imagePath . "email.png";
 		$this->message = isset($settings['email_body']) ?  $settings['email_body'] : '';
+		$this->newWindow = false;
 	}
 
 	public function shareButtonUrl($url, $title) {
@@ -28,7 +29,7 @@ class SH_Email extends SH_Social_Service {
 		$url = "mailto:$username";
 		return $url;
 	}
-	
+
 	public static function description() {
 		return __('Hint: Your email address','crafty-social-buttons');
 	}

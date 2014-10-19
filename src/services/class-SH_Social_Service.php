@@ -57,12 +57,27 @@ class SH_Social_Service {
 
 	public function shareButton($url, $title = '', $showCount = false) {
 
-		$service_url = esc_url($this-> shareButtonUrl($url, $title));
+		$url = esc_url($this-> shareButtonUrl($url, $title));
+		$buttonTitle = $this->getShareButtonTitle();
+		return $this->generateButtonHtml($url, $buttonTitle, $showCount);
+	}
 
-		$html = '<a class="' . $this->cssClass() . '" href="' . $service_url . '" '
+
+	public function linkButton($username) {
+
+		$url = esc_url($this->linkButtonUrl($username));
+		$buttonTitle = $this->getLinkButtonTitle();
+		return $this->generateButtonHtml($url, $buttonTitle, false);
+	}
+
+	private function generateButtonHtml($url, $title = '', $showCount = false) {
+
+		$html = '<a href="' . $url . '"'
+		        . ' class="' . $this->cssClass() .'"'
+		        . ' title="' . $title . '" '
 		        . ($this->newWindow ? 'target="_blank"' : '') . '>';
 
-		$html .= $this->buttonImage();
+		$html .= $this->buttonImage($title);
 
 		if ($this->hasShareCount()) {
 			$html .= $this->shareCountHtml($showCount);
@@ -73,26 +88,16 @@ class SH_Social_Service {
 		return $html;
 	}
 
-
-	public function linkButton($username) {
-
-		$url = esc_url($this->linkButtonUrl($username));
-
-		$html = '<a class="' . $this->cssClass()
-		        . '" href="'. $url. '" ' .
-		        ($this->newWindow ? 'target="_blank"' : '') . '>';
-
-		$html .= $this->buttonImage();
-
-		$html .= '</a>';
-
-		return $html;
-	}
-	
 	public function shareCount($url) {
 		return 0;
 	}
-	
+
+	public function getShareButtonTitle() {
+		return __("Share via ", 'crafty-social-buttons') . $this->service;
+	}
+	public function getLinkButtonTitle() {
+		return $this->service;
+	}
 	public static function canShare() {
 		return true;	
 	}
@@ -109,13 +114,13 @@ class SH_Social_Service {
 		return "";	
 	}
 
-	protected function buttonImage() {
+	protected function buttonImage($title = '') {
 		$imageUrl = $this->imagePath . trim(strtolower($this->service)) . $this->imageExtension;
-		return '<img title="'.$this->service.'" '
-		.'alt="'.$this->service.'" '
-		.'width="'.$this->imageSize.'" '
-		.'height="'.$this->imageSize.'" '
-		.'src="' . $imageUrl .'" />';
+		return '<img '
+		.' alt="'.$title.'"'
+		.' width="'.$this->imageSize.'"'
+		.' height="'.$this->imageSize.'"'
+		.' src="' . $imageUrl .'" />';
 	}
 
 	protected function shareCountHtml($display) {
