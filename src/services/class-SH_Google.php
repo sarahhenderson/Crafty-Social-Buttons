@@ -35,7 +35,7 @@ class SH_Google extends SH_Social_Service {
 		return $url;
 	}
 
-	public function shareCount( $url ) {
+	public function shareCount( $url, $showCountTotal ) {
 		$args = array(
 			'method'    => 'POST',
 			'headers'   => array(
@@ -69,9 +69,22 @@ class SH_Google extends SH_Social_Service {
 			return 0;
 		} else {
 			$json = json_decode( $response['body'], true );
+      $count = intval( $json['result']['metadata']['globalCounts']['count'] );
+
+      // get also number of shares
+      // no official API hear so we just parse page. Can break at any time.
+      if ( $showCountTotal ) {
+          $shares_url = 'https://plus.google.com/ripple/details?hl=en&url='. $url;
+          $response = file_get_contents( $shares_url, false, NULL, 0, 1400 ); // read only start of file, we don't need all of it
+          $shares_match = preg_match('@([0-9]+) public shares@',$response,$matches);
+          if ( $matches && $matches[1]) {
+            $shares = $matches[1];
+            $count += intval($shares);
+          }
+      }
 
 			// return count of Google +1 for requsted URL
-			return intval( $json['result']['metadata']['globalCounts']['count'] );
+			return $count;
 		}
 	}
 
