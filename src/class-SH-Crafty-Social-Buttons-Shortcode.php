@@ -165,7 +165,7 @@ class SH_Crafty_Social_Buttons_Shortcode {
         $sizeKey            = substr(strval($settings[$type.'_image_size']),0,1);
 		$alignment          = $settings[$type.'_alignment'];
 		$caption_position   = $settings[$type.'_caption_position'];
-		$showCount          = $settings['show_count'];
+		$showCount          = $settings['show_count'] || $settings['show_count_total'];
 		
 		// use wordpress functions for page/post details
 
