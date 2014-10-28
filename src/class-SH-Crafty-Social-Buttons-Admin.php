@@ -218,6 +218,10 @@ class SH_Crafty_Social_Buttons_Admin {
 			array( $this, 'renderCheckbox' ), $page, $section,
 			array( 'show_count', __( 'Only displayed if service supports it.', $this->plugin_slug ) ) );
 
+		add_settings_field( 'show_count_total', __( 'Show total counts', $this->plugin_slug ),
+			array( $this, 'renderCheckbox' ), $page, $section,
+			array( 'show_count_total', __( 'Show total interaction count (shares, likes, comments) if services supports it (Facebook and Google).', $this->plugin_slug ) ) );
+
 		add_settings_field( 'email_body', __( 'Email text', $this->plugin_slug ),
 			array( $this, 'renderTextbox' ), $page, $section,
             array( 'email_body', __( 'Default Email text (user can override this)', $this->plugin_slug ) ) );
@@ -612,6 +616,7 @@ class SH_Crafty_Social_Buttons_Admin {
 			$settings['show_on_category']   = isset( $input['show_on_category'] );
 			$settings['show_on_archive']    = isset( $input['show_on_archive'] );
 			$settings['show_count']         = isset( $input['show_count'] );
+			$settings['show_count_total']   = isset( $input['show_count_total'] );
             $settings['twitter_show_title'] = isset( $input['twitter_show_title'] );
 
             // parse out our radio buttons, they are constrained so just take the values

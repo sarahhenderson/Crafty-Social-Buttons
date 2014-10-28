@@ -182,7 +182,7 @@ class SH_Crafty_Social_Buttons_Plugin {
 		$settings = $this->getSettings();
 
 		// only add javascript if post counts are to be shown
-		if ($settings['show_count']) {
+		if ($settings['show_count'] || $settings['show_count_total']) {
 
 			wp_enqueue_script( $this->plugin_slug . '-scripts',
 				plugins_url( 'js/public.min.js', __FILE__ ), array( 'jquery' ), $this->version, true );
@@ -276,7 +276,7 @@ class SH_Crafty_Social_Buttons_Plugin {
 				$file = include_once(plugin_dir_path(__FILE__) . "services/class-$class.php");
 
 				$service = new $class('share', $settings, '');
-				$count = intval($service->shareCount($url));
+				$count = intval($service->shareCount($url, $settings['show_count_total']));
 				$result->count = $count;
 				wp_die(json_encode($result));
 			}
@@ -323,6 +323,7 @@ class SH_Crafty_Social_Buttons_Plugin {
 			'share_caption_position'=> 'inline-block',
 			'share_alignment'		=> 'left',
 			'show_count'			=> false,
+			'show_count_total' => false,
             'open_in'			    => 'new_window',
             'popup'			        => false,
 			'email_body'			=> 'I thought you might like this: ',
