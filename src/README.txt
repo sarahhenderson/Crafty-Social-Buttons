@@ -95,6 +95,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 == Changelog ==
 
+= 1.3.9 =
+* Added `crafty-social-button-image` class to button images for easier styling
+
 = 1.3.8 =
 * Added link buttons for Ebay, Vimeo and SpecificFeeds
 * Stopped email links opening a blank window

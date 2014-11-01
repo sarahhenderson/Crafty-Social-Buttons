@@ -117,6 +117,7 @@ class SH_Social_Service {
 	protected function buttonImage($title = '') {
 		$imageUrl = $this->imagePath . trim(strtolower($this->service)) . $this->imageExtension;
 		return '<img '
+		.' class="crafty-social-button-image"'
 		.' alt="'.$title.'"'
 		.' width="'.$this->imageSize.'"'
 		.' height="'.$this->imageSize.'"'
