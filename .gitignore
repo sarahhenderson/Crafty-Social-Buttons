@@ -1,18 +1,3 @@
-lib-cov
-*.seed
-*.log
-*.csv
-*.dat
-*.out
-*.pid
-*.gz
-
-pids
-logs
-results
-
-#node project files
-npm-debug.log
 node_modules
 
 #dreamweaver sync
