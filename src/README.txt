@@ -97,6 +97,7 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 = 1.4.0 =
 * Optimised images (smaller file sizes, faster loading)
+* Added `crafty-social-button-image` class to button images for easier styling
 
 = 1.3.8 =
 * Added link buttons for Ebay, Vimeo and SpecificFeeds
