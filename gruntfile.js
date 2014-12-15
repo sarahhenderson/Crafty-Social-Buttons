@@ -1,16 +1,7 @@
 module.exports = function (grunt) {
    // Do grunt-related things in here
 
-   grunt.loadNpmTasks('grunt-contrib-jshint');
-   grunt.loadNpmTasks('grunt-contrib-uglify');
-   grunt.loadNpmTasks('grunt-contrib-cssmin');
-   grunt.loadNpmTasks('grunt-contrib-copy');
-   grunt.loadNpmTasks('grunt-contrib-clean');
-   grunt.loadNpmTasks('grunt-contrib-watch');
-   grunt.loadNpmTasks('grunt-contrib-compress');
-   grunt.loadNpmTasks('grunt-contrib-imagemin');
-   grunt.loadNpmTasks('grunt-strip');
-   grunt.loadNpmTasks('grunt-bump');
+   require('load-grunt-tasks')(grunt);
 
    grunt.initConfig({
 
@@ -66,8 +57,8 @@ module.exports = function (grunt) {
                      cwd: 'src/js',      // Src matches are relative to this path.
                      src: ['*.js', '!*.min.js'], // Actual pattern(s) to match.
                      dest: 'src/js',   // Destination path prefix.
-                     ext: '.min.js',   // Dest filepaths will have this extension.
-                  },
+                     ext: '.min.js'    // Dest filepaths will have this extension.
+                  }
                ],
                options: {
                   beautify: true, mangle: false
@@ -110,12 +101,12 @@ module.exports = function (grunt) {
             },
             scripts: {
                files: ['src/js/*.js', '!src/js/*.min.js'],
-               tasks: ['jshint', 'uglify:dev'],
+               tasks: ['jshint', 'uglify:dev']
             },
             css: {
                files: ['src/css/*.css', '!src/css/*.min.css'],
-               tasks: ['cssmin'],
-            },
+               tasks: ['cssmin']
+            }
          },
 
          strip: {
@@ -210,7 +201,7 @@ module.exports = function (grunt) {
                updateConfigs: ['pkg'],
                commitMessage: 'Updated version number to %VERSION%',
                createTag: false,
-               push: false,
+               push: false
             }
          }
 
