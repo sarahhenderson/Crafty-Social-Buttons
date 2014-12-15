@@ -102,6 +102,7 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 * Added [csbnone] shortcode to suppress share buttons on any post or page
 * Optimised images (smaller file sizes, faster loading)
 * Urlencoded post titles in links to enable validator compliance
+* Fixed bug in LinkedIn generated link button url
 
 = 1.3.8 =
 * Added link buttons for Ebay, Vimeo and SpecificFeeds
