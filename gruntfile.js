@@ -169,7 +169,7 @@ module.exports = function (grunt) {
                files: [{
                           expand: true,
                           cwd: '../',
-                          src: ['master/zips/<%= pkg.name %>-<%= pkg.version %>.zip'],
+                          src: ['master/zips/<%= pkg.name %>-<%= pkg.version %>.zip', 'master/zips/<%= pkg.name %>-latest.zip'],
                           dest: '../gh-pages/downloads/',
                           flatten: true,
                           filter: 'isFile'
@@ -186,9 +186,17 @@ module.exports = function (grunt) {
          },
 
          compress: {
-            release: {
+            versioned: {
                options: {
                   archive: 'zips/<%= pkg.name %>-<%= pkg.version %>.zip'
+               },
+               files: [
+                  {src: ['<%= pkg.name %>/**/*'], dest: ''}
+               ]
+            },
+            latest: {
+               options: {
+                  archive: 'zips/<%= pkg.name %>-latest.zip'
                },
                files: [
                   {src: ['<%= pkg.name %>/**/*'], dest: ''}
