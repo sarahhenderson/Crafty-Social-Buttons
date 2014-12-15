@@ -34,9 +34,10 @@ class SH_Crafty_Social_Buttons_Shortcode
       // add share buttons to content
       add_filter('the_content', array($this, 'add_share_buttons_to_content'));
 
-      // register shortcode [csbshare] and [csblink]
+      // register shortcode [csbshare] and [csblink] and [csbnone]
       add_shortcode('csblink', array($this, 'get_link_button_html'));
       add_shortcode('csbshare', array($this, 'get_share_button_html'));
+      add_shortcode('csbnone', array($this, 'shortcode_csbnone'));
 
       // register actions for people to include in their templates
       add_action('crafty-social-share-buttons', array($this, 'output_share_button_html'));
@@ -92,13 +93,7 @@ class SH_Crafty_Social_Buttons_Shortcode
       $settings = $this->getSettings();
 
       // placement on pages/posts/categories/archives/homepage
-      if (is_page() && !is_front_page() && $settings['show_on_pages'] ||
-         is_single() && $settings['show_on_posts'] ||
-         is_home() && $settings['show_on_home'] ||
-         is_category() && $settings['show_on_category'] ||
-         is_archive() && !is_category() && $settings['show_on_archive'] ||
-         is_front_page() && $settings['show_on_static_home']
-      ) {
+      if ($this->should_show_buttons($content, $settings)) {
 
          $buttons = $this->get_buttons_html('share');
 
@@ -122,6 +117,20 @@ class SH_Crafty_Social_Buttons_Shortcode
 
       }
       return $content;
+   }
+
+   function should_show_buttons($content, $settings) {
+
+      if (has_shortcode($content, 'csbnone')) return false;
+
+      if (is_page() && !is_front_page() && $settings['show_on_pages']) return true;
+      if (is_single() && $settings['show_on_posts']) return true;
+      if (is_home() && $settings['show_on_home']) return true;
+      if (is_category() && $settings['show_on_category']) return true;
+      if (is_archive() && !is_category() && $settings['show_on_archive']) return true;
+      if (is_front_page() && $settings['show_on_static_home']) return true;
+
+      return false;
    }
 
    /**
@@ -167,6 +176,13 @@ class SH_Crafty_Social_Buttons_Shortcode
       echo $this->get_buttons_html('share', true);
    }
 
+   /**
+    * Generates the markup for the link buttons
+    */
+   function shortcode_csbnone()
+   {
+      return; // nothing to output.  The other shortcodes will be suppressed if this shortcode is present.
+   }
 
    /**
     * Generates the markup for the share buttons
