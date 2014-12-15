@@ -32,10 +32,6 @@ class SH_Ravelry extends SH_Social_Service {
 		return $url;
 	}
 
-	public static function hasShareCount() {
-		return true;
-	}
-
 	public static function description() {
 		return __('Hint','crafty-social-buttons') . ": www.ravelry.com/people/<strong>user-id</strong>";
 	}

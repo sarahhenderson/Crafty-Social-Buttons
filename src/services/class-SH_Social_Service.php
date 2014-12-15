@@ -12,6 +12,7 @@ class SH_Social_Service {
 
 	// construct the class
 	public function __construct($type, $settings, $key) {
+		$this->cache_key = "_csb_cache";
 		$this->service = "Default"; // must be set correctly in the subclass constructors
 		$this->settings = $settings;
 		$this->key = $key;
@@ -88,8 +89,56 @@ class SH_Social_Service {
 		return $html;
 	}
 
-	public function shareCount($url) {
-		return 0;
+	public function shareCount($url, $post_id) {
+		if (!$this->hasShareCount())
+			return 0;
+
+		if (!is_numeric($post_id)) // url based counts are not cached
+			return $this->fetchShareCount($url);
+
+		if (!$this->settings['cache_share_counts']) // caching is not enabled
+			return $this->fetchShareCount($url);
+
+		$cached_share_count = $this->getCachedShareCount($post_id);
+		if ($cached_share_count != null)
+			return $cached_share_count['count'];
+
+		// If we got here, either there was no existing cached value, or the cache had expired
+		$count = $this->fetchAndCacheShareCount($post_id, $url);
+		return $count;
+	}
+
+	protected function fetchAndCacheShareCount($post_id, $url) {
+		$share_count = $this->fetchShareCount($url);
+		$cache = get_post_meta($post_id, $this->cache_key, true);
+		if (!$cache) {
+			$cache = array();
+		}
+		$cache[$this->service] =  array(
+			'count' => $share_count,
+			'timestamp' => time()
+		);
+
+		update_post_meta($post_id, $this->cache_key, $cache);
+		return $share_count;
+	}
+
+	protected function getCachedShareCount($post_id) {
+		$cache = get_post_meta($post_id, $this->cache_key, true);
+		if (!$cache) return null;		// exit if there is no cache
+
+		if (!isset($cache[$this->service])) return null; // exit if no cached value for this service
+		$service_cache = $cache[$this->service];
+		$expiry_time = $service_cache['timestamp'];
+		if (!is_numeric($expiry_time)) return null; // exit if there is something wrong with our expiry time
+
+		$minutes_since_caching = (time() - $expiry_time) / 60;
+		$cache_expiry_minutes = intval($this->settings['cache_expiry_minutes']);
+		if ($minutes_since_caching > $cache_expiry_minutes)
+			return null; // exit if cache has expired
+
+		// if we made it here, we have a valid, non-expired cached count
+		return $cache[$this->service];
 	}
 
 	public function getShareButtonTitle() {

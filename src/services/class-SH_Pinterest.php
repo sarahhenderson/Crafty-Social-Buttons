@@ -41,7 +41,7 @@ class SH_Pinterest extends SH_Social_Service {
 		return $url;
 	}
 	
-	public function shareCount($url) {
+	public function fetchShareCount($url) {
 		 $response = wp_remote_get('http://api.pinterest.com/v1/urls/count.json?callback=receiveCount&url=' . $url);
 		 if (is_wp_error($response)){
             // return zero if response is error

@@ -28,9 +28,6 @@ Note that there are a couple of icons you can choose that won't show up in the s
 <dt>Open in new window</dt>
 <dd>This is recommended - it opens another window or tab for the user to share the post. Once they have finished and close it, they will be back at your site.</dd>
 
-<dt>Show post counts</dt>	 
-<dd>This finds out from the sharing service how many times your post has been shared, and displays the number in a little bubble next to the icon.  Not all services have this ability, so the icon will only appear if the service supports it. Calling out to the services to obtain the counts can slow down the loading of the page, so I wouldn't recommend this if you are showing the icons on your home page.</dd>
-
 <dt>Email text</dt>	 
 <dd>The default text that will be added to the email when someone shares using the email button.  It's just a suggestion - they are free to edit before they click send.</dd>
 

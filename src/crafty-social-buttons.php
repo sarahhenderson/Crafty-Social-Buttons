@@ -30,6 +30,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 // include our three main classes
+require_once( plugin_dir_path( __FILE__ ) . 'class-SH-Crafty-Social-Buttons-Admin-Fields.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'class-SH-Crafty-Social-Buttons-Plugin.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'class-SH-Crafty-Social-Buttons-Shortcode.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'class-SH-Crafty-Social-Buttons-Widget.php' );

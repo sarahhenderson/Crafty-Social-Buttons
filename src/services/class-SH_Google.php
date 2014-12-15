@@ -35,7 +35,7 @@ class SH_Google extends SH_Social_Service {
 		return $url;
 	}
 
-	public function shareCount( $url ) {
+	public function fetchShareCount( $url ) {
 		$args = array(
 			'method'    => 'POST',
 			'headers'   => array(

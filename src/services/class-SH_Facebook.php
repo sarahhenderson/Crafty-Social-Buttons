@@ -32,7 +32,7 @@ class SH_Facebook extends SH_Social_Service {
 		return $url;
 	}
 
-	public function shareCount($url) {
+	public function fetchShareCount($url) {
 		$response = wp_remote_get("http://api.facebook.com/method/links.getStats?urls=$url&format=json");
 		 if (is_wp_error($response)){
             // return zero if response is error

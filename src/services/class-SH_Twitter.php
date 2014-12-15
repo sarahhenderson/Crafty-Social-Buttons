@@ -36,7 +36,7 @@ class SH_Twitter extends SH_Social_Service {
 		return $url;
 	}
 	
-	public function shareCount($url) {
+	public function fetchShareCount($url) {
 		
 		 $response = wp_remote_get('http://urls.api.twitter.com/1/urls/count.json?url=' . $url);
 		 if (is_wp_error($response)){

@@ -33,7 +33,7 @@ class SH_LinkedIn extends SH_Social_Service {
 		return $url;
   	}
 
-	public function shareCount($url) {
+	public function fetchShareCount($url) {
    	
 		 $response = wp_remote_get('http://www.linkedin.com/countserv/count/share?format=json&url=' . $url);
 		 if (is_wp_error($response)){
