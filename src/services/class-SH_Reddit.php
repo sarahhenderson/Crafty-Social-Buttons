@@ -17,6 +17,7 @@ class SH_Reddit extends SH_Social_Service {
 	}
 
 	public function shareButtonUrl($url, $title) {
+		$title = urlencode($title);
 
 		return "http://reddit.com/submit?url=$url&title=$title";
 	}

@@ -76,6 +76,7 @@ Yes! The buttons can also be included in any post or page by using one of these 
 
 *	[csblink] for the *Link buttons*
 *	[csbshare] for the *Share buttons*
+*  [csbnone] will hide the *Share buttons* on a post/page where they would otherwise normally appear
 
 If your theme doesn't have a widget area where you want the buttons to be placed, you can include them by editing your theme template.  Just include one of these links in your template to generate the buttons:
 
@@ -96,9 +97,11 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 == Changelog ==
 
 = 1.4.0 =
-* Optimised images (smaller file sizes, faster loading)
 * Added `crafty-social-button-image` class to button images for easier styling
 * Added option to cache share counts
+* Added [csbnone] shortcode to suppress share buttons on any post or page
+* Optimised images (smaller file sizes, faster loading)
+* Urlencoded post titles in links to enable validator compliance
 
 = 1.3.8 =
 * Added link buttons for Ebay, Vimeo and SpecificFeeds

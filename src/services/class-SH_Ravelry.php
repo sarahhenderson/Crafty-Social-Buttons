@@ -18,6 +18,7 @@ class SH_Ravelry extends SH_Social_Service {
 
 	
 	public function shareButtonUrl($url, $title) {
+		$title = urlencode($title);
 
 		return "http://www.ravelry.com/bookmarklets/queue?url=$url&title=$title";
 	}

@@ -17,7 +17,7 @@ class SH_LinkedIn extends SH_Social_Service {
 	}
 
 	public function shareButtonUrl($url, $title) {
-
+		$title = urlencode($title);
 		return "http://www.linkedin.com/shareArticle?mini=true&url=$url&title=$title";
 	}
 

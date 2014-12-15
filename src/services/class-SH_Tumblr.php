@@ -25,6 +25,7 @@ class SH_Tumblr extends SH_Social_Service {
 			$url = str_replace('https://', '', $url);			
 		}
 
+		$title = urlencode($title);
 		return "http://www.tumblr.com/share/link?url=$url&name=$title";
 	}
 	
