@@ -99,6 +99,7 @@ class SH_Crafty_Social_Buttons_Admin
          $settings['show_on_static_home'] = isset($input['show_on_static_home']);
          $settings['show_on_category'] = isset($input['show_on_category']);
          $settings['show_on_archive'] = isset($input['show_on_archive']);
+         $settings['share_float_buttons'] = isset($input['share_float_buttons']);
          $settings['twitter_show_title'] = isset($input['twitter_show_title']);
 
          // parse out our radio buttons, they are constrained so just take the values
@@ -110,6 +111,8 @@ class SH_Crafty_Social_Buttons_Admin
          $settings['share_services'] = isset($input['share_services']) ? $input['share_services'] : '';
          $settings['position'] = isset($input['position']) ? $input['position'] : 'below';
          $settings['share_alignment'] = isset($input['share_alignment']) ? $input['share_alignment'] : 'left';
+         $settings['share_float_alignment'] = isset($input['share_float_alignment']) ? $input['share_float_alignment'] : 'left';
+         $settings['share_float_height'] = isset($input['share_float_height']) ? $input['share_float_height'] : '20';
          $settings['share_caption_position'] = isset($input['share_caption_position']) ? $input['share_caption_position'] : 'inline-block';
 
          // and finally, validate our text boxes
@@ -257,11 +260,24 @@ class SH_Crafty_Social_Buttons_Admin
       add_settings_field('share_services', __('Show these services', $this->plugin_slug),
          array($this->renderer, 'render_service_select'), $page, $section, array('share_services'));
 
-      add_settings_field('position', __('Above or below content', $this->plugin_slug),
+      add_settings_field('position', __('Position', $this->plugin_slug),
          array($this->renderer, 'renderPositionSelect'), $page, $section, array('position'));
 
-      add_settings_field('share_alignment', __('Alignment', $this->plugin_slug),
+      add_settings_field('share_alignment', __('Button Alignment', $this->plugin_slug),
          array($this->renderer, 'renderAlignmentSelect'), $page, $section, array('share_alignment'));
+
+	  $section = 'cbs_display_share_float_settings';
+	  add_settings_section($section, __('Floating Button Options', $this->plugin_slug), null, $page);
+
+	  add_settings_field('share_float_buttons', __('Float Share Buttons', $this->plugin_slug),
+		   array($this->renderer, 'renderCheckbox'), $page, $section,
+		   array('share_float_buttons', __('Make share buttons float on single post pages', $this->plugin_slug)));
+
+      add_settings_field('share_float_alignment', __('Float Alignment', $this->plugin_slug),
+	    array($this->renderer, 'renderFloatAlignmentSelect'), $page, $section, array('share_float_alignment'));
+
+	  add_settings_field('share_float_height', __('Float Height', $this->plugin_slug),
+		   array($this->renderer, 'renderFloatHeightSelect'), $page, $section, array('share_float_height'));
 
       $section = 'cbs_display_share_settings';
       add_settings_section($section, __('Display Options', $this->plugin_slug), null, $page);

@@ -277,15 +277,39 @@ class SH_Crafty_Social_Buttons_Admin_Fields
 
       <select id="<?php echo $id ?>" name="<?php echo $name ?>">
          <option
-            value="above" <?php echo selected('above', $value); ?> ><?php _e('Above', $this->plugin_slug) ?></option>
+            value="above" <?php echo selected('above', $value); ?> ><?php _e('Above Content', $this->plugin_slug) ?></option>
          <option
-            value="below" <?php echo selected('below', $value); ?> ><?php _e('Below', $this->plugin_slug) ?></option>
-         <option
-            value="both" <?php echo selected('both', $value); ?> ><?php _e('Both', $this->plugin_slug) ?></option>
+            value="below" <?php echo selected('below', $value); ?> ><?php _e('Below Content', $this->plugin_slug) ?></option>
+	      <option
+            value="both" <?php echo selected('both', $value); ?> ><?php _e('Both above and below content', $this->plugin_slug) ?></option>
       </select>
-
    <?php
    }
+
+	/** Display selection for position */
+	public function renderFloatHeightSelect($args)
+	{
+		$id = $args[0];
+		$name = $this->plugin_slug . '[' . $args[0] . ']';
+		$settings = $this->getSettings();
+		$value = $settings[$id];
+		?>
+
+		<select id="<?php echo $id ?>" name="<?php echo $name ?>">
+			<option
+				value="10" <?php echo selected('10', $value); ?> ><?php _e('10% down from top', $this->plugin_slug) ?></option>
+			<option
+				value="20" <?php echo selected('20', $value); ?> ><?php _e('20% down from top', $this->plugin_slug) ?></option>
+			<option
+				value="30" <?php echo selected('30', $value); ?> ><?php _e('30% down from top', $this->plugin_slug) ?></option>
+			<option
+				value="40" <?php echo selected('40', $value); ?> ><?php _e('40% down from top', $this->plugin_slug) ?></option>
+			<option
+				value="50" <?php echo selected('50', $value); ?> ><?php _e('50% down from top', $this->plugin_slug) ?></option>
+		</select>
+
+	<?php
+	}
 
    /** Display selection for caption position */
    public function renderCaptionPositionSelect($args)
@@ -320,6 +344,28 @@ class SH_Crafty_Social_Buttons_Admin_Fields
             value="left" <?php echo selected('left', $value); ?> ><?php _e('Left', $this->plugin_slug) ?></option>
          <option
             value="center" <?php echo selected('center', $value); ?> ><?php _e('Center', $this->plugin_slug) ?></option>
+         <option
+            value="right" <?php echo selected('right', $value); ?> ><?php _e('Right', $this->plugin_slug) ?></option>
+      </select>
+
+
+   <?php
+   }
+
+
+
+   /** Display selection for alignment */
+   public function renderFloatAlignmentSelect($args)
+   {
+      $id = $args[0];
+      $name = $this->plugin_slug . '[' . $args[0] . ']';
+      $settings = $this->getSettings();
+      $value = $settings[$id];
+      ?>
+
+      <select id="<?php echo $id ?>" name="<?php echo $name ?>">
+         <option
+            value="left" <?php echo selected('left', $value); ?> ><?php _e('Left', $this->plugin_slug) ?></option>
          <option
             value="right" <?php echo selected('right', $value); ?> ><?php _e('Right', $this->plugin_slug) ?></option>
       </select>

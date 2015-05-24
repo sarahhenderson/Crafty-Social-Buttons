@@ -42,6 +42,14 @@ div.crafty-social-buttons ul li {
 	padding: 0;
 }
 
+div.crafty-social-buttons ul li a {
+   text-decoration: none;
+   border: none;
+}
+div.crafty-social-buttons ul li img {
+   display: inline-block;
+}
+
 /* == Styles specific to showing share counts == */
 div.crafty-social-buttons .crafty-social-share-count:after, 
 div.crafty-social-buttons .crafty-social-share-count:before {
@@ -104,4 +112,45 @@ div.crafty-social-buttons.crafty-social-buttons-size-5 .crafty-social-share-coun
 div.crafty-social-buttons.crafty-social-buttons-size-6 .crafty-social-share-count {
     min-width: 24px;
     font-size: 20px;
+}
+
+div.crafty-social-share-buttons.crafty-social-buttons-floating {
+   position: fixed;
+   left: 0;
+   top: 20%;
+}
+
+div.crafty-social-share-buttons.crafty-social-buttons-floating ul li {
+   display: block;
+   margin-left: 0;
+   margin-right: 0;
+}
+
+div.crafty-social-share-buttons.crafty-social-buttons-floating .crafty-social-caption {
+   display: none;
+}
+
+div.crafty-social-share-buttons.crafty-social-buttons-floating.crafty-social-buttons-floating-top-10 {
+   top: 10%;
+}
+div.crafty-social-share-buttons.crafty-social-buttons-floating.crafty-social-buttons-floating-top-20 {
+   top: 20%;
+}
+div.crafty-social-share-buttons.crafty-social-buttons-floating.crafty-social-buttons-floating-top-30 {
+   top: 30%;
+}
+div.crafty-social-share-buttons.crafty-social-buttons-floating.crafty-social-buttons-floating-top-40 {
+   top: 40%;
+}
+div.crafty-social-share-buttons.crafty-social-buttons-floating.crafty-social-buttons-floating-top-50 {
+   top: 50%;
+}
+div.crafty-social-share-buttons.crafty-social-buttons-floating.crafty-social-buttons-floating-align-left {
+   left: 0;
+   right: auto;
+}
+
+div.crafty-social-share-buttons.crafty-social-buttons-floating.crafty-social-buttons-floating-align-right {
+   right: 0;
+   left: auto;
 }

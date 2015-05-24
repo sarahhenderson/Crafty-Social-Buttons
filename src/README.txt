@@ -5,7 +5,7 @@ Author URI: http://sarahhenderson.info
 Plugin URL: http://github.io/sarahhenderson/crafty-social-buttons
 Tags: social, social buttons, social icons, sharing, social sharing, facebook, google, pinterest, flickr, ravelry, etsy, craftsy, youtube, widget, shortcode
 Requires at least: 3.5
-Tested up to: 4.0.0
+Tested up to: 4.2.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -95,6 +95,12 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 5. *Share buttons* displayed with post count bubbles next to them (twenty thirteen theme, arbenting icon set).
 
 == Changelog ==
+
+= 1.4.1 =
+* Added specific CSS styles to be compatible with twenty fifteen theme
+* Ensure widget CSS class is output in the widget wrapper
+* Popups now work even if share counts are disabled
+* Experimental - added ability to float share buttons on single pages to right or left of content
 
 = 1.4.0 =
 * Added `crafty-social-button-image` class to button images for easier styling

@@ -104,6 +104,10 @@ class SH_Crafty_Social_Buttons_Shortcode
                break;
 
             case 'below': // after the content
+	            return $content . $buttons;
+	            break;
+
+			case 'floating': // floating to left or right of content
                return $content . $buttons;
                break;
 
@@ -206,7 +210,11 @@ class SH_Crafty_Social_Buttons_Shortcode
       $caption_position = $settings[$type . '_caption_position'];
       $showCount = $settings['show_count'];
 
-      // use wordpress functions for page/post details
+	   $float = $settings[$type . '_float_buttons'];
+	   $float_alignment = $settings[$type . '_float_alignment'];
+	   $float_height = $settings[$type . '_float_height'];
+
+	   // use wordpress functions for page/post details
 
       if ($sharePageUrl || !$post) {
          $postId = "page";
@@ -235,6 +243,11 @@ class SH_Crafty_Social_Buttons_Shortcode
       $css_classes[] = "crafty-social-buttons-size-$sizeKey";
       $css_classes[] = "crafty-social-buttons-align-$alignment";
       $css_classes[] = "crafty-social-buttons-caption-$caption_position";
+	   if ($float && (is_single() || is_page())) {
+            $css_classes[] = "crafty-social-buttons-floating";
+            $css_classes[] = "crafty-social-buttons-floating-align-$float_alignment";
+            $css_classes[] = "crafty-social-buttons-floating-top-$float_height";
+	   }
       $css_class_string = join(" ", $css_classes);
 
       $buttonHtml = '<div class="' . $css_class_string . '">';
