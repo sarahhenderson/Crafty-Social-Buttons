@@ -129,6 +129,18 @@ div.crafty-social-share-buttons.crafty-social-buttons-floating ul li {
 div.crafty-social-share-buttons.crafty-social-buttons-floating .crafty-social-caption {
    display: none;
 }
+div.crafty-social-share-buttons.crafty-social-buttons-floating .crafty-social-share-count:after,
+div.crafty-social-share-buttons.crafty-social-buttons-floating .crafty-social-share-count:before {
+   content: "";
+   border: none;
+   margin: 0;
+   padding:0;
+}
+div.crafty-social-buttons.crafty-social-buttons-floating .crafty-social-share-count {
+   display:block;
+   margin:0;
+}
+
 
 div.crafty-social-share-buttons.crafty-social-buttons-floating.crafty-social-buttons-floating-top-10 {
    top: 10%;

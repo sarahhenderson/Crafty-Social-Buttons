@@ -8,6 +8,12 @@
         }
     }
 
+    var csb_formatShareCount = function(count) {
+       if (count < 1000) return count;
+       if (count <10000) return (count /1000).toFixed(1) + "k";
+       return Math.floor(count/1000) + "k";
+    };
+
     var csb_makeLocalAjaxCallbackForShareCount = function(service, shareUrl, callbackUrl, key) {
 
         var url = callbackUrl + '&service=' + service + '&key=' + key;
@@ -22,8 +28,9 @@
             contentType: 'application/json',
             success: function (data) {
                 if (data && data.count) {
+                    var countLabel = csb_formatShareCount(data.count);
                     $count = $(".crafty-social-share-count-" + serviceSlug + '-' + key);
-                    $count.html(data.count);
+                    $count.html(countLabel);
                     $count.show();
                 }
             },
@@ -31,7 +38,7 @@
                 //console.log(error);
             }
         });
-    }
+    };
 
     for(var i = 0, l = instances.length; i < l; i++) {
         var settings = instances[i];
