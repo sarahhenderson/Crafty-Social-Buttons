@@ -96,6 +96,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 == Changelog ==
 
+= 1.4.2 =
+* Fixed bug generating a notice next to link buttons
+
 = 1.4.1 =
 * Added specific CSS styles to be compatible with twenty fifteen theme
 * Ensure widget CSS class is output in the widget wrapper
