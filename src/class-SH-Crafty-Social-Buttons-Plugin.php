@@ -13,7 +13,7 @@ class SH_Crafty_Social_Buttons_Plugin
    /**
     * Plugin version, used for cache-busting of style and script file references.
     */
-   protected $version = '1.4.1';
+   protected $version = '1.4.3';
 
    /**
     * Unique identifier for this plugin.
@@ -189,15 +189,19 @@ class SH_Crafty_Social_Buttons_Plugin
     */
    public function enqueue_scripts()
    {
-
       $settings = $this->getSettings();
 
       // only add javascript if post counts are to be shown or popups are enabled
       if ($settings['show_count'] || $settings['popup']) {
-
-         wp_enqueue_script($this->plugin_slug . '-scripts',
+         wp_enqueue_script($this->plugin_slug . '-script',
             plugins_url('js/public.min.js', __FILE__), array('jquery'), $this->version, true);
       }
+
+       // only add whatsApp sharing if that button is enabled
+       if (strpos($settings['share_services'], 'WhatsApp') !== false) {
+           wp_enqueue_script($this->plugin_slug . '-whatsapp-script',
+               plugins_url('js/whatsapp-share.min.js', __FILE__), array('jquery'), $this->version, true);
+       }
    }
 
    /**

@@ -166,3 +166,5 @@ div.crafty-social-share-buttons.crafty-social-buttons-floating.crafty-social-but
    right: 0;
    left: auto;
 }
+
+div.crafty-social-share-buttons ul li a.crafty-social-button.csb-whatsapp { display: none; }

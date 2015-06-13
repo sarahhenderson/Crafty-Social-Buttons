@@ -3,7 +3,7 @@ Contributors: shen045
 Donate link: http://sarahhenderson.info/donate
 Author URI: http://sarahhenderson.info
 Plugin URL: http://github.io/sarahhenderson/crafty-social-buttons
-Tags: social, social buttons, social icons, sharing, social sharing, facebook, google, pinterest, flickr, ravelry, etsy, craftsy, youtube, widget, shortcode
+Tags: social, social buttons, social icons, sharing, social sharing, facebook, google, pinterest, flickr, ravelry, etsy, craftsy, whatsapp, youtube, widget, shortcode
 Requires at least: 3.5
 Tested up to: 4.2.2
 Stable tag: trunk
@@ -14,7 +14,7 @@ Adds social sharing and link buttons, including Ravelry, Etsy, Craftsy and Pinte
 
 == Description ==
 
-This plugin adds a set of social buttons to your website, and includes craft-related social sites like Ravelry, Etsy, Craftsy and Pinterest as well as other major social networks.   You can choose from nine different button styles to match your theme.  You can have the share buttons automatically added to the top or bottom of each post, and can position the link buttons using either a widget, a shortcode or a template action hook.
+This plugin adds a set of social buttons to your website, and includes craft-related social sites like Ravelry, Etsy, Craftsy and Pinterest as well as other major social networks.  Support for sharing to WhatsApp is also provided on mobile devices.   You can choose from nine different button styles to match your theme.  You can have the share buttons automatically added to the top or bottom of each post, and can position the link buttons using either a widget, a shortcode or a template action hook.
 
 You can use the share button and link button functions either separately, or together:
 
@@ -24,15 +24,15 @@ You can use the share button and link button functions either separately, or tog
 
 Supported social services include:
 
-*  Craftsy (link only)
+*   Craftsy (link only)
 *	Digg
 *	Ebay (link only)
 *	Email (share only)
 *	Etsy (link only)
-*  Facebook
-*  Flickr (link only)
+*   Facebook
+*   Flickr (link only)
 *	Google+
-*  Instagram (link only)
+*   Instagram (link only)
 *	LinkedIn
 *	Pinterest
 *	Ravelry
@@ -41,8 +41,9 @@ Supported social services include:
 *	Stumble Upon
 *	Tumblr
 *	Twitter
-*  Vimeo
-*  YouTube
+*   Vimeo
+*   YouTube
+*   WhatApp (share only, only on mobile)
 
 You can also choose exactly which services you want separately for each mode, so you can can have *Share Buttons* for Ravelry, Pinterest, Facebook, Twitter and Email, but have *Link Buttons* for Google+, Craftsy, Pinterest and your Etsy shop.
 
@@ -95,6 +96,12 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 5. *Share buttons* displayed with post count bubbles next to them (twenty thirteen theme, arbenting icon set).
 
 == Changelog ==
+
+= 1.4.3 =
+* Added WhatsApp share button (displays on mobile devices only)
+* Moved some of the less common settings to an advanced settings page, to make the common ones easier to work with
+* Added the ability to add custom css classes to the button group (useful if you want to use something like animate.css)
+* Ability to choose which post types the sharing buttons get added to (including custom post types)
 
 = 1.4.2 =
 * Fixed bug generating a notice next to link buttons
@@ -216,6 +223,10 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 == Upgrade Notice ==
 
+= 1.4.3 =
+* Added WhatsApp sharing button
+* Reconfigured the interface to move the less common options to an Advanced tab
+
 = 1.3.8 =
 * Add link buttons for Ebay, Vimeo and SpecificFeeds (allows visitors to subscribe by email)
 
@@ -275,6 +286,5 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 These are the things currently in the pipeline:
 
-* Adding the ability to hide buttons on specific pages
-* Choosing which post types the share buttons are added to
+* Additional options for layout and style of the buttons
 * (Anything else?  You tell me!)

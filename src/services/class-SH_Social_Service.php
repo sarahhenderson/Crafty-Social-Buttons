@@ -58,7 +58,7 @@ class SH_Social_Service {
 
 	public function shareButton($url, $title = '', $showCount = false) {
 
-		$url = esc_url($this-> shareButtonUrl($url, $title));
+		$url = esc_url($this-> shareButtonUrl($url, $title), array("http", "https", "mailto", "whatsapp"));
 		$buttonTitle = $this->getShareButtonTitle();
 		return $this->generateButtonHtml($url, $buttonTitle, $showCount);
 	}
