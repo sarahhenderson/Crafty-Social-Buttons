@@ -21,6 +21,11 @@
             <?php _e('Share Count Options', $this->plugin_slug); ?>
         </a>
 
+        <a href="?page=<?php echo $this->plugin_slug; ?>&tab=advanced_options"
+           class="nav-tab <?php echo $active_tab == 'advanced_options' ? 'nav-tab-active' : ''; ?>">
+            <?php _e('Advanced Options', $this->plugin_slug); ?>
+        </a>
+
     </h2>
 
     <form method="post" action="options.php">
@@ -35,9 +40,12 @@
         } else if ($active_tab == 'link_options') {
             echo '<input type="hidden" name="$tab" value="link">';
             do_settings_sections($this->plugin_slug . '-link');
-        } else {
+        } else if ($active_tab == 'share_count_options') {
             echo '<input type="hidden" name="$tab" value="share_count">';
             do_settings_sections($this->plugin_slug . '-share-counts');
+        } else {
+            echo '<input type="hidden" name="$tab" value="advanced">';
+            do_settings_sections($this->plugin_slug . '-advanced');
         }
 
         submit_button();

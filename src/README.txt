@@ -99,8 +99,7 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 = 1.4.3 =
 * Added WhatsApp share button (displays on mobile devices only)
-* Moved some of the less common settings to an advanced settings page, to make the common ones easier to work with
-* Added the ability to add custom css classes to the button group (useful if you want to use something like animate.css)
+* Can now add custom css classes to the button group (useful if you want to use something like animate.css)
 * Ability to choose which post types the sharing buttons get added to (including custom post types)
 
 = 1.4.2 =
@@ -224,8 +223,7 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 == Upgrade Notice ==
 
 = 1.4.3 =
-* Added WhatsApp sharing button
-* Reconfigured the interface to move the less common options to an Advanced tab
+* Added WhatsApp sharing button, ability to choose which post types have share buttons, and ability to add custom CSS classes to button blocks.
 
 = 1.3.8 =
 * Add link buttons for Ebay, Vimeo and SpecificFeeds (allows visitors to subscribe by email)

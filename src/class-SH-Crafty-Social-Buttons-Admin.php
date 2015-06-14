@@ -73,6 +73,8 @@ class SH_Crafty_Social_Buttons_Admin
 
       $this->register_share_count_settings();
 
+      $this->register_advanced_settings();
+
       register_setting($this->plugin_slug, $this->plugin_slug, array($this, 'validate_settings'));
    }
 
@@ -152,21 +154,25 @@ class SH_Crafty_Social_Buttons_Admin
          $settings['show_count'] = isset($input['show_count']);
          $settings['cache_share_counts'] = isset($input['cache_share_counts']);
 
-         // parse out our radio buttons, they are constrained so just take the values
-   //			$settings['open_in']            = $input['open_in'];
-
-         // our select boxes have constrained UI, so just update them
-   //			$settings['share_image_set'] = isset( $input['share_image_set'] ) ? $input['share_image_set'] : 'simple';
-
-         // and finally, validate our text boxes
-   //			$settings['share_caption'] = sanitize_text_field( $input['share_caption'] );
-
          // including numeric ones
-   			$settings['cache_expiry_minutes'] = $this->sanitize_cache_expiry( $input['cache_expiry_minutes'] );
+         $settings['cache_expiry_minutes'] = $this->sanitize_cache_expiry( $input['cache_expiry_minutes'] );
+
+      } else if ('advanced_options' == $tab) {
+
+          // first, all the checkboxes need to be set if present
+          $settings['post_types_are_filtered'] = isset($input['post_types_are_filtered']);
+
+          // our checkboxes have constrained UI, so just update them
+          $settings['post_types_for_display'] = $input['post_types_for_display'];
+
+          // and finally, sanitize our text boxes
+          $settings['share_css_classes'] = sanitize_text_field($input['share_css_classes']);
+          $settings['link_css_classes'] = sanitize_text_field($input['link_css_classes']);
+
 
       }
 
-      return $settings;
+    return $settings;
    }
 
    function sanitize_image_size($image_size_string)
@@ -416,6 +422,44 @@ class SH_Crafty_Social_Buttons_Admin
 
    }
 
+    /** Registers the settings on the Share Options page
+     */
+    private function register_advanced_settings()
+    {
+        $section = 'cbs_advanced_settings';
+        $page = $this->plugin_slug . '-advanced';
+
+        add_settings_section($section, __('', $this->plugin_slug),
+            array($this, 'displayAdvancedSettingsText'), $page);
+
+        $section = 'cbs_advanced_settings_css';
+        add_settings_section($section, __('Extra CSS Classes', $this->plugin_slug),
+            array($this, 'displayExtraCssSettingsText'), $page);
+
+        add_settings_field('share_css_classes', __('Share Button CSS Classes', $this->plugin_slug),
+            array($this->renderer, 'renderTextbox'), $page, $section,
+            array('share_css_classes', __('Add css classes, separated by spaces.  These will be added to the block of Share buttons', $this->plugin_slug)));
+
+        add_settings_field('link_css_classes', __('Link Button CSS Classes', $this->plugin_slug),
+            array($this->renderer, 'renderTextbox'), $page, $section,
+            array('link_css_classes', __('Add css classes, separated by spaces.  These will be added to the block of Link buttons', $this->plugin_slug)));
+
+        $section = 'cbs_advanced_settings_post_types';
+        add_settings_section($section, __('Post Types', $this->plugin_slug),
+            array($this, 'displayPostTypeSettingsText'), $page);
+
+
+        add_settings_field('post_types_are_filtered', __('Post Type Filtering', $this->plugin_slug),
+            array($this->renderer, 'renderCheckbox'), $page, $section,
+            array('post_types_are_filtered', __('Enable post type filtering', $this->plugin_slug)));
+
+        add_settings_field('post_types_for_display', __('Selected Post Types', $this->plugin_slug),
+            array($this->renderer, 'renderPostTypeList'), $page, $section,
+            array('post_types_for_display', __('If filtering is enabled, Share buttons will only be shown on the post types you select', $this->plugin_slug)));
+
+
+    }
+
    /**
     * Display share basic settings section text
     */
@@ -467,6 +511,30 @@ class SH_Crafty_Social_Buttons_Admin
       _e('This will reduce the number of requests to the count service, but means the counts will appear not to increase during the cache interval. You can cache the post counts for between 1 minute and 180 minutes (3 hours).', $this->plugin_slug);
       echo '</p>';
    }
+
+    public function displayAdvancedSettingsText()
+    {
+        echo '<p>';
+        _e('Most users will not need to change any settings on this page.', $this->plugin_slug);
+        echo '</p>';
+    }
+
+    public function displayExtraCssSettingsText()
+    {
+        echo '<p>';
+        _e('You may need to add extra styles to work with other libraries that define their own classes.', $this->plugin_slug);
+        echo '</p>';
+    }
+
+    public function displayPostTypeSettingsText()
+    {
+        echo '<p>';
+        _e('By default, share buttons will be added to all post types.  If you want the buttons to appear only on certain posts types, you can configure them here.', $this->plugin_slug);
+        echo '</p>';
+        echo '<p>';
+        _e('This setting will be most useful if you are using custom post types that aren&apos;t suitable for sharing, or if you are using attachment pages and don&apos;t want them shared.', $this->plugin_slug);
+        echo '</p>';
+    }
 
    /**
     * Display share basic settings section text

@@ -130,15 +130,13 @@ class SH_Crafty_Social_Buttons_Shortcode {
 	}
 
 	function should_show_buttons( $content, $settings ) {
+        global $post;
 
 		if ( has_shortcode( $content, 'csbnone' ) ) {
 			return false;
 		}
 
 		if ( is_page() && ! is_front_page() && $settings['show_on_pages'] ) {
-			return true;
-		}
-		if ( is_single() && $settings['show_on_posts'] ) {
 			return true;
 		}
 		if ( is_home() && $settings['show_on_home'] ) {
@@ -153,6 +151,21 @@ class SH_Crafty_Social_Buttons_Shortcode {
 		if ( is_front_page() && $settings['show_on_static_home'] ) {
 			return true;
 		}
+        if ( is_single() && $settings['show_on_posts'] ) {
+            if ($settings['post_types_are_filtered']) {
+
+                $post_type = get_post_type($post->ID);
+                $post_types_for_display = $settings['post_types_for_display'];
+
+                // if nothing has been selected to display, do not show
+                if (!is_array($post_types_for_display)) return false;
+
+                return in_array($post_type, $post_types_for_display);
+
+            } else {
+                return true;
+            }
+        }
 
 		return false;
 	}
@@ -223,12 +236,6 @@ class SH_Crafty_Social_Buttons_Shortcode {
 		$showCount        = $settings['show_count'];
 		$float            = false;
 
-		if ($type == 'share') {
-			$float           = $settings[ $type . '_float_buttons' ];
-			$float_alignment = $settings[ $type . '_float_alignment' ];
-			$float_height    = $settings[ $type . '_float_height' ];
-		}
-
 		// use wordpress functions for page/post details
 		if ( $sharePageUrl || ! $post ) {
 			$postId = "page";
@@ -260,12 +267,22 @@ class SH_Crafty_Social_Buttons_Shortcode {
 		$css_classes[] = "crafty-social-buttons-align-$alignment";
 		$css_classes[] = "crafty-social-buttons-caption-$caption_position";
 
-		if ( $float && ( is_single() || is_page() ) ) {
-			$css_classes[] = "crafty-social-buttons-floating";
-			$css_classes[] = "crafty-social-buttons-floating-align-$float_alignment";
-			$css_classes[] = "crafty-social-buttons-floating-top-$float_height";
-		}
-		$css_class_string = join( " ", $css_classes );
+        if ($type == 'share') {
+            $float = $settings[$type . '_float_buttons'];
+            $float_alignment = $settings[$type . '_float_alignment'];
+            $float_height = $settings[$type . '_float_height'];
+
+            if ($float && (is_single() || is_page())) {
+                $css_classes[] = "crafty-social-buttons-floating";
+                $css_classes[] = "crafty-social-buttons-floating-align-$float_alignment";
+                $css_classes[] = "crafty-social-buttons-floating-top-$float_height";
+            }
+        }
+
+        if ($settings[$type."_css_classes"])
+            $css_classes[] = $settings[$type."_css_classes"];
+
+        $css_class_string = join( " ", $css_classes );
 
 		$buttonHtml = '<div class="' . $css_class_string . '">';
 		if ( $text != '' ) {

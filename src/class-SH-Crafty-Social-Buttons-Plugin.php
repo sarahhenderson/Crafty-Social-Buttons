@@ -361,8 +361,13 @@ class SH_Crafty_Social_Buttons_Plugin
          'new_window' => true,
 
          'show_count' => false,
-         'cache_share_count' => false,
+         'cache_share_counts' => false,
          'cache_expiry_minutes' => 5,
+
+          'share_css_clases' => '',
+          'link_css_classes' => '',
+          'post_types_are_filtered' => false,
+          'post_types_for_display' => []
 
       );
       return $settings;
