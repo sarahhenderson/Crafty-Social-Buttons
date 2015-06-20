@@ -21,7 +21,8 @@ class SH_Email extends SH_Social_Service {
 	public function shareButtonUrl($url, $title) {
 		$message = trim($this->message . ' ' . $url);
 		$message = str_replace(" ", "%20", $message);
-		return "mailto:?Subject=$title&Body=$message";
+		$subject = str_replace(" ", "%20", $title);
+		return "mailto:?Subject=$subject&Body=$message";
 	}
 	
 	public function linkButtonUrl($username) {

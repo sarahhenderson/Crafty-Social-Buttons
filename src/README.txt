@@ -101,6 +101,8 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 * Added WhatsApp share button (displays on mobile devices only)
 * Can now add custom css classes to the button group (useful if you want to use something like animate.css)
 * Ability to choose which post types the sharing buttons get added to (including custom post types)
+* Fixed bug of spaces being stripped from email subject
+
 
 = 1.4.2 =
 * Fixed bug generating a notice next to link buttons
