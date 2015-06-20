@@ -161,6 +161,8 @@ class SH_Crafty_Social_Buttons_Admin
 
           // first, all the checkboxes need to be set if present
           $settings['post_types_are_filtered'] = isset($input['post_types_are_filtered']);
+          $settings['share_nofollow'] = isset($input['share_nofollow']);
+          $settings['link_nofollow'] = isset($input['link_nofollow']);
 
           // our checkboxes have constrained UI, so just update them
           $settings['post_types_for_display'] = $input['post_types_for_display'];
@@ -444,6 +446,19 @@ class SH_Crafty_Social_Buttons_Admin
             array($this->renderer, 'renderTextbox'), $page, $section,
             array('link_css_classes', __('Add css classes, separated by spaces.  These will be added to the block of Link buttons', $this->plugin_slug)));
 
+        $section = 'cbs_advanced_settings_nofollow';
+        add_settings_section($section, __('Nofollow attributes', $this->plugin_slug),
+            array($this, 'displayNoFollowSettingsText'), $page);
+
+
+        add_settings_field('share_nofollow', __('Share Buttons', $this->plugin_slug),
+            array($this->renderer, 'renderCheckbox'), $page, $section,
+            array('share_nofollow', __('Add <code>rel="nofollow"</code> to share buttons', $this->plugin_slug)));
+
+        add_settings_field('link_nofollow', __('Link Buttons', $this->plugin_slug),
+            array($this->renderer, 'renderCheckbox'), $page, $section,
+            array('link_nofollow', __('Add <code>rel="nofollow"</code> to link buttons', $this->plugin_slug)));
+
         $section = 'cbs_advanced_settings_post_types';
         add_settings_section($section, __('Post Types', $this->plugin_slug),
             array($this, 'displayPostTypeSettingsText'), $page);
@@ -523,6 +538,13 @@ class SH_Crafty_Social_Buttons_Admin
     {
         echo '<p>';
         _e('You may need to add extra styles to work with other libraries that define their own classes.', $this->plugin_slug);
+        echo '</p>';
+    }
+
+    public function displayNoFollowSettingsText()
+    {
+        echo '<p>';
+        _e('These settings let you add <code>rel="nofollow"</code> attributes to the share and link button hyperlinks.', $this->plugin_slug);
         echo '</p>';
     }
 

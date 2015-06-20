@@ -23,6 +23,7 @@ class SH_Social_Service {
 		$this->imageExtension = ".png";
 		$this->imageSize = $settings[$type.'_image_size'];
 		$this->newWindow = ($type == "link" ? $settings['new_window'] : $settings['open_in'] == 'new_window');
+		$this->nofollow = $settings[$type .'_nofollow'];
         $this->popup = ($type == 'share' && $settings['popup']);
 	}
 	
@@ -32,6 +33,7 @@ class SH_Social_Service {
         if ($this->popup) {
             $css .= " popup";
         }
+
         return $css;
 	}
 
@@ -76,7 +78,9 @@ class SH_Social_Service {
 		$html = '<a href="' . $url . '"'
 		        . ' class="' . $this->cssClass() .'"'
 		        . ' title="' . $title . '" '
-		        . ($this->newWindow ? 'target="_blank"' : '') . '>';
+		        . ($this->newWindow ? 'target="_blank"' : '')
+		        . ($this->nofollow ? 'rel="nofollow"' : '')
+                . '>';
 
 		$html .= $this->buttonImage($title);
 

@@ -346,6 +346,7 @@ class SH_Crafty_Social_Buttons_Plugin
          'share_float_buttons' => false,
          'share_float_alignment' => 'right',
          'share_float_height' => '30',
+         'share_nofollow' => false,
          'open_in' => 'new_window',
          'popup' => false,
          'email_body' => 'I thought you might like this: ',
@@ -358,16 +359,17 @@ class SH_Crafty_Social_Buttons_Plugin
          'link_caption_position' => 'inline-block',
          'link_alignment' => 'left',
          'link_services' => 'Facebook,Google,Twitter,Ravelry,Etsy,SpecificFeeds',
+         'link_nofollow' => false,
          'new_window' => true,
 
          'show_count' => false,
          'cache_share_counts' => false,
          'cache_expiry_minutes' => 5,
 
-          'share_css_clases' => '',
-          'link_css_classes' => '',
-          'post_types_are_filtered' => false,
-          'post_types_for_display' => []
+         'share_css_clases' => '',
+         'link_css_classes' => '',
+         'post_types_are_filtered' => false,
+         'post_types_for_display' => []
 
       );
       return $settings;
