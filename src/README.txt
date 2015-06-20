@@ -14,7 +14,7 @@ Adds social sharing and link buttons, including Ravelry, Etsy, Craftsy and Pinte
 
 == Description ==
 
-This plugin adds a set of social buttons to your website, and includes craft-related social sites like Ravelry, Etsy, Craftsy and Pinterest as well as other major social networks.  Support for sharing to WhatsApp is also provided on mobile devices.   You can choose from nine different button styles to match your theme.  You can have the share buttons automatically added to the top or bottom of each post, and can position the link buttons using either a widget, a shortcode or a template action hook.
+This plugin adds a set of social buttons to your website, and includes craft-related social sites like Ravelry, Etsy, Craftsy and Pinterest as well as other major social networks, including WhatsApp.  Support for sharing to WhatsApp is also provided on mobile devices.   You can choose from nine different button styles to match your theme.  You can have the share buttons automatically added to the top or bottom of each post, and can position the link buttons using either a widget, a shortcode or a template action hook.
 
 You can use the share button and link button functions either separately, or together:
 
@@ -97,12 +97,13 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 == Changelog ==
 
-= 1.4.3 =
+= 1.5.0 =
 * Added WhatsApp share button (displays on mobile devices only)
 * Can now add custom css classes to the button group (useful if you want to use something like animate.css)
 * Ability to choose which post types the sharing buttons get added to (including custom post types)
 * Fixed bug of spaces being stripped from email subject
-
+* Can now add rel="nofollow" to links
+* Can now add a simple hover effect (dim or brighten) to the buttons
 
 = 1.4.2 =
 * Fixed bug generating a notice next to link buttons
@@ -224,8 +225,8 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 == Upgrade Notice ==
 
-= 1.4.3 =
-* Added WhatsApp sharing button, ability to choose which post types have share buttons, and ability to add custom CSS classes to button blocks.
+= 1.5 =
+* Added WhatsApp sharing button, a hover effect, rel="nofollow" option, ability to choose which post types have share buttons, and ability to add custom CSS classes to button blocks.
 
 = 1.3.8 =
 * Add link buttons for Ebay, Vimeo and SpecificFeeds (allows visitors to subscribe by email)
@@ -286,5 +287,7 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 These are the things currently in the pipeline:
 
+* Adding the ability to share/link to VK, XING, Flipboard, Goodreads and 500px
 * Additional options for layout and style of the buttons
+* Shortcode options for more manual control of the buttons
 * (Anything else?  You tell me!)

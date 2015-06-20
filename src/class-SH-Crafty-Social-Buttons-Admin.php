@@ -617,6 +617,13 @@ class SH_Crafty_Social_Buttons_Admin
          'content' => file_get_contents(plugin_dir_path(__FILE__) . '/help/share-count-tab.php')
       ));
 
+
+      $screen->add_help_tab(array(
+         'id' => 'csb-advanced-help',
+         'title' => __('Advanced Options', $this->plugin_slug),
+         'content' => file_get_contents(plugin_dir_path(__FILE__) . '/help/advanced-tab.php')
+      ));
+
       $screen->add_help_tab(array(
          'id' => 'csb-widget',
          'title' => __('Widget', $this->plugin_slug),

@@ -1,6 +1,6 @@
 <p><strong>Share Count Options</strong></p>
 
-
+<dl>
 <dt>Show share counts</dt>
 <dd>This finds out from the sharing service how many times your post has been shared, and displays the number in a little bubble next to the icon.
    Not all services have this ability, so the count will only appear if the service supports it. Calling out to the services to obtain the counts
@@ -16,3 +16,5 @@
 <dt>Cache expiry</dt>
 <dd>This is the number of minutes that share count values will be cached.  You can set it to anything between 1 minute and 180 minutes (3 hours).  Once share counts
    are cached, the values will not be refreshed until this number of minutes passes.  During this time the share counts will display the old values.</dd>
+
+</dl>
