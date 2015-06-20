@@ -401,19 +401,24 @@ class SH_Crafty_Social_Buttons_Admin
          $this,
          'displayLinkServiceText'
       ), $page);
+
       foreach ($this->renderer->all_services as $service) {
          // we want to add a custom description for some of the fields
          $caption = $service;
          $description = "";
+
+          $canLink = $this->call_service_method($service, 'canLink');
          $description = $this->call_service_method($service, 'description');
 
-         add_settings_field(
-            $service,
-            $caption,
-            array($this->renderer, 'renderTextbox'),
-            $page,
-            $section,
-            array($service, $description));
+          if ($canLink) {
+             add_settings_field(
+                $service,
+                $caption,
+                array($this->renderer, 'renderTextbox'),
+                $page,
+                $section,
+                array($service, $description));
+         }
       }
 
 

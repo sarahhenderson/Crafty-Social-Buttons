@@ -75,8 +75,8 @@ I'm happy to take requests for new services to add.
 
 Yes! The buttons can also be included in any post or page by using one of these shortcodes:
 
-*	[csblink] for the *Link buttons*
-*	[csbshare] for the *Share buttons*
+*  [csblink] for the *Link buttons*
+*  [csbshare] for the *Share buttons*
 *  [csbnone] will hide the *Share buttons* on a post/page where they would otherwise normally appear
 
 If your theme doesn't have a widget area where you want the buttons to be placed, you can include them by editing your theme template.  Just include one of these links in your template to generate the buttons:
@@ -99,11 +99,11 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 = 1.5.0 =
 * Added WhatsApp share button (displays on mobile devices only)
-* Can now add custom css classes to the button group (useful if you want to use something like animate.css)
-* Ability to choose which post types the sharing buttons get added to (including custom post types)
-* Fixed bug of spaces being stripped from email subject
-* Can now add rel="nofollow" to links
 * Can now add a simple hover effect (dim or brighten) to the buttons
+* Can now add rel="nofollow" to links
+* Can now add custom css classes to the button group (useful if you want to use something like animate.css)
+* Can now choose which post types the sharing buttons get added to (including custom post types)
+* Fixed bug where spaces were being stripped from email subject
 
 = 1.4.2 =
 * Fixed bug generating a notice next to link buttons
