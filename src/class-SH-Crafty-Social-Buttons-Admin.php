@@ -107,6 +107,7 @@ class SH_Crafty_Social_Buttons_Admin
          // parse out our radio buttons, they are constrained so just take the values
          $settings['open_in'] = $input['open_in'];
          $settings['popup'] = $input['open_in'] == 'popup';
+         $settings['share_hover_effect'] = $input['share_hover_effect'];
 
          // our select boxes have constrained UI, so just update them
          $settings['share_image_set'] = isset($input['share_image_set']) ? $input['share_image_set'] : 'simple';
@@ -136,6 +137,7 @@ class SH_Crafty_Social_Buttons_Admin
          $settings['link_services'] = $input['link_services'];
          $settings['link_alignment'] = isset($input['link_alignment']) ? $input['link_alignment'] : 'left';
          $settings['link_caption_position'] = isset($input['link_caption_position']) ? $input['link_caption_position'] : 'inline-block';
+         $settings['link_hover_effect'] = $input['link_hover_effect'];
 
          // and finally, validate our text boxes
          $settings['link_caption'] = sanitize_text_field($input['link_caption']);
@@ -274,6 +276,15 @@ class SH_Crafty_Social_Buttons_Admin
       add_settings_field('share_alignment', __('Button Alignment', $this->plugin_slug),
          array($this->renderer, 'renderAlignmentSelect'), $page, $section, array('share_alignment'));
 
+      add_settings_field('share_hover_effect', __('Hover Effect', $this->plugin_slug),
+           array($this->renderer, 'renderRadio'), $page, $section,
+           array('share_hover_effect', '',
+               array(
+                   'hover-none' => __('No effect', $this->plugin_slug),
+                   'hover-dim' => __('Dim on hover', $this->plugin_slug),
+                   'hover-brighten' => __('Brighten on hover', $this->plugin_slug))
+           ));
+
 	  $section = 'cbs_display_share_float_settings';
 	  add_settings_section($section, __('Floating Button Options', $this->plugin_slug), null, $page);
 
@@ -374,12 +385,22 @@ class SH_Crafty_Social_Buttons_Admin
       add_settings_field('new_window', __('Open in new window', $this->plugin_slug),
          array($this->renderer, 'renderCheckbox'), $page, $section, array('new_window'));
 
+
+      add_settings_field('link_hover_effect', __('Hover Effect', $this->plugin_slug),
+           array($this->renderer, 'renderRadio'), $page, $section,
+           array('link_hover_effect', '',
+               array(
+                   'hover-none' => __('No effect', $this->plugin_slug),
+                   'hover-dim' => __('Dim on hover', $this->plugin_slug),
+                   'hover-brighten' => __('Brighten on hover', $this->plugin_slug))
+           ));
+
+
       $section = 'cbs_link_service_settings';
       add_settings_section($section, __('User IDs', $this->plugin_slug), array(
          $this,
          'displayLinkServiceText'
       ), $page);
-
       foreach ($this->renderer->all_services as $service) {
          // we want to add a custom description for some of the fields
          $caption = $service;
@@ -394,6 +415,8 @@ class SH_Crafty_Social_Buttons_Admin
             $section,
             array($service, $description));
       }
+
+
    }
 
    /** Registers the settings on the Share Options page

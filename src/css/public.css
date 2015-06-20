@@ -46,6 +46,12 @@ div.crafty-social-buttons ul li a {
    text-decoration: none;
    border: none;
 }
+
+div.crafty-social-buttons ul li a.hover-dim {  opacity:1; }
+div.crafty-social-buttons ul li a.hover-dim:hover {  opacity:0.7; }
+div.crafty-social-buttons ul li a.hover-brighten {  opacity:0.7; }
+div.crafty-social-buttons ul li a.hover-brighten:hover {  opacity:1; }
+
 div.crafty-social-buttons ul li img {
    display: inline-block;
 }

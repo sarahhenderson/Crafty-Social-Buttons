@@ -347,6 +347,7 @@ class SH_Crafty_Social_Buttons_Plugin
          'share_float_alignment' => 'right',
          'share_float_height' => '30',
          'share_nofollow' => false,
+         'share_hover_effect' => 'hover-none',
          'open_in' => 'new_window',
          'popup' => false,
          'email_body' => 'I thought you might like this: ',
@@ -360,6 +361,7 @@ class SH_Crafty_Social_Buttons_Plugin
          'link_alignment' => 'left',
          'link_services' => 'Facebook,Google,Twitter,Ravelry,Etsy,SpecificFeeds',
          'link_nofollow' => false,
+         'link_hover_effect' => 'hover-none',
          'new_window' => true,
 
          'show_count' => false,

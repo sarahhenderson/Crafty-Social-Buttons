@@ -147,8 +147,9 @@ class SH_Crafty_Social_Buttons_Admin_Fields
       ?>
 
       <?php foreach ($options as $key => $label) { ?>
-      <input type="radio" id="<?php echo $id ?>" name="<?php echo $name ?>" <?php echo checked($key, $value); ?>
-             value="<?php echo $key ?>"/> <?php echo $label; ?>
+        <label>
+       <input type="radio" id="<?php echo $id ?>" name="<?php echo $name ?>" <?php echo checked($key, $value); ?>
+             value="<?php echo $key ?>"/> <?php echo $label; ?> &nbsp; </label>
    <?php } ?>
       <span class="description" for="<?php echo $id ?>">
                 <?php echo $description ?>
