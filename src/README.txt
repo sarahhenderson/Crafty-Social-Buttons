@@ -97,6 +97,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 == Changelog ==
 
+= 1.5.1 =
+* Fixed bug in plugin initialisation affecting PHP version older than 5.4.
+
 = 1.5.0 =
 * Added WhatsApp share button (displays on mobile devices only)
 * Can now add a simple hover effect (dim or brighten) to the buttons
@@ -225,7 +228,7 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 == Upgrade Notice ==
 
-= 1.5 =
+= 1.5.1 =
 * Added WhatsApp sharing button, a hover effect, rel="nofollow" option, ability to choose which post types have share buttons, and ability to add custom CSS classes to button blocks.
 
 = 1.3.8 =
