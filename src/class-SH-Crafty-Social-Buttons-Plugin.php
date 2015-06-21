@@ -371,7 +371,7 @@ class SH_Crafty_Social_Buttons_Plugin
          'share_css_classes' => '',
          'link_css_classes' => '',
          'post_types_are_filtered' => false,
-         'post_types_for_display' => []
+         'post_types_for_display' => array()
 
       );
       return $settings;
