@@ -97,6 +97,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 == Changelog ==
 
+= 1.5.2 =
+* Fixed bug where share count script was not getting loaded properly
+
 = 1.5.1 =
 * Fixed bug in plugin initialisation affecting PHP version older than 5.4.
 

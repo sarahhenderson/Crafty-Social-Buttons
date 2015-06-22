@@ -257,7 +257,7 @@ class SH_Crafty_Social_Buttons_Shortcode {
 				'services'    => $servicesWithShareCount,
 				'key'         => $postId
 			);
-			wp_localize_script( $this->plugin_slug . '-scripts', 'crafty_social_buttons_data_' . $postId, $data );
+			wp_localize_script( $this->plugin_slug . '-script', 'crafty_social_buttons_data_' . $postId, $data );
 		}
 
 		$css_classes   = array();
