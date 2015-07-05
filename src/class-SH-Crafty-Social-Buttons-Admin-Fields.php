@@ -248,7 +248,7 @@ class SH_Crafty_Social_Buttons_Admin_Fields
          <div class="csb-include-list chosen">
             <div><span class="include-heading"><?php _e('Selected', $this->plugin_slug); ?></span>
                (<?php _e('these will be displayed', $this->plugin_slug); ?></div>
-            <ul id="csbsort2" class="connectedSortable data-base="<?php echo $image_set ?>"">
+            <ul id="csbsort2" class="connectedSortable" data-base="<?php echo $image_set ?>">
             <?php echo $this->get_selected_services_html($value, $image_set, $image_size); ?>
             </ul>
             <input type="hidden" name="<?php echo $name ?>" id="<?php echo $id ?>" class="csb-services"/>
