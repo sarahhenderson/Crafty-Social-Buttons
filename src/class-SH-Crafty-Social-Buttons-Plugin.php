@@ -217,7 +217,7 @@ class SH_Crafty_Social_Buttons_Plugin
       $this->plugin_screen_hook_suffix = add_options_page(
          __('Crafty Social Buttons', $this->plugin_slug),
          __('Crafty Social Buttons', $this->plugin_slug),
-         'read',
+         'manage_options',
          $this->plugin_slug,
          array($this->admin_class, 'display_plugin_admin_page')
       );
