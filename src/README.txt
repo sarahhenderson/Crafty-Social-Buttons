@@ -3,9 +3,9 @@ Contributors: shen045
 Donate link: http://sarahhenderson.info/donate
 Author URI: http://sarahhenderson.info
 Plugin URL: http://github.io/sarahhenderson/crafty-social-buttons
-Tags: social, social buttons, social icons, sharing, social sharing, facebook, google, pinterest, flickr, ravelry, etsy, craftsy, whatsapp, youtube, widget, shortcode
+Tags: social, social buttons, social icons, sharing, social sharing, facebook, google, pinterest, flickr, ravelry, etsy, craftsy, whatsapp, youtube, xing, vk, widget, shortcode
 Requires at least: 3.5
-Tested up to: 4.2.2
+Tested up to: 4.4
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -24,15 +24,16 @@ You can use the share button and link button functions either separately, or tog
 
 Supported social services include:
 
-*   Craftsy (link only)
+*  Craftinoo (link only)
+*  Craftsy (link only)
 *	Digg
 *	Ebay (link only)
 *	Email (share only)
 *	Etsy (link only)
-*   Facebook
-*   Flickr (link only)
+*  Facebook
+*  Flickr (link only)
 *	Google+
-*   Instagram (link only)
+*  Instagram (link only)
 *	LinkedIn
 *	Pinterest
 *	Ravelry
@@ -41,9 +42,11 @@ Supported social services include:
 *	Stumble Upon
 *	Tumblr
 *	Twitter
-*   Vimeo
-*   YouTube
-*   WhatApp (share only, only on mobile)
+*  Vimeo
+*  VK
+*  YouTube
+*  WhatApp (share only, only on mobile)
+*  Xing
 
 You can also choose exactly which services you want separately for each mode, so you can can have *Share Buttons* for Ravelry, Pinterest, Facebook, Twitter and Email, but have *Link Buttons* for Google+, Craftsy, Pinterest and your Etsy shop.
 
