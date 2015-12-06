@@ -97,6 +97,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 == Changelog ==
 
+= 1.5.3 =
+* Added Xing, VK and Craftinoo
+
 = 1.5.2 =
 * Fixed bug where share count script was not getting loaded properly
 
@@ -231,6 +234,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 == Upgrade Notice ==
 
+= 1.5.3 =
+* Added VK, Xing & Craftinoo
+
 = 1.5.1 =
 * Added WhatsApp sharing button, a hover effect, rel="nofollow" option, ability to choose which post types have share buttons, and ability to add custom CSS classes to button blocks.
 
@@ -293,7 +299,7 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 These are the things currently in the pipeline:
 
-* Adding the ability to share/link to VK, XING, Flipboard, Goodreads and 500px
+* Adding the ability to share/link to Flipboard, Goodreads and 500px
 * Additional options for layout and style of the buttons
 * Shortcode options for more manual control of the buttons
 * (Anything else?  You tell me!)

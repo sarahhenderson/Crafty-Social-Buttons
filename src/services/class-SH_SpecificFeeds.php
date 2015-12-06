@@ -40,6 +40,6 @@ class SH_SpecificFeeds extends SH_Social_Service {
 	}
 
 	public static function description() {
-		return 'Optional - defaults to <em>subscribe by email</em> page.  Or enter your custom url. <a href="http://www.specificfeeds.com/rss">More info</a>.';
+		return __('Optional - defaults to <em>subscribe by email</em> page.  Or enter your custom url.', 'crafty-social-buttons') . '<a href="http://www.specificfeeds.com/rss">'.__('More info', 'crafty-social-buttons').'</a>.';
 	}
 }
