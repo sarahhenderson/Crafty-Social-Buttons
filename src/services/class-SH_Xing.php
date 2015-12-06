@@ -18,7 +18,8 @@ class SH_Xing extends SH_Social_Service {
 
 	public function shareButtonUrl($url, $title) {
 
-		return "https://www.xing.com/spi/shares/new?url=$url";
+		$title = urlencode($title);
+		return "https://www.xing.com/spi/shares/new?sc_p=xing-share&url=$url&title=$title";
 
 	}
 
@@ -26,6 +27,8 @@ class SH_Xing extends SH_Social_Service {
 
 		if (strpos($username, 'http://') === 0 || strpos($username, 'https://') === 0) {
 			$url = $username;
+		} else if (strpos($username, "company/") === 0) {
+			$url = "http://xing.com/$username";
 		} else {
 			$url = "http://www.xing.com/profile/$username";
 		}
