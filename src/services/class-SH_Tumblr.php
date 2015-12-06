@@ -18,15 +18,8 @@ class SH_Tumblr extends SH_Social_Service {
 
 	public function shareButtonUrl($url, $title) {
 		
-		// Tumblr insists there is no protocol on the url
-		if (preg_match('[http://]', $url)) {
-			$url = str_replace('http://', '', $url);			
-		} else if (preg_match('[https://]', $url)) { // check if https:// is included
-			$url = str_replace('https://', '', $url);			
-		}
-
 		$title = urlencode($title);
-		return "http://www.tumblr.com/share/link?url=$url&name=$title";
+		return "http://www.tumblr.com/widgets/share/tool?canonicalUrl=$url&name=$title";
 	}
 	
 	public function linkButtonUrl($username) {
