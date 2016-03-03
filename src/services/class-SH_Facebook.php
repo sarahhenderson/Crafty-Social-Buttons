@@ -33,21 +33,31 @@ class SH_Facebook extends SH_Social_Service {
 	}
 
 	public function fetchShareCount($url) {
+
 		$response = wp_remote_get("http://api.facebook.com/method/links.getStats?urls=$url&format=json");
 		 if (is_wp_error($response)){
             // return zero if response is error
             return 0;
 		 } else {
-			 $json = json_decode($response['body'], true);
-			 if (isset($json[0]) && isset($json[0]['share_count'])) {
-				 return $json[0]['share_count'];
-			 }elseif (isset($json['shares'])) {
-				 return $json['shares'];
-			 } elseif (isset($json['likes'])) {
-				 return $json['likes'];
-			 } else {
-				 return 0;
+             $value = 0;
+
+			  $json = json_decode($response['body'], true);
+             if (!isset($json[0])) return $value;
+
+             $counts = $json[0];
+
+             $show = $this->settings['facebook_count'];
+
+			 if (isset($counts['share_count'])) {
+                 $value += intval($counts['share_count']);
 			 }
+             if (isset($counts['like_count']) && ($show == 'likes' || $show == 'comments')) {
+                 $value += intval($counts['like_count']);
+			 }
+             if (isset($counts['comment_count']) && $show == 'comments') {
+                 $value += intval($counts['comment_count']);
+             }
+             return $value;
 		 }
 	}
 

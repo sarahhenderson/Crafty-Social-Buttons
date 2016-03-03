@@ -159,6 +159,10 @@ class SH_Crafty_Social_Buttons_Admin
          // including numeric ones
          $settings['cache_expiry_minutes'] = $this->sanitize_cache_expiry( $input['cache_expiry_minutes'] );
 
+         // and select boxes
+         $settings['facebook_count'] = $input['facebook_count'];
+
+
       } else if ('advanced_options' == $tab) {
 
           // first, all the checkboxes need to be set if present
@@ -436,6 +440,15 @@ class SH_Crafty_Social_Buttons_Admin
       add_settings_field('show_count', __('Show share counts', $this->plugin_slug),
          array($this->renderer, 'renderCheckbox'), $page, $section,
          array('show_count', __('Counts are displayed only for services that provide the count data.', $this->plugin_slug)));
+
+      add_settings_field('facebook_count', __('Facebook Count includes', $this->plugin_slug),
+          array($this->renderer, 'renderRadio'), $page, $section,
+          array('facebook_count', '',
+              array(
+                  'shares' => __('Shares', $this->plugin_slug),
+                  'likes' => __('Shares and likes', $this->plugin_slug),
+                  'comments' => __('Shares, likes and comments', $this->plugin_slug))
+          ));
 
       $section = 'cbs_share_count_caching_settings';
 

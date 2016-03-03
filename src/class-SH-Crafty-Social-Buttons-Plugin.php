@@ -367,6 +367,7 @@ class SH_Crafty_Social_Buttons_Plugin
          'show_count' => false,
          'cache_share_counts' => false,
          'cache_expiry_minutes' => 5,
+         'facebook_count' => 'shares',
 
          'share_css_classes' => '',
          'link_css_classes' => '',
