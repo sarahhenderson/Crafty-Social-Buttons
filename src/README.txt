@@ -104,6 +104,7 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 = 1.5.4 =
 * Added Dawanda
 * Fixed issue that prevented Pinterest sharing UI appearing on https sites
+* Added ability to include like and comment counts with Facebook share count
 
 = 1.5.3 =
 * Added Xing, VK and Craftinoo
@@ -244,6 +245,7 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 = 1.5.4 =
 * Added Dawanda
+* Added ability to include like and comment counts with Facebook share count
 
 = 1.5.3 =
 * Added VK, Xing & Craftinoo
