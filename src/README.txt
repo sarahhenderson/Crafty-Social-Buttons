@@ -26,22 +26,23 @@ Supported social services include:
 
 *  Craftinoo (link only)
 *  Craftsy (link only)
-*	Digg
-*	Ebay (link only)
-*	Email (share only)
-*	Etsy (link only)
+*  Dawanda (link only)
+*  Digg
+*  Ebay (link only)
+*  Email (share only)
+*  Etsy (link only)
 *  Facebook
 *  Flickr (link only)
-*	Google+
+*  Google+
 *  Instagram (link only)
-*	LinkedIn
-*	Pinterest
-*	Ravelry
-*	Reddit
-*	Specific Feeds (link only)
-*	Stumble Upon
-*	Tumblr
-*	Twitter
+*  LinkedIn
+*  Pinterest
+*  Ravelry
+*  Reddit
+*  Specific Feeds (link only)
+*  Stumble Upon
+*  Tumblr
+*  Twitter
 *  Vimeo
 *  VK
 *  YouTube
