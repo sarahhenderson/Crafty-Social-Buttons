@@ -13,19 +13,19 @@ module.exports = function (grunt) {
             },
             release: {
                files: [{
-                          expand: true,
-                          cwd: 'src/buttons',
-                          src: ['**/*.{png,jpg,gif}'],
-                          dest: 'release/buttons/'
-                       }]
+                    expand: true,
+                    cwd: 'src/buttons',
+                    src: ['**/*.{png,jpg,gif}'],
+                    dest: 'release/buttons/'
+                 }]
             },
             docs: {
                files: [{
-                          expand: true,
-                          cwd: 'src/buttons',
-                          src: ['**/*.{png,jpg,gif}'],
-                          dest: '../gh-pages/buttons'
-                       }]
+                    expand: true,
+                    cwd: 'src/buttons',
+                    src: ['**/*.{png,jpg,gif}'],
+                    dest: '../gh-pages/buttons'
+                 }]
             }
          },
 
@@ -182,7 +182,6 @@ module.exports = function (grunt) {
          clean: {
             release: ["release"],
             zipStaging: ["<%= pkg.name %>", "zips"],
-            dreamweaverNotes: ["release/**/_notes"]
          },
 
          compress: {
@@ -227,7 +226,6 @@ module.exports = function (grunt) {
        'clean:release',
        'copy:srcToRelease',
        'imagemin:release',
-       'clean:dreamweaverNotes',
        'strip',
        'clean:zipStaging',
        'copy:zipStaging',
