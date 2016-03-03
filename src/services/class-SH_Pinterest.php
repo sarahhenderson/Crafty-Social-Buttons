@@ -20,7 +20,7 @@ class SH_Pinterest extends SH_Social_Service {
 
 		$linkTitle = $this->getShareButtonTitle();
 
-		$html = "<a title=\"" . $linkTitle . "\" class=\"" . $this->cssClass() . "\" href='javascript:void((function()%7Bvar%20e=document.createElement(&apos;script&apos;);e.setAttribute(&apos;type&apos;,&apos;text/javascript&apos;);e.setAttribute(&apos;charset&apos;,&apos;UTF-8&apos;);e.setAttribute(&apos;src&apos;,&apos;http://assets.pinterest.com/js/pinmarklet.js?r=&apos;+Math.random()*99999999);document.body.appendChild(e)%7D)());'>";
+		$html = "<a title=\"" . $linkTitle . "\" class=\"" . $this->cssClass() . "\" href='javascript:void((function()%7Bvar%20e=document.createElement(&apos;script&apos;);e.setAttribute(&apos;type&apos;,&apos;text/javascript&apos;);e.setAttribute(&apos;charset&apos;,&apos;UTF-8&apos;);e.setAttribute(&apos;src&apos;,&apos;//assets.pinterest.com/js/pinmarklet.js?r=&apos;+Math.random()*99999999);document.body.appendChild(e)%7D)());'>";
 
 		$html .= $this->buttonImage($linkTitle);
 
