@@ -43,6 +43,7 @@ class SH_Crafty_Social_Buttons_Shortcode {
 		add_action( 'crafty-social-share-buttons', array( $this, 'output_share_button_html' ) );
 		add_action( 'crafty-social-link-buttons', array( $this, 'output_link_button_html' ) );
 		add_action( 'crafty-social-share-page-buttons', array( $this, 'output_share_button_html_for_page' ) );
+		add_action( 'crafty-social-share-comment-buttons', array( $this, 'output_share_button_html_for_comment' ), 10, 1 );
 
 	}
 
@@ -195,17 +196,21 @@ class SH_Crafty_Social_Buttons_Shortcode {
 		return $this->get_buttons_html( 'share', true );
 	}
 
-
 	/**
 	 * Outputs the markup for the share buttons
 	 */
-	function output_share_button_html() {
+	function output_share_button_html( ) {
 		echo $this->get_buttons_html( 'share' );
 	}
 
 	function output_share_button_html_for_page() {
 		echo $this->get_buttons_html( 'share', true );
 	}
+
+	function output_share_button_html_for_comment($url) {
+		echo $this->get_buttons_html( 'share', false, $url );
+	}
+
 
 	/**
 	 * Generates the markup for the link buttons
@@ -218,7 +223,7 @@ class SH_Crafty_Social_Buttons_Shortcode {
 	 * Generates the markup for the share buttons
 	 * Type must be either 'share' or 'link'
 	 */
-	private function get_buttons_html( $type = 'share', $sharePageUrl = false ) {
+	private function get_buttons_html( $type = 'share', $sharePageUrl = false, $urlToShare = null ) {
 		global $post, $wp;
 
 		if ( 'share' != $type && 'link' != $type ) {
@@ -237,9 +242,9 @@ class SH_Crafty_Social_Buttons_Shortcode {
 		$float            = false;
 
 		// use wordpress functions for page/post details
-		if ( $sharePageUrl || ! $post ) {
+		if ( $sharePageUrl || ! $post || isset($urlToShare) ) {
 			$postId = "page";
-			$url    = home_url( $wp->request );
+			$url    = $sharePageUrl ? home_url( $wp->request ) : $urlToShare;
 			$title  = wp_title( ' ', false, 'right' );
 
 		} else {
