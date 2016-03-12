@@ -101,6 +101,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 == Changelog ==
 
+= 1.5.5 =
+* Added additional customisation options to shortcodes and action hooks
+
 = 1.5.4 =
 * Added Dawanda
 * Fixed issue that prevented Pinterest sharing UI appearing on https sites
@@ -242,6 +245,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 * First version!
 
 == Upgrade Notice ==
+
+= 1.5.5 =
+* Added additional customisation options to shortcodes and action hooks
 
 = 1.5.4 =
 * Added Dawanda

@@ -36,14 +36,13 @@ class SH_Crafty_Social_Buttons_Shortcode {
 
 		// register shortcode [csbshare] and [csblink] and [csbnone]
 		add_shortcode( 'csblink', array( $this, 'get_link_button_html' ) );
-		add_shortcode( 'csbshare', array( $this, 'get_share_button_html' ) );
+		add_shortcode( 'csbshare', array( $this, 'get_share_button_html' ), 10, 3 );
 		add_shortcode( 'csbnone', array( $this, 'shortcode_csbnone' ) );
 
 		// register actions for people to include in their templates
-		add_action( 'crafty-social-share-buttons', array( $this, 'output_share_button_html' ) );
+		add_action( 'crafty-social-share-buttons', array( $this, 'output_share_button_html' ), 10, 3 );
 		add_action( 'crafty-social-link-buttons', array( $this, 'output_link_button_html' ) );
 		add_action( 'crafty-social-share-page-buttons', array( $this, 'output_share_button_html_for_page' ) );
-		add_action( 'crafty-social-share-comment-buttons', array( $this, 'output_share_button_html_for_comment' ), 10, 1 );
 
 	}
 
@@ -188,8 +187,13 @@ class SH_Crafty_Social_Buttons_Shortcode {
 	/**
 	 * Generates the markup for the share buttons
 	 */
-	function get_share_button_html() {
-		return $this->get_buttons_html( 'share' );
+	function get_share_button_html( $attrs ) {
+		$params = shortcode_atts( array(
+			'url' => null,
+			'title' => null,
+			'services' => null,
+		), $attrs );
+		return $this->get_buttons_html( 'share', $params['url'], $params['title'], $params['services'] );
 	}
 
 	function get_share_button_html_for_page() {
@@ -199,18 +203,16 @@ class SH_Crafty_Social_Buttons_Shortcode {
 	/**
 	 * Outputs the markup for the share buttons
 	 */
-	function output_share_button_html( ) {
-		echo $this->get_buttons_html( 'share' );
+	function output_share_button_html( $url = null, $title = null, $services = null ) {
+		echo $this->get_buttons_html( 'share', $url, $title, $services );
 	}
 
 	function output_share_button_html_for_page() {
-		echo $this->get_buttons_html( 'share', true );
+		global $wp;
+		$url = home_url( $wp->request );
+		$title = wp_title( ' ', false, 'right' );
+		echo $this->get_buttons_html( 'share', $url, $title );
 	}
-
-	function output_share_button_html_for_comment($url) {
-		echo $this->get_buttons_html( 'share', false, $url );
-	}
-
 
 	/**
 	 * Generates the markup for the link buttons
@@ -223,7 +225,7 @@ class SH_Crafty_Social_Buttons_Shortcode {
 	 * Generates the markup for the share buttons
 	 * Type must be either 'share' or 'link'
 	 */
-	private function get_buttons_html( $type = 'share', $sharePageUrl = false, $urlToShare = null ) {
+	private function get_buttons_html($type = 'share', $overrideUrl = null, $overrideTitle = null, $overrideServices = null ) {
 		global $post, $wp;
 
 		if ( 'share' != $type && 'link' != $type ) {
@@ -242,16 +244,22 @@ class SH_Crafty_Social_Buttons_Shortcode {
 		$float            = false;
 
 		// use wordpress functions for page/post details
-		if ( $sharePageUrl || ! $post || isset($urlToShare) ) {
-			$postId = "page";
-			$url    = $sharePageUrl ? home_url( $wp->request ) : $urlToShare;
-			$title  = wp_title( ' ', false, 'right' );
-
-		} else {
+		if ( isset($post) ) {
 			$postId = $post->ID;
 			$url    = get_permalink( $post->ID );
 			$title  = get_the_title( $post->ID );
+		} else {
+			$postId = "page";
+			$url    = home_url( $wp->request );
+			$title  = wp_title( ' ', false, 'right' );
 		}
+		// overrides
+		if ( isset($overrideUrl) )
+			$url    = $overrideUrl;
+		if ( isset($overrideUrl) )
+			$title  = $overrideTitle;
+		if ( isset($overrideServices) )
+			$selectedServices = explode( ',', $overrideServices );
 
 		if ( $showCount && $type == 'share' ) { // add url and title to JS for our scripts to access
 			$servicesWithShareCount = $this->get_services_with_share_count( $selectedServices );

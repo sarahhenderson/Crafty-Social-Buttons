@@ -4,7 +4,7 @@
 <ol>
 	<li>Your images are <strong>.png</strong> files</li>
     <li>You use the same filenames as the existing image sets
-	    (which are pretty straighforward - e.g. facebook is facebook.png, ravelry is ravelry.png)</li>
+	    (which are pretty straightforward - e.g. facebook is facebook.png, ravelry is ravelry.png)</li>
     <li>Your images are between 24x24px or 64x64px in size. You can set the size in the options page.</li>
 </ol>
 
