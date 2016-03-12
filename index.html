@@ -213,6 +213,7 @@
  			<ul>
                 <li>Craftinoo (link only)</li>
                 <li>Craftsy (link only)</li>
+                <li>Dawanda (link only)</li>
                 <li>Digg</li>
                 <li>Ebay (link only)</li>
                 <li>Email (share only)</li>
@@ -325,6 +326,19 @@
               <li><code>[csbnone]</code></li>
            </ul>
 
+           <h3>Additional shortcode options</h3>
+           <p>The <code>[csbshare]</code> shortcode supports additional configuration options:</p>
+           <ul>
+              <li><code>url="http://url.to.share"</code> will share this url instead of the usual post/page url.</li>
+              <li><code>title="Custom title"</code> will pass a custom post/page title to share services that use it.</li>
+              <li><code>services="Facebook,Pinterest,Ravelry"</code> generate a set of buttons with only these services, regardless of your default settings.</li>
+           </ul>
+           <p>All of these parameters are optional, and can be used separately.</p>
+           <h3>Examples</h3>
+           <p><code>[csbshare url="http://example.com/home"]</code> will always share the link to the home page, regardless which page it appears on.  The url should alway start with <code>http://</code></p>
+           <p><code>[csbshare services="Facebook,Twitter"]</code> generate only Facebook and Twitter buttons.  The services list should be a comma separated list of service names, and should be taken from the list of services shown in plugin settings.  </p>
+           <p><code>[csbshare url="http://example.com/store" title="Example Store" services="LinkedIn,Email"]</code> generate only LinkedIn and Email buttons that link to the store URL, with a custom title.</p>
+
         </section>
         
         
@@ -348,6 +362,19 @@
             page.  This will be most useful if you want to
             share your category, archive or tag pages, or if you have some special purpose pages in
             your theme that lack a loop.</p>
+
+           <h3>Additional action hook options</h3>
+           <p>The <code>&lt;?php do_action('crafty-social-link-buttons'); ?&gt;</code> action hook supports additional configuration options:</p>
+           <ul>
+              <li><code>url</code> will share this url instead of the usual post/page url.</li>
+              <li><code>title</code> will pass a custom post/page title to share services that use it.</li>
+              <li><code>services</code> generate a set of buttons with only these services, regardless of your default settings.</li>
+           </ul>
+           <p>All of these parameters are optional, and can be set to null, to use the defaults.</p>
+           <h3>Examples</h3>
+           <p><code>&lt;?php do_action('crafty-social-link-buttons', 'http://example.com/home'); ?&gt;</code> will always share the link to the home page, regardless which page it appears on.  The url should alway start with <code>http://</code></p>
+           <p><code>&lt;?php do_action('crafty-social-link-buttons', null, null, 'Facebook,Twitter'); ?&gt;</code> generate only Facebook and Twitter buttons.  The services list should be a comma separated list of service names, and should be taken from the list of services shown in plugin settings.  </p>
+           <p><code>&lt;?php do_action('crafty-social-link-buttons', 'http://example.com/store', 'Example Store', 'Linkedin,Email'); ?&gt;</code> generate only LinkedIn and Email buttons that link to the store URL, with a custom title.</p>
 
         </section>
         
@@ -381,7 +408,7 @@
             	<li>Prepare your icons.  They must be png format and square.  They should be between
                     24x24px and 64x64px.</li>
             	<li>Name your icons the same
-                as the existing icon sets.  The names are quite straighforward, e.g. 
+                as the existing icon sets.  The names are quite straightforward, e.g.
                 <code>facebook.png</code> and <code>ravelry.png</code>.</li>
                 <li>Create the following folder structure: <code>/wp-content/uploads/crafty-social-buttons/buttons</code></li>
                 <li>Create a new folder inside the buttons folder for your custom icons,
