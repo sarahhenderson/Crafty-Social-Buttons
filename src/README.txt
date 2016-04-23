@@ -103,6 +103,7 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 = 1.5.5 =
 * Added additional customisation options to shortcodes and action hooks
+* Widgets now respect theme styling and have an optional widget title
 
 = 1.5.4 =
 * Added Dawanda
@@ -248,6 +249,7 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 
 = 1.5.5 =
 * Added additional customisation options to shortcodes and action hooks
+* Widgets now respect theme styling and have an optional widget title
 
 = 1.5.4 =
 * Added Dawanda

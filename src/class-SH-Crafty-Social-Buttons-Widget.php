@@ -44,13 +44,21 @@ class SH_Crafty_Social_Buttons_Widget extends WP_Widget {
 	 * @param	array	instance	The current instance of the widget
 	 */
 	public function widget( $args, $instance ) {
-		extract( $args );
 
+		$title = isset($instance['title']) ? $instance['title'] : '';
 		$buttonType = isset($instance['buttonType']) ? $instance['buttonType'] : 'csblink';
-		$before_widget = isset($args['$before_widget']) ? $args['$before_widget'] : '<div class="widget widget_crafty_social_buttons">';
-		$after_widget = isset($args['$after_widget']) ? $args['$after_widget'] : '</div>';
+
+		$widget_id = $args['widget_id'];
+		$before_widget = isset($args['before_widget']) ? $args['before_widget'] : '<div id="'.$widget_id.'" class="widget widget_crafty_social_buttons">';
+		$after_widget = isset($args['after_widget']) ? $args['after_widget'] : '</div>';
+		$before_title = isset($args['before_title']) ? $args['before_title'] : '<h2 class="widget-title">';
+		$after_title = isset($args['after_title']) ? $args['after_title'] : '</h2>';
 
 		echo $before_widget;
+
+		if (!empty($title))
+			echo $before_title . $title . $after_title;
+
 		$shortcode = "[$buttonType]";
 	
 		echo do_shortcode($shortcode, $this->plugin_slug . "_widget" );
@@ -71,6 +79,7 @@ class SH_Crafty_Social_Buttons_Widget extends WP_Widget {
 		
 		$instance = $old_instance;
 		$instance['buttonType'] = strip_tags( $new_instance['buttonType'] );
+		$instance['title'] = strip_tags( $new_instance['title'] );
 		return $instance;
 	
 	}
@@ -87,6 +96,7 @@ class SH_Crafty_Social_Buttons_Widget extends WP_Widget {
 		
 		extract($instance);
 
+		$title = isset($instance['title']) ? $instance['title'] : '';
 		$buttonType = isset($instance['buttonType']) ? $instance['buttonType'] : 'csblink';
 
 		include( plugin_dir_path( __FILE__ ) . '/views/widget.php' );
