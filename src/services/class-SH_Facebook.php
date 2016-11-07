@@ -18,7 +18,7 @@ class SH_Facebook extends SH_Social_Service {
 
 	public function shareButtonUrl($url, $title) {
 
-		return "http://www.facebook.com/sharer/sharer.php?u=$url";
+		return "https://www.facebook.com/sharer/sharer.php?u=$url";
 
 	}
 
@@ -27,14 +27,14 @@ class SH_Facebook extends SH_Social_Service {
 		if (strpos($username, 'http://') === 0 || strpos($username, 'https://') === 0) {
 			$url = $username;
 		} else {
-			$url = "http://www.facebook.com/$username";
+			$url = "https://www.facebook.com/$username";
 		}
 		return $url;
 	}
 
 	public function fetchShareCount($url) {
 
-		$response = wp_remote_get("http://api.facebook.com/method/links.getStats?urls=$url&format=json");
+		$response = wp_remote_get("https://graph.facebook.com?id=".urlencode($url));
 		 if (is_wp_error($response)){
             // return zero if response is error
             return 0;
@@ -42,9 +42,9 @@ class SH_Facebook extends SH_Social_Service {
              $value = 0;
 
 			  $json = json_decode($response['body'], true);
-             if (!isset($json[0])) return $value;
+             if (!isset($json['share'])) return $value;
 
-             $counts = $json[0];
+             $counts = $json['share'];
 
              $show = $this->settings['facebook_count'];
 
