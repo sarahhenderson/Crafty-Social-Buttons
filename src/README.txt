@@ -5,7 +5,7 @@ Author URI: http://sarahhenderson.nz
 Plugin URL: http://github.io/sarahhenderson/crafty-social-buttons
 Tags: social, social buttons, social icons, sharing, social sharing, facebook, google, pinterest, flickr, ravelry, etsy, craftsy, whatsapp, youtube, xing, vk, widget, shortcode
 Requires at least: 3.5
-Tested up to: 4.5
+Tested up to: 4.7
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -100,6 +100,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 5. *Share buttons* displayed with post count bubbles next to them (twenty thirteen theme, arbenting icon set).
 
 == Changelog ==
+
+= 1.5.6 =
+* Fixed issue with Facebook share counts
 
 = 1.5.5 =
 * Added additional customisation options to shortcodes and action hooks
@@ -246,6 +249,9 @@ Since the *Share buttons* are page/post specific, the shortcode is usually best,
 * First version!
 
 == Upgrade Notice ==
+
+= 1.5.6 =
+* Fixed issue with Facebook share counts
 
 = 1.5.5 =
 * Added additional customisation options to shortcodes and action hooks
