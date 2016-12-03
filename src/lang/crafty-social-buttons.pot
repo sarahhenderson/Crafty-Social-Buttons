@@ -279,5 +279,5 @@ msgid "Sarah Henderson"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://sarahhenderson.info"
+msgid "http://sarahhenderson.nz"
 msgstr ""

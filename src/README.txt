@@ -1,7 +1,7 @@
 === Crafty Social Buttons ===
 Contributors: shen045
-Donate link: http://sarahhenderson.info/donate
-Author URI: http://sarahhenderson.info
+Donate link: http://sarahhenderson.nz/donate
+Author URI: http://sarahhenderson.nz
 Plugin URL: http://github.io/sarahhenderson/crafty-social-buttons
 Tags: social, social buttons, social icons, sharing, social sharing, facebook, google, pinterest, flickr, ravelry, etsy, craftsy, whatsapp, youtube, xing, vk, widget, shortcode
 Requires at least: 3.5

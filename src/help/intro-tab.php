@@ -5,4 +5,4 @@
 <p>For even more information (and probably an easier-to-read format), please visit 
 <a href="http://sarahhenderson.github.io/Crafty-Social-Buttons">the plugin's website.</a>
 
-<p>I really hope you find this plugin useful. Please don't hesitate to <a href="mailto:sarah@sarahhenderson.info">contact me</a> with any issues you have, or any requests for new features.</p>
+<p>I really hope you find this plugin useful. Please don't hesitate to <a href="mailto:sarah@sarahhenderson.nz">contact me</a> with any issues you have, or any requests for new features.</p>

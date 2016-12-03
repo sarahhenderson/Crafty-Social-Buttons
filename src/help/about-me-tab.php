@@ -1,6 +1,6 @@
 <p><strong>About Me</strong></p>
 
-<p>Made with love by <a href="http://sarahhenderson.info">Sarah Henderson</a>,
+<p>Made with love by <a href="http://sarahhenderson.nz">Sarah Henderson</a>,
 	a freelance web developer from New Zealand.</p>
 <p>I learned to crochet and thought of starting up a crochet related blog to show
 	off my new creations.  I got a bit sidetracked making pretty icons and WordPress plugins
@@ -12,8 +12,8 @@
 </p>
 
 <p>I really hope you find this plugin useful. Please don't hesitate to
-	<a href="mailto:sarah@sarahhenderson.info">contact me</a> with any issues you have,
+	<a href="mailto:sarah@sarahhenderson.nz">contact me</a> with any issues you have,
 	or any requests for new features.  If you want to contribute towards its further
 	development, (or you just want to say thank you), you can
-	<a href="http://sarahhenderson.info/buy-me-a-coffee">buy me a coffee</a>.
+	<a href="http://sarahhenderson.nz/buy-me-a-coffee">buy me a coffee</a>.
 </p>

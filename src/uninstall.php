@@ -3,7 +3,7 @@
  * Fired when the plugin is uninstalled.
  *
  * @package   Crafty Social Buttons
- * @author    Sarah Henderson <sarah@sarahhenderson.info>
+ * @author    Sarah Henderson <sarah@sarahhenderson.nz>
  */
 
 // If uninstall, not called from WordPress, then exit
