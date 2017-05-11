@@ -33,7 +33,7 @@
         settings_fields($this->plugin_slug);
 
         $tab = $this->plugin_slug . '[tab]';
-        echo '<input type="hidden" name="' . $tab . '" value="' . $active_tab . '">';
+        echo '<input type="hidden" name="' . $tab . '" value="' . esc_attr($active_tab) . '">';
 
         if ($active_tab == 'share_options') {
             do_settings_sections($this->plugin_slug . '-share');
