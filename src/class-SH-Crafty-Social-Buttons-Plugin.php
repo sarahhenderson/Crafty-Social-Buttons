@@ -262,7 +262,7 @@ class SH_Crafty_Social_Buttons_Plugin
             wp_die(json_encode($result));
          }
          // get service
-         $service = isset($_GET['service']) ? $_GET['service'] : '';
+         $service = sanitize_text_field(isset($_GET['service']) ? $_GET['service'] : '');
          if (empty($service) || strpos($settings['share_services'], $service) === false) {
             $result->error = true;
             $result->message = __('Service not specified.', $this->plugin_slug);
@@ -270,7 +270,7 @@ class SH_Crafty_Social_Buttons_Plugin
          }
 
          // get key
-         $key = isset($_GET['key']) ? $_GET['key'] : '';
+         $key = sanitize_key(isset($_GET['key']) ? $_GET['key'] : '');
          if (empty($key)) {
             $result->error = true;
             $result->message = __('Key not specified.', $this->plugin_slug);
@@ -279,7 +279,7 @@ class SH_Crafty_Social_Buttons_Plugin
 
          // get url
          if ($key == "page") {
-            $url = isset($_GET['url']) ? $_GET['url'] : '';
+            $url = sanitize_text_field(isset($_GET['url']) ? $_GET['url'] : '');
             if (empty($url)) {
                $result->error = true;
                $result->message = __('Url not specified.', $this->plugin_slug);

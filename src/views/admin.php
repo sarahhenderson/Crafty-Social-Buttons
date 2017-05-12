@@ -2,7 +2,7 @@
 
     <h2><?php _e('Crafty Social Buttons', $this->plugin_slug); ?></h2>
 
-    <?php $active_tab = (isset($_GET['tab'])) ? $_GET['tab'] : 'share_options'; ?>
+    <?php $active_tab = sanitize_key(isset($_GET['tab'])) ? $_GET['tab'] : 'share_options'; ?>
 
     <h2 class="nav-tab-wrapper">
 
