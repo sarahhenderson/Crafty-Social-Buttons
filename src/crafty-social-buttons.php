@@ -44,4 +44,7 @@ SH_Crafty_Social_Buttons_Shortcode::get_instance();
 SH_Crafty_Social_Buttons_Plugin::get_instance();
 
 // and hook in our Widget
-add_action( 'widgets_init', create_function( '', 'register_widget("SH_Crafty_Social_Buttons_Widget");' ) );
+function SH_Crafty_Social_Buttons_RegisterWidget(){
+	register_widget("SH_Crafty_Social_Buttons_Widget");
+}
+add_action( 'widgets_init','SH_Crafty_Social_Buttons_RegisterWidget' );
